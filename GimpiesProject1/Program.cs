@@ -12,12 +12,6 @@ namespace GimpiesProject1
 
         static void MainMenu()
         {
-            
-                
-                
-            
-                
-
             try
             {
                 Console.Clear();
@@ -63,20 +57,11 @@ namespace GimpiesProject1
         //Voorraad voor Schoenen bekijken.
         static void MenuVoorraad()
         {
-            Shoes[] S = new Shoes[2];
-            {
-                S[0] = new Shoes();
-                S[0].SetShoes("Nike", "Air Max", 42, "Rood", 12, 49.99);
-                S[0].printShoes();
-                Console.ReadLine();
-            };
-
-            try
-            {                
-                
-            Console.WriteLine("Om terug te gaan, druk x");
             
 
+            try
+            {                                
+            Console.WriteLine("Om terug te gaan, druk x");
             string Goback = Console.ReadLine();
             if (Goback == "x")
             {
@@ -91,54 +76,89 @@ namespace GimpiesProject1
 
         static void MenuInkopen()
         {
-            Shoes[] S = new Shoes[2];
+            string input7;
+            List<Shoes> shoesList = new List<Shoes>();
+            Console.WriteLine(shoesList);
+            do
             {
-                S[0] = new Shoes();
-                S[0].SetShoes("Nike", "Air Max", 42, "Rood", 12, 49.99);
-                S[0].printShoes();
-                Console.ReadLine();
-            };
-            Console.Clear();
-            Console.WriteLine("Wilt u iets toepassen? Druk op Y of X.");
-            string inputCheck = Console.ReadLine();
-            if (inputCheck == "Y")
-            {
-            Console.Write("Wat voor Merk: ");
-            string input1 = Console.ReadLine();
-            Console.Write("Wat voor type: ");
-            string input2 = Console.ReadLine();
-            Console.Write("Wat voor size: ");
-            int input3 = Convert.ToInt32(Console.ReadLine());
-            Console.Write("Wat voor kleur: ");
-            string input4 = Console.ReadLine();
-            Console.Write("Hoeveel: ");
-            int input5 = Convert.ToInt32(Console.ReadLine());
-            Console.Write("Wat is de prijs: ");
-            double input6 = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine(input1 + input2 + input3 + input4 + input5 + input6);
-            Shoes[] S2 = new Shoes[2];
-            S2[1].SetShoes(input1, input2, input3, input4, input5, input6);
-            S2[1].printShoes();
-            Console.WriteLine("Klopt dit gegevens?");
-            string inputInkopen = Console.ReadLine();
-            if (inputInkopen == "Y")
-            {
-                S2[1].printShoes();
-                Console.ReadLine();
-                MainMenu();
-            }
-            else
-                Console.WriteLine("Opnieuw proberen.");
-            Console.ReadLine();
-            }
+
+
+                
+                //Make a list for shoe inventory. not arrays, not a datatable. a list.
+                Console.Clear();
+                Console.WriteLine("Wilt u iets toepassen? Druk op Y of X.");
+                string inputCheck = Console.ReadLine();
+
+                Console.Write("Wat voor Merk: ");
+                string input1 = Console.ReadLine();
+                Console.Write("Wat voor type: ");
+                string input2 = Console.ReadLine();
+                Console.Write("Wat voor size: ");
+                int input3 = Convert.ToInt32(Console.ReadLine());
+                Console.Write("Wat voor kleur: ");
+                string input4 = Console.ReadLine();
+                Console.Write("Hoeveel: ");
+                int input5 = Convert.ToInt32(Console.ReadLine());
+                Console.Write("Wat is de prijs: ");
+                double input6 = Convert.ToDouble(Console.ReadLine());
+                Console.WriteLine(input1 + input2 + input3 + input4 + input5 + input6);
+
+                shoesList.Add(new Shoes
+                {
+                    merk = "Nike",
+                    type = "Air Max",
+                    size = 42,
+                    kleur = "Rood",
+                    aantal = 12,
+                    prijs = 49.99
+                });
+
+                shoesList.Add(new Shoes
+                {
+                    merk = input1,
+                    type = input2,
+                    size = input3,
+                    kleur = input4,
+                    aantal = input5,
+                    prijs = input6
+                });
+                Console.Clear();
+                foreach (var shoes in shoesList)
+                {
+                    Console.WriteLine(shoes.merk);
+                    Console.WriteLine(shoes.type);
+                    Console.WriteLine(shoes.size);
+                    Console.WriteLine(shoes.kleur);
+                    Console.WriteLine(shoes.aantal);
+                    Console.WriteLine(shoes.prijs);
+                    Console.WriteLine("==========");
+
+                }
+                input7 = Console.ReadLine();
+
+                if (input7 != "Y")
+                {
+                    break;
+                }
+            } while (input7 == "Y");
+            MenuInkopen();
+        }
+
+            class Shoes
+        {
+            public string merk { get; set; }
+            public string type { get; set; }
+            public int size { get; set; }
+            public string kleur { get; set; }
+            public int aantal { get; set; }
+            public double prijs { get; set; }
+
         }
 
         static void MenuUitloggen()
         {
             Console.WriteLine();
             Console.ReadLine();
-            ;
-
         }
 
         static void MenuAdmin()
@@ -180,7 +200,7 @@ namespace GimpiesProject1
                 {
                     if (username == user.username && password == user.password)
                     {
-                    Console.WriteLine("Je bent succesvol ingelogd!!!");
+                    Console.WriteLine("You logged in succesfully!!!");
                     Console.ReadLine();
                     succesfull = true;
                     break;
@@ -314,7 +334,3 @@ public class Shoes
     }
 
 }
-
-
-
-
