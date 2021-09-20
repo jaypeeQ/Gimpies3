@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,8 +9,6 @@ namespace GimpiesProject1
 {
     class Program
     {
-        
-
         static void MainMenu()
         {
             try
@@ -21,32 +20,32 @@ namespace GimpiesProject1
                 Console.WriteLine("2. Schoenen Inkopen");
                 Console.WriteLine("3. Uitloggen.");
                 int MenuOptions = Convert.ToInt32(Console.ReadLine());
-                       
-            switch (MenuOptions)
-            {
-                case 1:
-                    {
-                        MenuVoorraad();
-                        break;
-                    }
-                case 2:
-                    {
-                        MenuInkopen();
-                        break;
-                    }
-                case 3:
-                    {
-                        MenuUitloggen();
-                        break;
-                    }
-                default:
-                    {
-                        Console.WriteLine("That's not an option. ");
-                        //Console.Read();
-                        MainMenu();
-                        Console.WriteLine("That's not an option. ");
-                        break;
-                    }                
+
+                switch (MenuOptions)
+                {
+                    case 1:
+                        {
+                            MenuVoorraad();
+                            break;
+                        }
+                    case 2:
+                        {
+                            MenuInkopen();
+                            break;
+                        }
+                    case 3:
+                        {
+                            MenuUitloggen();
+                            break;
+                        }
+                    default:
+                        {
+                            Console.Clear();
+                            Console.WriteLine("That's not an option. ");
+                            Console.Read();
+                            MainMenu();
+                            break;
+                        }
                 }
             }
             catch (FormatException)
@@ -57,21 +56,47 @@ namespace GimpiesProject1
         //Voorraad voor Schoenen bekijken.
         static void MenuVoorraad()
         {
-            
-
             try
-            {                                
-            Console.WriteLine("Om terug te gaan, druk x");
-            string Goback = Console.ReadLine();
-            if (Goback == "x")
             {
-                MainMenu();
-            }
-            }catch (FormatException)
-            {
-                MainMenu();
-            }
+                DataTable dt = new DataTable("Shoes");
+                dt.Columns.Add("Merk: ", typeof(string));
+                dt.Columns.Add("Type: ", typeof(string));
+                dt.Columns.Add("Size: ", typeof(int));
+                dt.Columns.Add("Kleur: ", typeof(string));
+                dt.Columns.Add("Aantal: ", typeof(int));
+                dt.Columns.Add("Prijs: ", typeof(double));
 
+                dt.Rows.Add("Nike", "Air Max", 42, "Rood", 12, 49.99);
+                dt.Rows.Add("Nike", "Air Max", 42, "Rood", 12, 49.99);
+                dt.Rows.Add("Nike", "Air Max", 42, "Rood", 12, 49.99);
+                dt.Rows.Add("Nike", "Air Max", 42, "Rood", 12, 49.99);
+                dt.Rows.Add("Nike", "Air Max", 42, "Rood", 12, 49.99);
+
+
+                List<Shoes> listShoes = new List<Shoes>();
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    Shoes shoe = new Shoes();
+                    shoe.merk = dt.Rows[i]["Merk: "].ToString();
+                    shoe.type = dt.Rows[i]["Type: "].ToString();
+                    shoe.size = Convert.ToInt32(dt.Rows[i]["Size: "]);
+                    shoe.kleur = dt.Rows[i]["Kleur: "].ToString();
+                    shoe.aantal = Convert.ToInt32(dt.Rows[i]["Aantal: "]);
+                    shoe.prijs = Convert.ToDouble(dt.Rows[i]["Prijs: "]);
+                    listShoes.Add(shoe);
+                }
+                Console.Read();
+                Console.WriteLine("Om terug te gaan, druk x");
+                string Goback = Console.ReadLine();
+                if (Goback == "x")
+                {
+                    MainMenu();
+                }
+            }
+            catch (FormatException)
+            {
+                MainMenu();
+            }
         }
 
         static void MenuInkopen()
@@ -81,12 +106,9 @@ namespace GimpiesProject1
             Console.WriteLine(shoesList);
             do
             {
-
-
-                
                 //Make a list for shoe inventory. not arrays, not a datatable. a list.
                 Console.Clear();
-                Console.WriteLine("Wilt u iets toepassen? Druk op Y of X.");
+                Console.WriteLine(".");
                 string inputCheck = Console.ReadLine();
 
                 Console.Write("Wat voor Merk: ");
@@ -103,37 +125,6 @@ namespace GimpiesProject1
                 double input6 = Convert.ToDouble(Console.ReadLine());
                 Console.WriteLine(input1 + input2 + input3 + input4 + input5 + input6);
 
-                shoesList.Add(new Shoes
-                {
-                    merk = "Nike",
-                    type = "Air Max",
-                    size = 42,
-                    kleur = "Rood",
-                    aantal = 12,
-                    prijs = 49.99
-                });
-
-                shoesList.Add(new Shoes
-                {
-                    merk = input1,
-                    type = input2,
-                    size = input3,
-                    kleur = input4,
-                    aantal = input5,
-                    prijs = input6
-                });
-                Console.Clear();
-                foreach (var shoes in shoesList)
-                {
-                    Console.WriteLine(shoes.merk);
-                    Console.WriteLine(shoes.type);
-                    Console.WriteLine(shoes.size);
-                    Console.WriteLine(shoes.kleur);
-                    Console.WriteLine(shoes.aantal);
-                    Console.WriteLine(shoes.prijs);
-                    Console.WriteLine("==========");
-
-                }
                 input7 = Console.ReadLine();
 
                 if (input7 != "Y")
@@ -144,42 +135,30 @@ namespace GimpiesProject1
             MenuInkopen();
         }
 
-            class Shoes
-        {
-            public string merk { get; set; }
-            public string type { get; set; }
-            public int size { get; set; }
-            public string kleur { get; set; }
-            public int aantal { get; set; }
-            public double prijs { get; set; }
-
-        }
-
         static void MenuUitloggen()
         {
             Console.WriteLine();
             Console.ReadLine();
         }
-
+        //For Admin privelege at a later date.
         static void MenuAdmin()
         {
             Console.WriteLine();
             Console.ReadLine();
 
         }
-
+        //Login Screen.
         static void Main(string[] args)
         {
-            var arrUsers = new Users[]
-                {
-            new Users("user1","valid1",1),
-            new Users("user2","valid2",2),
-            new Users("user3","valid3",3)
+            var arrUsers = new User[] {
+            new User("user1","valid1",1),
+            new User("user2","valid2",2),
+            new User("user3","valid3",3)
                 };
             int loginAttempts = 0;
             bool succesfull = false;
             while (!succesfull)
-            {   
+            {
                 if (loginAttempts == 3)
                 {
                     Console.Clear();
@@ -192,18 +171,17 @@ namespace GimpiesProject1
                 Console.Write("Username: ");
                 var username = Console.ReadLine();
                 Console.Write("Password: ");
-                var password = ReadPassword();  
+                var password = ReadPassword();
                 Console.WriteLine();
-                
-            
-                foreach (Users user in arrUsers)
+
+                foreach (User user in arrUsers)
                 {
                     if (username == user.username && password == user.password)
                     {
-                    Console.WriteLine("You logged in succesfully!!!");
-                    Console.ReadLine();
-                    succesfull = true;
-                    break;
+                        Console.WriteLine("You logged in succesfully!!!");
+                        Console.ReadLine();
+                        succesfull = true;
+                        break;
                     }
                 }
                 if (!succesfull)
@@ -254,49 +232,49 @@ namespace GimpiesProject1
             return password;
         }
 
-       /* //This will create a table.
-        static int tableWidth = 85;
-        static void PrintLine()
-        {
-            Console.WriteLine(new string('-', tableWidth));
-        }
+         //This will create a table.
+         static int tableWidth = 85;
+         static void PrintLine()
+         {
+             Console.WriteLine(new string('-', tableWidth));
+         }
 
-        static void PrintRow(params string[] columns)
-        {
-            int width = (tableWidth - columns.Length) / columns.Length;
-            string row = "|";
+         static void PrintRow(params string[] columns)
+         {
+             int width = (tableWidth - columns.Length) / columns.Length;
+             string row = "|";
 
-            foreach (string column in columns)
-            {
-                row += AlignCentre(column, width) + "|";
-            }
+             foreach (string column in columns)
+             {
+                 row += AlignCentre(column, width) + "|";
+             }
 
-            Console.WriteLine(row);
-        }
+             Console.WriteLine(row);
+         }
 
-        static string AlignCentre(string text, int width)
-        {
-            text = text.Length > width ? text.Substring(0, width - 3) + "..." : text;
+         static string AlignCentre(string text, int width)
+         {
+             text = text.Length > width ? text.Substring(0, width - 3) + "..." : text;
 
-            if (string.IsNullOrEmpty(text))
-            {
-                return new string(' ', width);
-            }
-            else
-            {
-                return text.PadRight(width - (width - text.Length) / 2).PadLeft(width);
-            }
-        }*/
-    }  
-    
+             if (string.IsNullOrEmpty(text))
+             {
+                 return new string(' ', width);
+             }
+             else
+             {
+                 return text.PadRight(width - (width - text.Length) / 2).PadLeft(width);
+             }
+         }
+    }
+
 }
-public class Users
+public class User
 {
     public string username;
     public string password;
     public int id;
 
-    public Users(string username, string password, int id)
+    public User(string username, string password, int id)
     {
         this.username = username;
         this.password = password;
@@ -306,14 +284,14 @@ public class Users
 
 public class Shoes
 {
-    public string merk;
-    public string type;
-    public int size;
-    public string kleur;
-    public int aantal;
-    public double prijs;
+    public string merk { get; set; }
+    public string type { get; set; }
+    public int size { get; set; }
+    public string kleur { get; set; }
+    public int aantal { get; set; }
+    public double prijs { get; set; }
 
-    public void SetShoes(string merk, string type, int size, string kleur, int aantal, double prijs)
+    /*public void SetShoes(string merk, string type, int size, string kleur, int aantal, double prijs)
     {
         this.merk = merk;
         this.type = type;
@@ -331,6 +309,6 @@ public class Shoes
         Console.WriteLine("\tKleur      : " + kleur);
         Console.WriteLine("\tAantal     : " + aantal);
         Console.WriteLine("\tPrijs      : " + prijs);
-    }
+    }*/
 
 }
