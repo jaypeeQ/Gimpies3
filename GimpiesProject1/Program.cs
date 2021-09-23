@@ -191,7 +191,7 @@ namespace GimpiesProject1
         {
             var arrUsers = new User[] {
             new User("user1","valid1",1),
-            new User("Gimpies","Inkoop_Gimpies",2),
+            new User("Inkoop","Gimpies_Inkoop",2),
             new User("user3","valid3",3)
                 };
             int loginAttempts = 0;
