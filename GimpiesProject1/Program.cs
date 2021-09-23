@@ -53,88 +53,128 @@ namespace GimpiesProject1
                 MainMenu();
             }
         }
-        //Voorraad voor Schoenen bekijken.
+
         static void MenuVoorraad()
         {
-            try
+            Console.Clear();
+            int i, j;
+            string[,] shoeList = new string[4, 7];
+            shoeList[0, 0] = "NUMMER";
+            shoeList[0, 1] = "\tMERK";
+            shoeList[0, 2] = "\tTYPE";
+            shoeList[0, 3] = "\tMAAT";
+            shoeList[0, 4] = "\tKLEUR";
+            shoeList[0, 5] = "\tAANTAL";
+            shoeList[0, 6] = "\tPRIJS";
+
+            shoeList[1, 0] = "1";
+            shoeList[1, 1] = "\tNike";
+            shoeList[1, 2] = "\tJordan";
+            shoeList[1, 3] = "\t43";
+            shoeList[1, 4] = "\tRood";
+            shoeList[1, 5] = "\t112";
+            shoeList[1, 6] = "\t49.99";
+
+            shoeList[2, 0] = "2";
+            shoeList[2, 1] = "\tAdidas";
+            shoeList[2, 2] = "\tSprint";
+            shoeList[2, 3] = "\t39";
+            shoeList[2, 4] = "\tZwart";
+            shoeList[2, 5] = "\t49";
+            shoeList[2, 6] = "\t29.99";
+
+            shoeList[3, 0] = "3";
+            shoeList[3, 1] = "\tCompaq";
+            shoeList[3, 2] = "\t'89 Q";
+            shoeList[3, 3] = "\t41";
+            shoeList[3, 4] = "\tGrijs";
+            shoeList[3, 5] = "\t86";
+            shoeList[3, 6] = "\t39.99";
+
+            for (i = 0; i < 4; i++)
             {
-                DataTable dt = new DataTable("Shoes");
-                dt.Columns.Add("Merk: ", typeof(string));
-                dt.Columns.Add("Type: ", typeof(string));
-                dt.Columns.Add("Size: ", typeof(int));
-                dt.Columns.Add("Kleur: ", typeof(string));
-                dt.Columns.Add("Aantal: ", typeof(int));
-                dt.Columns.Add("Prijs: ", typeof(double));
-
-                dt.Rows.Add("Nike", "Air Max", 42, "Rood", 12, 49.99);
-                dt.Rows.Add("Nike", "Air Max", 42, "Rood", 12, 49.99);
-                dt.Rows.Add("Nike", "Air Max", 42, "Rood", 12, 49.99);
-                dt.Rows.Add("Nike", "Air Max", 42, "Rood", 12, 49.99);
-                dt.Rows.Add("Nike", "Air Max", 42, "Rood", 12, 49.99);
-
-
-                List<Shoes> listShoes = new List<Shoes>();
-                for (int i = 0; i < dt.Rows.Count; i++)
+                for (j = 0; j < 7; j++)
                 {
-                    Shoes shoe = new Shoes();
-                    shoe.merk = dt.Rows[i]["Merk: "].ToString();
-                    shoe.type = dt.Rows[i]["Type: "].ToString();
-                    shoe.size = Convert.ToInt32(dt.Rows[i]["Size: "]);
-                    shoe.kleur = dt.Rows[i]["Kleur: "].ToString();
-                    shoe.aantal = Convert.ToInt32(dt.Rows[i]["Aantal: "]);
-                    shoe.prijs = Convert.ToDouble(dt.Rows[i]["Prijs: "]);
-                    listShoes.Add(shoe);
+                    Console.Write(shoeList[i, j]);
                 }
-                Console.Read();
-                Console.WriteLine("Om terug te gaan, druk x");
-                string Goback = Console.ReadLine();
-                if (Goback == "x")
-                {
-                    MainMenu();
-                }
+                Console.WriteLine();
             }
-            catch (FormatException)
-            {
-                MainMenu();
-            }
+            Console.ReadKey();
+            MainMenu();
         }
-
+        
+        //Shoe Inventory, 2-dimensional string array, into console inputting (str to int, calculate, back to string, declare with coords).
         static void MenuInkopen()
         {
-            string input7;
-            List<Shoes> shoesList = new List<Shoes>();
-            Console.WriteLine(shoesList);
-            do
+            int i, j;
+            string shoeNum;
+            int InkoopNum;
+            
+            string[,] shoeList = new string[4, 7];
+            shoeList[0, 0] = "NUMMER";
+            shoeList[0, 1] = "\tMERK";
+            shoeList[0, 2] = "\tTYPE";
+            shoeList[0, 3] = "\tMAAT";
+            shoeList[0, 4] = "\tKLEUR";
+            shoeList[0, 5] = "\tAANTAL";
+            shoeList[0, 6] = "\tPRIJS";
+
+            shoeList[1, 0] = "1";
+            shoeList[1, 1] = "\tNike";
+            shoeList[1, 2] = "\tJordan";
+            shoeList[1, 3] = "\t43";
+            shoeList[1, 4] = "\tRood";
+            shoeList[1, 5] = "\t112";
+            shoeList[1, 6] = "\t49.99";
+
+            shoeList[2, 0] = "2";
+            shoeList[2, 1] = "\tAdidas";
+            shoeList[2, 2] = "\tSprint";
+            shoeList[2, 3] = "\t39";
+            shoeList[2, 4] = "\tZwart";
+            shoeList[2, 5] = "\t49";
+            shoeList[2, 6] = "\t29.99";
+
+            shoeList[3, 0] = "3";
+            shoeList[3, 1] = "\tCompaq";
+            shoeList[3, 2] = "\t'89 Q";
+            shoeList[3, 3] = "\t41";
+            shoeList[3, 4] = "\tGrijs";
+            shoeList[3, 5] = "\t86";
+            shoeList[3, 6] = "\t39.99";
+
+            for (i = 0; i < 4; i++)
             {
-                //Make a list for shoe inventory. not arrays, not a datatable. a list.
-                Console.Clear();
-                Console.WriteLine(".");
-                string inputCheck = Console.ReadLine();
-
-                Console.Write("Wat voor Merk: ");
-                string input1 = Console.ReadLine();
-                Console.Write("Wat voor type: ");
-                string input2 = Console.ReadLine();
-                Console.Write("Wat voor size: ");
-                int input3 = Convert.ToInt32(Console.ReadLine());
-                Console.Write("Wat voor kleur: ");
-                string input4 = Console.ReadLine();
-                Console.Write("Hoeveel: ");
-                int input5 = Convert.ToInt32(Console.ReadLine());
-                Console.Write("Wat is de prijs: ");
-                double input6 = Convert.ToDouble(Console.ReadLine());
-                Console.WriteLine(input1 + input2 + input3 + input4 + input5 + input6);
-
-                input7 = Console.ReadLine();
-
-                if (input7 != "Y")
+                for (j = 0; j < 7; j++)
                 {
-                    break;
+                    Console.Write(shoeList[i, j] + " ");
                 }
-            } while (input7 == "Y");
-            MenuInkopen();
+                Console.WriteLine();
+            }
+            Console.ReadKey();
+            Console.Write("Enter Shoe Number: ");
+            shoeNum = Console.ReadLine();
+            Console.Write("Enter amount to add: ");
+            InkoopNum = Convert.ToInt32(Console.ReadLine());
+            for (i = 0; i < 4; i++)
+            {
+                if (shoeNum == shoeList[i, 0])
+                {
+                    shoeList[i, 5] = Convert.ToString(Convert.ToInt32("\t\t\t\t\t" + shoeList[i, 5]) + InkoopNum);                    
+                }
+            }
+            Console.ReadKey();
+            for (i = 0; i < 4; i++)
+            {
+                for (j = 0; j < 7; j++)
+                {
+                    Console.Write(shoeList[i, j]);
+                }
+                Console.WriteLine();
+            }
+            Console.ReadKey();
+            MainMenu();
         }
-
         static void MenuUitloggen()
         {
             Console.WriteLine();
@@ -145,14 +185,13 @@ namespace GimpiesProject1
         {
             Console.WriteLine();
             Console.ReadLine();
-
         }
         //Login Screen.
         static void Main(string[] args)
         {
             var arrUsers = new User[] {
             new User("user1","valid1",1),
-            new User("user2","valid2",2),
+            new User("Gimpies","Inkoop_Gimpies",2),
             new User("user3","valid3",3)
                 };
             int loginAttempts = 0;
@@ -166,7 +205,6 @@ namespace GimpiesProject1
                     Console.ReadLine();
                     Environment.Exit(-1);
                 }
-
                 Console.WriteLine("Login Screen");
                 Console.Write("Username: ");
                 var username = Console.ReadLine();
@@ -176,6 +214,10 @@ namespace GimpiesProject1
 
                 foreach (User user in arrUsers)
                 {
+                    if (username == user.username && password == user.password)
+                    {
+
+                    }
                     if (username == user.username && password == user.password)
                     {
                         Console.WriteLine("You logged in succesfully!!!");
@@ -196,7 +238,6 @@ namespace GimpiesProject1
             }
             MainMenu();
         }
-
         //Password Masking
         public static string ReadPassword()
         {
@@ -231,7 +272,6 @@ namespace GimpiesProject1
             Console.WriteLine();
             return password;
         }
-
          //This will create a table.
          static int tableWidth = 85;
          static void PrintLine()
@@ -266,7 +306,6 @@ namespace GimpiesProject1
              }
          }
     }
-
 }
 public class User
 {
@@ -280,35 +319,4 @@ public class User
         this.password = password;
         this.id = id;
     }
-}
-
-public class Shoes
-{
-    public string merk { get; set; }
-    public string type { get; set; }
-    public int size { get; set; }
-    public string kleur { get; set; }
-    public int aantal { get; set; }
-    public double prijs { get; set; }
-
-    /*public void SetShoes(string merk, string type, int size, string kleur, int aantal, double prijs)
-    {
-        this.merk = merk;
-        this.type = type;
-        this.size = size;
-        this.kleur = kleur;
-        this.aantal = aantal;
-        this.prijs = prijs;
-    }
-    public void printShoes()
-    {
-        Console.WriteLine("Inventory 1  : ");
-        Console.WriteLine("\tMerk       : " + merk);
-        Console.WriteLine("\tType       : " + type);
-        Console.WriteLine("\tSize       : " + size);
-        Console.WriteLine("\tKleur      : " + kleur);
-        Console.WriteLine("\tAantal     : " + aantal);
-        Console.WriteLine("\tPrijs      : " + prijs);
-    }*/
-
 }
