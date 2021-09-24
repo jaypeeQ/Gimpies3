@@ -156,11 +156,19 @@ namespace GimpiesProject1
             shoeNum = Console.ReadLine();
             Console.Write("Enter amount to add: ");
             InkoopNum = Convert.ToInt32(Console.ReadLine());
+            if (InkoopNum <= 0)
+            {
+                Console.Clear();
+                Console.WriteLine("You can't input a negative number!. Try again.");
+                Console.ReadLine();
+                MenuInkopen();
+            }
+            
             for (i = 0; i < 4; i++)
             {
                 if (shoeNum == shoeList[i, 0])
                 {
-                    shoeList[i, 5] = Convert.ToString(Convert.ToInt32("\t\t\t\t\t" + shoeList[i, 5]) + InkoopNum);                    
+                    shoeList[i, 5] = Convert.ToString("\t" + (Convert.ToInt32(shoeList[i, 5]) + InkoopNum));
                 }
             }
             Console.ReadKey();
