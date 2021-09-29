@@ -198,9 +198,9 @@ namespace GimpiesProject1
         static void Main(string[] args)
         {
             var arrUsers = new User[] {
-            new User("user1","valid1",1),
-            new User("Inkoop","Gimpies_Inkoop",2),
-            new User("user3","valid3",3)
+            new User("user1","valid1"),
+            new User("Inkoop","Gimpies_Inkoop"),
+            new User("user3","valid3")
                 };
             int loginAttempts = 0;
             bool succesfull = false;
@@ -313,6 +313,7 @@ namespace GimpiesProject1
                  return text.PadRight(width - (width - text.Length) / 2).PadLeft(width);
              }
          }
+
     }
 }
 public class User
@@ -321,10 +322,10 @@ public class User
     public string password;
     public int id;
 
-    public User(string username, string password, int id)
+    public User(string username, string password)
     {
         this.username = username;
         this.password = password;
-        this.id = id;
+        
     }
 }
