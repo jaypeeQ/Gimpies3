@@ -106,6 +106,7 @@ namespace GimpiesWinForms
             this.btSchoenenVerkopen.Name = "btSchoenenVerkopen";
             this.btSchoenenVerkopen.Size = new System.Drawing.Size(158, 19);
             this.btSchoenenVerkopen.Text = "Schoenen Verkopen";
+            this.btSchoenenVerkopen.Click += new System.EventHandler(this.btSchoenenVerkopen_Click);
             // 
             // toolStripSeparator2
             // 

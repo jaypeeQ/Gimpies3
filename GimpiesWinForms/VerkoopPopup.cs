@@ -10,17 +10,20 @@ using System.Windows.Forms;
 
 namespace GimpiesWinForms
 {
-    public partial class DashboardAdmin : Form
+    public partial class VerkoopPopup : Form
     {
-        public DashboardAdmin()
+        string inputShoeNum;
+
+        public VerkoopPopup()
         {
             InitializeComponent();
         }
 
-
-        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-
+            tbVerkoperShoeNum.Text = inputShoeNum;
+            Convert.ToInt32(inputShoeNum);
+            
         }
     }
 }

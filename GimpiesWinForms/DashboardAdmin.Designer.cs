@@ -43,11 +43,11 @@ namespace GimpiesWinForms
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.btVoorraadBekijken = new System.Windows.Forms.ToolStripButton();
             this.btSchoenenVerkopen = new System.Windows.Forms.ToolStripDropDownButton();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.button3 = new System.Windows.Forms.Button();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.button3 = new System.Windows.Forms.Button();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -155,20 +155,6 @@ namespace GimpiesWinForms
             this.btSchoenenVerkopen.Size = new System.Drawing.Size(158, 19);
             this.btSchoenenVerkopen.Text = "Schoenen Beheer";
             // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(158, 6);
-            // 
-            // button3
-            // 
-            this.button3.Image = global::GimpiesWinForms.Properties.Resources.free_exit_logout_icon_2857_thumb3;
-            this.button3.Location = new System.Drawing.Point(672, 12);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(38, 43);
-            this.button3.TabIndex = 6;
-            this.button3.UseVisualStyleBackColor = true;
-            // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.AutoSize = false;
@@ -187,6 +173,20 @@ namespace GimpiesWinForms
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
             this.toolStripMenuItem3.Size = new System.Drawing.Size(190, 22);
             this.toolStripMenuItem3.Text = "Schoenen Verwijderen";
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(158, 6);
+            // 
+            // button3
+            // 
+            this.button3.Image = global::GimpiesWinForms.Properties.Resources.free_exit_logout_icon_2857_thumb3;
+            this.button3.Location = new System.Drawing.Point(672, 12);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(38, 43);
+            this.button3.TabIndex = 6;
+            this.button3.UseVisualStyleBackColor = true;
             // 
             // DashboardAdmin
             // 
