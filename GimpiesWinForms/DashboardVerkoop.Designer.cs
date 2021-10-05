@@ -124,9 +124,9 @@ namespace GimpiesWinForms
             this.columnHeader6,
             this.columnHeader7});
             this.lvVerkoperScreen.HideSelection = false;
-            this.lvVerkoperScreen.Location = new System.Drawing.Point(165, 121);
+            this.lvVerkoperScreen.Location = new System.Drawing.Point(165, 61);
             this.lvVerkoperScreen.Name = "lvVerkoperScreen";
-            this.lvVerkoperScreen.Size = new System.Drawing.Size(546, 332);
+            this.lvVerkoperScreen.Size = new System.Drawing.Size(546, 392);
             this.lvVerkoperScreen.TabIndex = 5;
             this.lvVerkoperScreen.UseCompatibleStateImageBehavior = false;
             // 
@@ -170,9 +170,9 @@ namespace GimpiesWinForms
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(723, 465);
-            this.Controls.Add(this.lvVerkoperScreen);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.button3);
+            this.Controls.Add(this.lvVerkoperScreen);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "DashboardVerkoop";
             this.Text = "DashboardVerkoop";

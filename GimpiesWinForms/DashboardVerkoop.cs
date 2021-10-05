@@ -40,11 +40,26 @@ namespace GimpiesWinForms
 
         public void showVoorraad()
         {
+            
             lvVerkoperScreen.Items.Clear();
             List<string> shoes = new(Voorraad.shoeList1);
+            List<string> shoes2 = new(Voorraad.shoeList2);
+            List<string> shoes3 = new(Voorraad.shoeList3);
+            List<string> shoes4 = new(Voorraad.shoeList4);
+            List<string> shoes5 = new(Voorraad.shoeList5);
             lvVerkoperScreen.View = View.Details;
             lvVerkoperScreen.Items.Add(new ListViewItem(Voorraad.shoeList1));
+            lvVerkoperScreen.Items.Add(new ListViewItem(Voorraad.shoeList2));
+            lvVerkoperScreen.Items.Add(new ListViewItem(Voorraad.shoeList3));
+            lvVerkoperScreen.Items.Add(new ListViewItem(Voorraad.shoeList4));
+            lvVerkoperScreen.Items.Add(new ListViewItem(Voorraad.shoeList5));
         }
+
+        /*public void gridShowVoorraad()
+        {
+            
+            gridVerkoop.Rows.Add(Voorraad.shoeList);
+        }*/
 
         private void btVoorraadBekijken_Click(object sender, EventArgs e)
         {

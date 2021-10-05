@@ -58,13 +58,20 @@ namespace GimpiesWinForms
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                     
                 }
-                if ((tbUsername.Text != "Verkoop" && tbPassword.Text != "Gimpies_Verkoop") || ( tbUsername.Text != "Admin" && tbPassword.Text != "Gimpies_Admin"))
+
+                else if (tbUsername.Text != "Verkoop" && tbPassword.Text != "Gimpies_Verkoop")
                 {
                     MessageBox.Show("Wrong credentials given.", "ERROR.",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                     
                 }
-                
+                else if (tbUsername.Text != "Admin" && tbPassword.Text != "Gimpies_Admin")
+                {
+                    MessageBox.Show("Wrong credentials given.", "ERROR.",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                }
+
         }
 
         public static int loginAttempt;

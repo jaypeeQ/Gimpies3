@@ -30,7 +30,7 @@ namespace GimpiesWinForms
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DashboardAdmin));
-            this.lvVerkoperScreen = new System.Windows.Forms.ListView();
+            this.lvAdminScreen = new System.Windows.Forms.ListView();
             this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader3 = new System.Windows.Forms.ColumnHeader();
@@ -43,7 +43,7 @@ namespace GimpiesWinForms
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.btVoorraadBekijken = new System.Windows.Forms.ToolStripButton();
             this.btSchoenenVerkopen = new System.Windows.Forms.ToolStripDropDownButton();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.btSchoenenToevoegen = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
@@ -51,9 +51,9 @@ namespace GimpiesWinForms
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // lvVerkoperScreen
+            // lvAdminScreen
             // 
-            this.lvVerkoperScreen.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.lvAdminScreen.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2,
             this.columnHeader3,
@@ -61,12 +61,12 @@ namespace GimpiesWinForms
             this.columnHeader5,
             this.columnHeader6,
             this.columnHeader7});
-            this.lvVerkoperScreen.HideSelection = false;
-            this.lvVerkoperScreen.Location = new System.Drawing.Point(164, 118);
-            this.lvVerkoperScreen.Name = "lvVerkoperScreen";
-            this.lvVerkoperScreen.Size = new System.Drawing.Size(546, 332);
-            this.lvVerkoperScreen.TabIndex = 8;
-            this.lvVerkoperScreen.UseCompatibleStateImageBehavior = false;
+            this.lvAdminScreen.HideSelection = false;
+            this.lvAdminScreen.Location = new System.Drawing.Point(164, 61);
+            this.lvAdminScreen.Name = "lvAdminScreen";
+            this.lvAdminScreen.Size = new System.Drawing.Size(546, 389);
+            this.lvAdminScreen.TabIndex = 8;
+            this.lvAdminScreen.UseCompatibleStateImageBehavior = false;
             // 
             // columnHeader1
             // 
@@ -141,12 +141,13 @@ namespace GimpiesWinForms
             this.btVoorraadBekijken.Name = "btVoorraadBekijken";
             this.btVoorraadBekijken.Size = new System.Drawing.Size(158, 19);
             this.btVoorraadBekijken.Text = "Voorraad Schoenen Bekijken";
+            this.btVoorraadBekijken.Click += new System.EventHandler(this.btVoorraadBekijken_Click);
             // 
             // btSchoenenVerkopen
             // 
             this.btSchoenenVerkopen.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.btSchoenenVerkopen.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem1,
+            this.btSchoenenToevoegen,
             this.toolStripMenuItem2,
             this.toolStripMenuItem3});
             this.btSchoenenVerkopen.Image = ((System.Drawing.Image)(resources.GetObject("btSchoenenVerkopen.Image")));
@@ -155,18 +156,20 @@ namespace GimpiesWinForms
             this.btSchoenenVerkopen.Size = new System.Drawing.Size(158, 19);
             this.btSchoenenVerkopen.Text = "Schoenen Beheer";
             // 
-            // toolStripMenuItem1
+            // btSchoenenToevoegen
             // 
-            this.toolStripMenuItem1.AutoSize = false;
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(186, 22);
-            this.toolStripMenuItem1.Text = "Schoenen Toevoegen";
+            this.btSchoenenToevoegen.AutoSize = false;
+            this.btSchoenenToevoegen.Name = "btSchoenenToevoegen";
+            this.btSchoenenToevoegen.Size = new System.Drawing.Size(186, 22);
+            this.btSchoenenToevoegen.Text = "Schoenen Toevoegen";
+            this.btSchoenenToevoegen.Click += new System.EventHandler(this.btSchoenenToevoegen_Click);
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
             this.toolStripMenuItem2.Size = new System.Drawing.Size(190, 22);
             this.toolStripMenuItem2.Text = "Schoenen Aanpassen";
+            this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
             // 
             // toolStripMenuItem3
             // 
@@ -187,13 +190,14 @@ namespace GimpiesWinForms
             this.button3.Size = new System.Drawing.Size(38, 43);
             this.button3.TabIndex = 6;
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // DashboardAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(722, 461);
-            this.Controls.Add(this.lvVerkoperScreen);
+            this.Controls.Add(this.lvAdminScreen);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.button3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
@@ -208,7 +212,7 @@ namespace GimpiesWinForms
 
         #endregion
 
-        private System.Windows.Forms.ListView lvVerkoperScreen;
+        private System.Windows.Forms.ListView lvAdminScreen;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
@@ -223,7 +227,7 @@ namespace GimpiesWinForms
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.ToolStripDropDownButton btSchoenenVerkopen;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem btSchoenenToevoegen;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
     }
