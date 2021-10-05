@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace GimpiesWinForms
 {
-    public partial class Form1 : Form
+    public partial class Login : Form
     {
-        public Form1()
+        public Login()
         {
             
             InitializeComponent();
@@ -29,46 +29,50 @@ namespace GimpiesWinForms
         private void btLogin_Click(object sender, EventArgs e)
         {
 
-            int loginAttempts = 0;
-            loginAttempts++;
-                if (tbUsername.Text == "Verkoop" || tbPassword.Text == "Gimpies_Verkoop")
+                Login.loginAttempt++;
+
+                if (Login.loginAttempt >= 3)
+                {
+                    MessageBox.Show("You've logged in 3 times unsuccessfully. Application will now close.", "ERROR",
+                         MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Close();
+                }
+                if (tbUsername.Text == "Verkoop" && tbPassword.Text == "Gimpies_Verkoop")
                 {
                     
                     DashboardVerkoop dashboardverkoop = new DashboardVerkoop();
                     dashboardverkoop.Show();
                     this.Hide();
                 }
-                if (tbUsername.Text == "Admin" || tbPassword.Text == "Gimpies_Admin")
+                if (tbUsername.Text == "Admin" && tbPassword.Text == "Gimpies_Admin")
                 {
                     
                     DashboardAdmin dashboardAdmin = new DashboardAdmin();
                     dashboardAdmin.Show();
                     this.Hide();
                 }
-                if (tbUsername.Text == "" || tbPassword.Text == "")
+                if (tbUsername.Text == "" && tbPassword.Text == "")
                 {
-                    loginAttempts++;
+                    
                     MessageBox.Show("You can't leave the fields blank.", "Username and password needs to be provided.",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                     
                 }
-                if (tbUsername.Text != "Verkoop" || tbPassword.Text != "Gimpies_Verkoop" && tbUsername.Text != "Verkoop" || tbPassword.Text != "Gimpies_Verkoop")
+                if ((tbUsername.Text != "Verkoop" && tbPassword.Text != "Gimpies_Verkoop") || ( tbUsername.Text != "Admin" && tbPassword.Text != "Gimpies_Admin"))
                 {
                     MessageBox.Show("Wrong credentials given.", "ERROR.",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    loginAttempts++;
+                    
                 }
                 
         }
 
-        private void tbPassword_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
+        public static int loginAttempt;
+        
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Dispose();
         }
     }
 }

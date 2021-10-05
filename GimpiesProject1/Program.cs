@@ -109,7 +109,6 @@ namespace GimpiesProject1
             int i, j;
             string shoeNum;
             int InkoopNum;
-            
             string[,] shoeList = new string[4, 7];
             shoeList[0, 0] = "NUMMER";
             shoeList[0, 1] = "\tMERK";
@@ -142,6 +141,7 @@ namespace GimpiesProject1
             shoeList[3, 4] = "\tGrijs";
             shoeList[3, 5] = "\t86";
             shoeList[3, 6] = "\t39.99";
+
 
             for (i = 0; i < 4; i++)
             {
@@ -222,10 +222,7 @@ namespace GimpiesProject1
 
                 foreach (User user in arrUsers)
                 {
-                    if (username == user.username && password == user.password)
-                    {
-
-                    }
+                    
                     if (username == user.username && password == user.password)
                     {
                         Console.WriteLine("You logged in succesfully!!!");

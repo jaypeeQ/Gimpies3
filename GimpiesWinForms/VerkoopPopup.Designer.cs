@@ -39,7 +39,7 @@ namespace GimpiesWinForms
             // labelShoeNumber
             // 
             this.labelShoeNumber.AutoSize = true;
-            this.labelShoeNumber.Location = new System.Drawing.Point(13, 84);
+            this.labelShoeNumber.Location = new System.Drawing.Point(12, 21);
             this.labelShoeNumber.Name = "labelShoeNumber";
             this.labelShoeNumber.Size = new System.Drawing.Size(83, 15);
             this.labelShoeNumber.TabIndex = 0;
@@ -48,7 +48,7 @@ namespace GimpiesWinForms
             // LabelVerkoopChange
             // 
             this.LabelVerkoopChange.AutoSize = true;
-            this.LabelVerkoopChange.Location = new System.Drawing.Point(13, 122);
+            this.LabelVerkoopChange.Location = new System.Drawing.Point(12, 59);
             this.LabelVerkoopChange.Name = "LabelVerkoopChange";
             this.LabelVerkoopChange.Size = new System.Drawing.Size(96, 15);
             this.LabelVerkoopChange.TabIndex = 0;
@@ -56,21 +56,21 @@ namespace GimpiesWinForms
             // 
             // tbVerkoperShoeNum
             // 
-            this.tbVerkoperShoeNum.Location = new System.Drawing.Point(137, 84);
+            this.tbVerkoperShoeNum.Location = new System.Drawing.Point(136, 21);
             this.tbVerkoperShoeNum.Name = "tbVerkoperShoeNum";
             this.tbVerkoperShoeNum.Size = new System.Drawing.Size(31, 23);
             this.tbVerkoperShoeNum.TabIndex = 1;
             // 
             // tbVerkoperAantalChange
             // 
-            this.tbVerkoperAantalChange.Location = new System.Drawing.Point(137, 119);
+            this.tbVerkoperAantalChange.Location = new System.Drawing.Point(136, 56);
             this.tbVerkoperAantalChange.Name = "tbVerkoperAantalChange";
             this.tbVerkoperAantalChange.Size = new System.Drawing.Size(31, 23);
             this.tbVerkoperAantalChange.TabIndex = 1;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(58, 204);
+            this.button1.Location = new System.Drawing.Point(57, 141);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 2;
@@ -82,7 +82,7 @@ namespace GimpiesWinForms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(461, 314);
+            this.ClientSize = new System.Drawing.Size(197, 182);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.tbVerkoperAantalChange);
             this.Controls.Add(this.tbVerkoperShoeNum);
@@ -102,5 +102,6 @@ namespace GimpiesWinForms
         private System.Windows.Forms.TextBox tbVerkoperShoeNum;
         private System.Windows.Forms.TextBox tbVerkoperAantalChange;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ListView lvVerkoopPopup;
     }
 }

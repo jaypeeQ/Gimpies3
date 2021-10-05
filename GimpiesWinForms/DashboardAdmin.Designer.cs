@@ -196,7 +196,7 @@ namespace GimpiesWinForms
             this.Controls.Add(this.lvVerkoperScreen);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.button3);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "DashboardAdmin";
             this.Text = "DashboardAdmin";
             this.toolStrip1.ResumeLayout(false);

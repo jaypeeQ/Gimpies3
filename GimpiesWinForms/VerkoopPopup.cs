@@ -12,18 +12,28 @@ namespace GimpiesWinForms
 {
     public partial class VerkoopPopup : Form
     {
-        string inputShoeNum;
-
+        int inputShoeNum;
+        int inputAantalChange;
         public VerkoopPopup()
         {
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        public void button1_Click(object sender, EventArgs e)
         {
-            tbVerkoperShoeNum.Text = inputShoeNum;
-            Convert.ToInt32(inputShoeNum);
+            inputShoeNum = Convert.ToInt32(tbVerkoperShoeNum.Text);
+            inputAantalChange = Convert.ToInt32(tbVerkoperAantalChange.Text);
+
+            int oldStock = Convert.ToInt32(Voorraad.shoeList1[5]);
+            int newStock = oldStock - inputAantalChange;
+            Voorraad.shoeList1[5] = Convert.ToString(newStock);
+
+            MessageBox.Show("You have sold " + inputAantalChange + " shoes. You have " + newStock + " left.");
+            this.Close();
+            
+            
             
         }
+
     }
 }

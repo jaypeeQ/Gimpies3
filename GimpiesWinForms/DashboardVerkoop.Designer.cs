@@ -173,7 +173,7 @@ namespace GimpiesWinForms
             this.Controls.Add(this.lvVerkoperScreen);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.button3);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "DashboardVerkoop";
             this.Text = "DashboardVerkoop";
             this.toolStrip1.ResumeLayout(false);

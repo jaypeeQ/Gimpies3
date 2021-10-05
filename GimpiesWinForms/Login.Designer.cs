@@ -1,7 +1,7 @@
 ﻿
 namespace GimpiesWinForms
 {
-    partial class Form1
+    partial class Login
     {
         /// <summary>
         ///  Required designer variable.
@@ -47,7 +47,7 @@ namespace GimpiesWinForms
             this.btLogin.Location = new System.Drawing.Point(94, 155);
             this.btLogin.Name = "btLogin";
             this.btLogin.Size = new System.Drawing.Size(75, 23);
-            this.btLogin.TabIndex = 0;
+            this.btLogin.TabIndex = 2;
             this.btLogin.Text = "Login";
             this.btLogin.UseVisualStyleBackColor = true;
             this.btLogin.Click += new System.EventHandler(this.btLogin_Click);
@@ -57,7 +57,7 @@ namespace GimpiesWinForms
             this.tbUsername.Location = new System.Drawing.Point(122, 94);
             this.tbUsername.Name = "tbUsername";
             this.tbUsername.Size = new System.Drawing.Size(146, 23);
-            this.tbUsername.TabIndex = 1;
+            this.tbUsername.TabIndex = 0;
             // 
             // tbPassword
             // 
@@ -112,14 +112,14 @@ namespace GimpiesWinForms
             // button1
             // 
             this.button1.Image = global::GimpiesWinForms.Properties.Resources.free_exit_logout_icon_2857_thumb3;
-            this.button1.Location = new System.Drawing.Point(253, 12);
+            this.button1.Location = new System.Drawing.Point(254, 12);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(35, 43);
             this.button1.TabIndex = 5;
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // Form1
+            // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -132,9 +132,9 @@ namespace GimpiesWinForms
             this.Controls.Add(this.Password);
             this.Controls.Add(this.Username);
             this.Controls.Add(this.btLogin);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Name = "Login";
+            this.Text = "Login";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
