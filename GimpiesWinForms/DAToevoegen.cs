@@ -125,6 +125,11 @@ namespace GimpiesWinForms
 
         private void button2_Click(object sender, EventArgs e)
         {
+            if (tbNummer.Text == "")
+            {
+                MessageBox.Show("You can't leave the field blank.");
+                return;
+            }
             if (tbNummer.Text == "1")
             {
                 if (Voorraad.shoeList1[2] != "")
