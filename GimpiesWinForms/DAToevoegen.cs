@@ -15,11 +15,17 @@ namespace GimpiesWinForms
         public DAToevoegen()
         {
             InitializeComponent();
+            tbMerk.ReadOnly = true;
+            tbType.ReadOnly = true;
+            tbMaat.ReadOnly = true;
+            tbKleur.ReadOnly = true;
+            tbAantal.ReadOnly = true;
+            tbPrijs.ReadOnly = true;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
+
             string ShoeNummer = tbNummer.Text;
             string ShoeMerk = tbMerk.Text;
             string ShoeType = tbType.Text;
@@ -112,8 +118,79 @@ namespace GimpiesWinForms
                 MessageBox.Show("Succesfully added new registry for shoes.");
                 this.Close();
             }
-           
+
         }
-        
+
+        private void btBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (tbNummer.Text == "1")
+            {
+                if (Voorraad.shoeList1[2] != "")
+                {
+                    ErrorShoe();
+                }
+                else TextReadOnlyOFF();     
+            }
+            if (tbNummer.Text == "2")
+            {
+                if (Voorraad.shoeList2[2] != "")
+                {
+                    ErrorShoe();
+                }
+                else TextReadOnlyOFF();
+            }
+            if (tbNummer.Text == "3")
+            {
+                if (Voorraad.shoeList3[2] != "")
+                {
+                    ErrorShoe();
+                }
+                else TextReadOnlyOFF();
+            }
+            if (tbNummer.Text == "4")
+            {
+                if (Voorraad.shoeList4[2] != "")
+                {
+                    ErrorShoe();
+                }
+                else TextReadOnlyOFF();
+            }
+            if (tbNummer.Text == "5")
+            {
+                if (Voorraad.shoeList5[2] != "")
+                {
+                    ErrorShoe();
+                }
+                else TextReadOnlyOFF();
+            }
+        }
+        public void ErrorShoe()
+        {
+            MessageBox.Show("There is already a registry for that stock.");
+        }
+            
+        public void TextReadOnlyON()
+        {
+            tbMerk.ReadOnly = true;
+            tbType.ReadOnly = true;
+            tbMaat.ReadOnly = true;
+            tbKleur.ReadOnly = true;
+            tbAantal.ReadOnly = true;
+            tbPrijs.ReadOnly = true;
+        }
+        public void TextReadOnlyOFF()
+        {
+            tbMerk.ReadOnly = false;
+            tbType.ReadOnly = false;
+            tbMaat.ReadOnly = false;
+            tbKleur.ReadOnly = false;
+            tbAantal.ReadOnly = false;
+            tbPrijs.ReadOnly = false;
+        }
     }
 }

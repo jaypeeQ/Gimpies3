@@ -185,8 +185,8 @@ namespace GimpiesProject1
         }
         static void MenuUitloggen()
         {
-            Console.WriteLine();
-            Console.ReadLine();
+            Console.Clear();
+            Login();
         }
         //For Admin privelege at a later date.
         static void MenuAdmin()
@@ -194,54 +194,62 @@ namespace GimpiesProject1
             Console.WriteLine();
             Console.ReadLine();
         }
-        //Login Screen.
-        static void Main(string[] args)
+
+        static void Login()
         {
+            
             var arrUsers = new User[] {
             new User("user1","valid1"),
             new User("Inkoop","Gimpies_Inkoop"),
             new User("user3","valid3")
                 };
-            int loginAttempts = 0;
-            bool succesfull = false;
-            while (!succesfull)
-            {
-                if (loginAttempts == 3)
+                int loginAttempts = 0;
+                bool succesfull = false;
+                while (!succesfull)
                 {
-                    Console.Clear();
-                    Console.Write("You've attempted to log in too many times, This application will now close.");
-                    Console.ReadLine();
-                    Environment.Exit(-1);
-                }
-                Console.WriteLine("Login Screen");
-                Console.Write("Username: ");
-                var username = Console.ReadLine();
-                Console.Write("Password: ");
-                var password = ReadPassword();
-                Console.WriteLine();
-
-                foreach (User user in arrUsers)
-                {
-                    
-                    if (username == user.username && password == user.password)
+                    if (loginAttempts == 3)
                     {
-                        Console.WriteLine("You logged in succesfully!!!");
+                        Console.Clear();
+                        Console.Write("You've attempted to log in too many times, This application will now close.");
                         Console.ReadLine();
-                        succesfull = true;
-                        break;
+                        Environment.Exit(-1);
+                    }
+                    Console.WriteLine("Login Screen");
+                    Console.Write("Username: ");
+                    var username = Console.ReadLine();
+                    Console.Write("Password: ");
+                    var password = ReadPassword();
+                    Console.WriteLine();
+
+                    foreach (User user in arrUsers)
+                    {
+
+                        if (username == user.username && password == user.password)
+                        {
+                            Console.WriteLine("You logged in succesfully!!!");
+                            Console.ReadLine();
+                            succesfull = true;
+                            break;
+                        }
+                    }
+                    if (!succesfull)
+                    {
+                        Console.WriteLine("Your username or password is incorect, try again !!!");
+
+                        loginAttempts++;
+                        Console.WriteLine("login attempts: " + loginAttempts + " of 3");
+                        Console.ReadLine();
+                        Console.Clear();
                     }
                 }
-                if (!succesfull)
-                {
-                    Console.WriteLine("Your username or password is incorect, try again !!!");
-
-                    loginAttempts++;
-                    Console.WriteLine("login attempts: " + loginAttempts + " of 3");
-                    Console.ReadLine();
-                    Console.Clear();
-                }
-            }
-            MainMenu();
+                MainMenu();
+            
+            
+        }
+        //Login Screen.
+        static void Main(string[] args)
+        {
+            Login();
         }
         //Password Masking
         public static string ReadPassword()
@@ -277,8 +285,8 @@ namespace GimpiesProject1
             Console.WriteLine();
             return password;
         }
-         //This will create a table.
-         static int tableWidth = 85;
+        //This will create a table.
+        static int tableWidth = 85;
          static void PrintLine()
          {
              Console.WriteLine(new string('-', tableWidth));

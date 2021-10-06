@@ -28,50 +28,57 @@ namespace GimpiesWinForms
 
         private void btLogin_Click(object sender, EventArgs e)
         {
-
-                Login.loginAttempt++;
-
+            bool IN = false;
+            Login.loginAttempt++;
+            do
+            {
                 if (Login.loginAttempt >= 3)
                 {
                     MessageBox.Show("You've logged in 3 times unsuccessfully. Application will now close.", "ERROR",
-                         MessageBoxButtons.OK, MessageBoxIcon.Error);
-                this.Close();
-                }
-                if (tbUsername.Text == "Verkoop" && tbPassword.Text == "Gimpies_Verkoop")
-                {
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Login.loginAttempt = 0;
                     
+                    this.Close();
+                }
+                else if (tbUsername.Text == "Verkoop" && tbPassword.Text == "Gimpies_Verkoop")
+                {
+
                     DashboardVerkoop dashboardverkoop = new DashboardVerkoop();
                     dashboardverkoop.Show();
+                    Login.loginAttempt = 0;
+                    IN = true;
                     this.Hide();
                 }
-                if (tbUsername.Text == "Admin" && tbPassword.Text == "Gimpies_Admin")
+                else if (tbUsername.Text == "Admin" && tbPassword.Text == "Gimpies_Admin")
                 {
-                    
+
                     DashboardAdmin dashboardAdmin = new DashboardAdmin();
                     dashboardAdmin.Show();
+                    Login.loginAttempt = 0;
+                    IN = true;
                     this.Hide();
                 }
-                if (tbUsername.Text == "" && tbPassword.Text == "")
+                else if (tbUsername.Text == "" && tbPassword.Text == "")
                 {
-                    
+
                     MessageBox.Show("You can't leave the fields blank.", "Username and password needs to be provided.",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    
+
                 }
 
                 else if (tbUsername.Text != "Verkoop" && tbPassword.Text != "Gimpies_Verkoop")
                 {
                     MessageBox.Show("Wrong credentials given.", "ERROR.",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    
+                    return;
                 }
                 else if (tbUsername.Text != "Admin" && tbPassword.Text != "Gimpies_Admin")
                 {
                     MessageBox.Show("Wrong credentials given.", "ERROR.",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
-
+                    return;
                 }
-
+            } while (!IN);
         }
 
         public static int loginAttempt;
@@ -79,7 +86,7 @@ namespace GimpiesWinForms
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.Dispose();
+            this.Close();
         }
     }
 }

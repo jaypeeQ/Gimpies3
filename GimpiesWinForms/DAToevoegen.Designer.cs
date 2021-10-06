@@ -47,6 +47,8 @@ namespace GimpiesWinForms
             this.tbNummer = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.btBack = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -83,7 +85,7 @@ namespace GimpiesWinForms
             this.tbMerk.Location = new System.Drawing.Point(137, 125);
             this.tbMerk.Name = "tbMerk";
             this.tbMerk.Size = new System.Drawing.Size(100, 23);
-            this.tbMerk.TabIndex = 9;
+            this.tbMerk.TabIndex = 1;
             // 
             // label2
             // 
@@ -99,7 +101,7 @@ namespace GimpiesWinForms
             this.tbType.Location = new System.Drawing.Point(137, 154);
             this.tbType.Name = "tbType";
             this.tbType.Size = new System.Drawing.Size(100, 23);
-            this.tbType.TabIndex = 9;
+            this.tbType.TabIndex = 2;
             // 
             // label3
             // 
@@ -115,7 +117,7 @@ namespace GimpiesWinForms
             this.tbMaat.Location = new System.Drawing.Point(137, 183);
             this.tbMaat.Name = "tbMaat";
             this.tbMaat.Size = new System.Drawing.Size(100, 23);
-            this.tbMaat.TabIndex = 9;
+            this.tbMaat.TabIndex = 3;
             // 
             // label4
             // 
@@ -149,21 +151,21 @@ namespace GimpiesWinForms
             this.tbKleur.Location = new System.Drawing.Point(137, 212);
             this.tbKleur.Name = "tbKleur";
             this.tbKleur.Size = new System.Drawing.Size(100, 23);
-            this.tbKleur.TabIndex = 9;
+            this.tbKleur.TabIndex = 4;
             // 
             // tbAantal
             // 
             this.tbAantal.Location = new System.Drawing.Point(137, 241);
             this.tbAantal.Name = "tbAantal";
             this.tbAantal.Size = new System.Drawing.Size(100, 23);
-            this.tbAantal.TabIndex = 9;
+            this.tbAantal.TabIndex = 5;
             // 
             // tbPrijs
             // 
             this.tbPrijs.Location = new System.Drawing.Point(137, 270);
             this.tbPrijs.Name = "tbPrijs";
             this.tbPrijs.Size = new System.Drawing.Size(100, 23);
-            this.tbPrijs.TabIndex = 9;
+            this.tbPrijs.TabIndex = 6;
             // 
             // label7
             // 
@@ -179,7 +181,7 @@ namespace GimpiesWinForms
             this.tbNummer.Location = new System.Drawing.Point(137, 96);
             this.tbNummer.Name = "tbNummer";
             this.tbNummer.Size = new System.Drawing.Size(100, 23);
-            this.tbNummer.TabIndex = 9;
+            this.tbNummer.TabIndex = 0;
             // 
             // label8
             // 
@@ -187,9 +189,9 @@ namespace GimpiesWinForms
             this.label8.Font = new System.Drawing.Font("Segoe UI", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
             this.label8.Location = new System.Drawing.Point(118, 47);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(165, 21);
+            this.label8.Size = new System.Drawing.Size(164, 21);
             this.label8.TabIndex = 7;
-            this.label8.Text = "Schoenen Aanpassen";
+            this.label8.Text = "Schoenen Toevoegen";
             // 
             // button1
             // 
@@ -204,11 +206,34 @@ namespace GimpiesWinForms
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // btBack
+            // 
+            this.btBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btBack.Image = global::GimpiesWinForms.Properties.Resources.undo;
+            this.btBack.Location = new System.Drawing.Point(11, 270);
+            this.btBack.Name = "btBack";
+            this.btBack.Size = new System.Drawing.Size(32, 32);
+            this.btBack.TabIndex = 8;
+            this.btBack.UseVisualStyleBackColor = true;
+            this.btBack.Click += new System.EventHandler(this.btBack_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(239, 96);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(51, 23);
+            this.button2.TabIndex = 11;
+            this.button2.Text = "Check";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // DAToevoegen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(294, 313);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btBack);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.tbPrijs);
             this.Controls.Add(this.tbMaat);
@@ -255,5 +280,7 @@ namespace GimpiesWinForms
         private System.Windows.Forms.TextBox tbNummer;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btBack;
+        private System.Windows.Forms.Button button2;
     }
 }

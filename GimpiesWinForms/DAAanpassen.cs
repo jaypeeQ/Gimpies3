@@ -12,21 +12,28 @@ namespace GimpiesWinForms
 {
     public partial class DAAanpassen : Form
     {
+        static string ShoeNummer;
         public DAAanpassen()
         {
             InitializeComponent();
+            tbMerk.ReadOnly = true;
+            tbType.ReadOnly = true;
+            tbMaat.ReadOnly = true;
+            tbKleur.ReadOnly = true;
+            tbAantal.ReadOnly = true;
+            tbPrijs.ReadOnly = true;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string ShoeNummer = tbNummer.Text;
+            
             string ShoeMerk = tbMerk.Text;
             string ShoeType = tbType.Text;
             string ShoeMaat = tbMaat.Text;
             string ShoeKleur = tbKleur.Text;
             string ShoeAantal = tbAantal.Text;
             string ShoePrijs = tbPrijs.Text;
-
+            
             if (ShoeNummer == "1")
             {
                 if (Voorraad.shoeList1[1] != "")
@@ -153,6 +160,81 @@ namespace GimpiesWinForms
                 }
 
             }
+        }
+
+        private void btDAAGenerate_Click(object sender, EventArgs e)
+        {
+            tbMerk.ReadOnly = false;
+            tbType.ReadOnly = false;
+            tbMaat.ReadOnly = false;
+            tbKleur.ReadOnly = false;
+            tbAantal.ReadOnly = false;
+            tbPrijs.ReadOnly = false;
+
+            ShoeNummer = tbNummer.Text;
+            tbNummer.ReadOnly = true;
+            if (DAAanpassen.ShoeNummer == "1")
+            {
+                tbMerk.Text = Voorraad.shoeList1[1];
+                tbType.Text = Voorraad.shoeList1[2];
+                tbMaat.Text = Voorraad.shoeList1[3];
+                tbKleur.Text = Voorraad.shoeList1[4];
+                tbAantal.Text = Voorraad.shoeList1[5];
+                tbPrijs.Text = Voorraad.shoeList1[6];
+            }
+            if (DAAanpassen.ShoeNummer == "2")
+            {
+                tbMerk.Text = Voorraad.shoeList2[1];
+                tbType.Text = Voorraad.shoeList2[2];
+                tbMaat.Text = Voorraad.shoeList2[3];
+                tbKleur.Text = Voorraad.shoeList2[4];
+                tbAantal.Text = Voorraad.shoeList2[5];
+                tbPrijs.Text = Voorraad.shoeList2[6];
+            }
+            if (DAAanpassen.ShoeNummer == "3")
+            {
+                tbMerk.Text = Voorraad.shoeList3[1];
+                tbType.Text = Voorraad.shoeList3[2];
+                tbMaat.Text = Voorraad.shoeList3[3];
+                tbKleur.Text = Voorraad.shoeList3[4];
+                tbAantal.Text = Voorraad.shoeList3[5];
+                tbPrijs.Text = Voorraad.shoeList3[6];
+            }
+            if (DAAanpassen.ShoeNummer == "4")
+            {
+                tbMerk.Text = Voorraad.shoeList4[1];
+                tbType.Text = Voorraad.shoeList4[2];
+                tbMaat.Text = Voorraad.shoeList4[3];
+                tbKleur.Text = Voorraad.shoeList4[4];
+                tbAantal.Text = Voorraad.shoeList4[5];
+                tbPrijs.Text = Voorraad.shoeList4[6];
+            }
+            if (DAAanpassen.ShoeNummer == "5")
+            {
+                tbMerk.Text = Voorraad.shoeList5[1];
+                tbType.Text = Voorraad.shoeList5[2];
+                tbMaat.Text = Voorraad.shoeList5[3];
+                tbKleur.Text = Voorraad.shoeList5[4];
+                tbAantal.Text = Voorraad.shoeList5[5];
+                tbPrijs.Text = Voorraad.shoeList5[6];
+            }
+        }
+
+        private void btBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            tbNummer.Text = "";
+            tbNummer.ReadOnly = false;
+            tbMerk.ReadOnly = true;
+            tbType.ReadOnly = true;
+            tbMaat.ReadOnly = true;
+            tbKleur.ReadOnly = true;
+            tbAantal.ReadOnly = true;
+            tbPrijs.ReadOnly = true;
         }
     }
 }

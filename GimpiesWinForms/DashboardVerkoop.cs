@@ -55,12 +55,6 @@ namespace GimpiesWinForms
             lvVerkoperScreen.Items.Add(new ListViewItem(Voorraad.shoeList5));
         }
 
-        /*public void gridShowVoorraad()
-        {
-            
-            gridVerkoop.Rows.Add(Voorraad.shoeList);
-        }*/
-
         private void btVoorraadBekijken_Click(object sender, EventArgs e)
         {
             showVoorraad();

@@ -62,5 +62,14 @@ namespace GimpiesWinForms
             showVoorraad();
             this.Show();
         }
+
+        private void toolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            DAVerwijderen verwijderen = new DAVerwijderen();
+            this.Hide();
+            verwijderen.ShowDialog();
+            showVoorraad();
+            this.Show();
+        }
     }
 }
