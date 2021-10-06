@@ -97,5 +97,10 @@ namespace GimpiesWinForms
             MessageBox.Show("You have removed #: " + ShoeNumber + "from the inventory.");
             this.Close();
         }
+
+        private void btBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

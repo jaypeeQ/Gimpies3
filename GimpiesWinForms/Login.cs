@@ -63,7 +63,7 @@ namespace GimpiesWinForms
 
                     MessageBox.Show("You can't leave the fields blank.", "Username and password needs to be provided.",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
-
+                    return;
                 }
 
                 else if (tbUsername.Text != "Verkoop" && tbPassword.Text != "Gimpies_Verkoop")

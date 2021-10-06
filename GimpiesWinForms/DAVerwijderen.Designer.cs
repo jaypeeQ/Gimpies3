@@ -37,6 +37,7 @@ namespace GimpiesWinForms
             this.tbDAVShoeNumber = new System.Windows.Forms.TextBox();
             this.DAVGenerate = new System.Windows.Forms.Button();
             this.tbDAVShoeCheck = new System.Windows.Forms.TextBox();
+            this.btBack = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -118,11 +119,23 @@ namespace GimpiesWinForms
             this.tbDAVShoeCheck.Size = new System.Drawing.Size(100, 128);
             this.tbDAVShoeCheck.TabIndex = 18;
             // 
+            // btBack
+            // 
+            this.btBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btBack.Image = global::GimpiesWinForms.Properties.Resources.undo;
+            this.btBack.Location = new System.Drawing.Point(12, 269);
+            this.btBack.Name = "btBack";
+            this.btBack.Size = new System.Drawing.Size(32, 32);
+            this.btBack.TabIndex = 32;
+            this.btBack.UseVisualStyleBackColor = true;
+            this.btBack.Click += new System.EventHandler(this.btBack_Click);
+            // 
             // DAVerwijderen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(289, 313);
+            this.Controls.Add(this.btBack);
             this.Controls.Add(this.tbDAVShoeCheck);
             this.Controls.Add(this.DAVGenerate);
             this.Controls.Add(this.tbDAVShoeNumber);
@@ -149,5 +162,6 @@ namespace GimpiesWinForms
         private System.Windows.Forms.TextBox tbDAVShoeNumber;
         private System.Windows.Forms.Button DAVGenerate;
         private System.Windows.Forms.TextBox tbDAVShoeCheck;
+        private System.Windows.Forms.Button btBack;
     }
 }

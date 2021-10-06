@@ -16,17 +16,11 @@ namespace GimpiesWinForms
         public DAAanpassen()
         {
             InitializeComponent();
-            tbMerk.ReadOnly = true;
-            tbType.ReadOnly = true;
-            tbMaat.ReadOnly = true;
-            tbKleur.ReadOnly = true;
-            tbAantal.ReadOnly = true;
-            tbPrijs.ReadOnly = true;
+            TextReadOnlyON();
         }
 
         private void button1_Click(object sender, EventArgs e)
-        {
-            
+        {            
             string ShoeMerk = tbMerk.Text;
             string ShoeType = tbType.Text;
             string ShoeMaat = tbMaat.Text;
@@ -37,29 +31,7 @@ namespace GimpiesWinForms
             if (ShoeNummer == "1")
             {
                 if (Voorraad.shoeList1[1] != "")
-                {
-                    
-                    Voorraad.shoeList1[1] = ShoeMerk;
-                    Voorraad.shoeList1[2] = ShoeType;
-                    Voorraad.shoeList1[3] = ShoeMaat;
-                    Voorraad.shoeList1[4] = ShoeKleur;
-                    Voorraad.shoeList1[5] = ShoeAantal;
-                    Voorraad.shoeList1[6] = ShoePrijs;
-                    MessageBox.Show("Succesfully added new registry for shoes.");
-                    this.Close();
-                }
-                if (Voorraad.shoeList1[1] == "")
-                {
-                    MessageBox.Show("You can't configure non-existent shoes.");
-                    this.Close();
-                }
-
-            }
-            if (ShoeNummer == "1")
-            {
-                if (Voorraad.shoeList1[1] != "")
-                {
-
+                {                    
                     Voorraad.shoeList1[1] = ShoeMerk;
                     Voorraad.shoeList1[2] = ShoeType;
                     Voorraad.shoeList1[3] = ShoeMaat;
@@ -116,7 +88,6 @@ namespace GimpiesWinForms
                     MessageBox.Show("You can't configure non-existent shoes.");
                     this.Close();
                 }
-
             }
             if (ShoeNummer == "4")
             {
@@ -137,7 +108,6 @@ namespace GimpiesWinForms
                     MessageBox.Show("You can't configure non-existent shoes.");
                     this.Close();
                 }
-
             }
             if (ShoeNummer == "5")
             {
@@ -158,18 +128,12 @@ namespace GimpiesWinForms
                     MessageBox.Show("You can't configure non-existent shoes.");
                     this.Close();
                 }
-
             }
         }
 
         private void btDAAGenerate_Click(object sender, EventArgs e)
         {
-            tbMerk.ReadOnly = false;
-            tbType.ReadOnly = false;
-            tbMaat.ReadOnly = false;
-            tbKleur.ReadOnly = false;
-            tbAantal.ReadOnly = false;
-            tbPrijs.ReadOnly = false;
+            TextReadOnlyOFF();
 
             ShoeNummer = tbNummer.Text;
             tbNummer.ReadOnly = true;
@@ -229,12 +193,25 @@ namespace GimpiesWinForms
         {
             tbNummer.Text = "";
             tbNummer.ReadOnly = false;
+            TextReadOnlyON();
+        }
+        public void TextReadOnlyON()
+        {
             tbMerk.ReadOnly = true;
             tbType.ReadOnly = true;
             tbMaat.ReadOnly = true;
             tbKleur.ReadOnly = true;
             tbAantal.ReadOnly = true;
             tbPrijs.ReadOnly = true;
+        }
+        public void TextReadOnlyOFF()
+        {
+            tbMerk.ReadOnly = false;
+            tbType.ReadOnly = false;
+            tbMaat.ReadOnly = false;
+            tbKleur.ReadOnly = false;
+            tbAantal.ReadOnly = false;
+            tbPrijs.ReadOnly = false;
         }
     }
 }
