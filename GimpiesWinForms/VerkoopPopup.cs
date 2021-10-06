@@ -18,7 +18,7 @@ namespace GimpiesWinForms
         {
             InitializeComponent();
         }
-
+        //Allows the verkoper to be able to specify a shoe number to it's stock, and in turn substracts the value given to original stock.
         public void button1_Click(object sender, EventArgs e)
         {
             int newStock;

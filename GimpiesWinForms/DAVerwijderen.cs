@@ -17,15 +17,20 @@ namespace GimpiesWinForms
         {
             InitializeComponent();
         }
-
+        //Generates the list's strings in Voorraad Class.
         private void DAVGenerate_Click(object sender, EventArgs e)
         {
 
             string ShoeNumber = tbDAVShoeNumber.Text;
             if (ShoeNumber == "1")
             {
-                tbDAVShoeCheck.Text = Voorraad.shoeList1[1] + "\t\t" + Voorraad.shoeList1[2] + "\t\t" + Voorraad.shoeList1[3]
-                    + "\t\t" + Voorraad.shoeList1[4] + "\t\t" + Voorraad.shoeList1[5] + "\t\t" + Voorraad.shoeList1[6];
+                tbDAVShoeCheck.Text = 
+                    Voorraad.shoeList1[1] + "\t\t" + 
+                    Voorraad.shoeList1[2] + "\t\t" + 
+                    Voorraad.shoeList1[3] + "\t\t" + 
+                    Voorraad.shoeList1[4] + "\t\t" + 
+                    Voorraad.shoeList1[5] + "\t\t" + 
+                    Voorraad.shoeList1[6];
             }
             if (ShoeNumber == "2")
             {
@@ -59,17 +64,16 @@ namespace GimpiesWinForms
                 if (ShoeNumber == "5")
                 {
                     tbDAVShoeCheck.Text =
-                        Voorraad.shoeList5[1] + "\t\t" +
-                        Voorraad.shoeList5[2] + "\t\t" +
-                        Voorraad.shoeList5[3] + "\t\t" +
-                        Voorraad.shoeList5[4] + "\t\t" +
-                        Voorraad.shoeList5[5] + "\t\t" +
-                        Voorraad.shoeList5[6];
+                    Voorraad.shoeList5[1] + "\t\t" +
+                    Voorraad.shoeList5[2] + "\t\t" +
+                    Voorraad.shoeList5[3] + "\t\t" +
+                    Voorraad.shoeList5[4] + "\t\t" +
+                    Voorraad.shoeList5[5] + "\t\t" +
+                    Voorraad.shoeList5[6];
                 }
-
             }
         }
-
+        //Replaces the strings in its' respective List into a blank string. (from "string" -> "").
         private void button1_Click(object sender, EventArgs e)
         {
             string ShoeNumber = tbDAVShoeNumber.Text;
@@ -97,7 +101,7 @@ namespace GimpiesWinForms
             MessageBox.Show("You have removed #: " + ShoeNumber + "from the inventory.");
             this.Close();
         }
-
+        //Returns to it's respective dashboard.
         private void btBack_Click(object sender, EventArgs e)
         {
             this.Close();

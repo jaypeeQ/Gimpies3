@@ -18,7 +18,8 @@ namespace GimpiesWinForms
             InitializeComponent();
             TextReadOnlyON();
         }
-
+        //Checks to see if data is already present relating to a registry's shoenumber.
+        //Allows the Admin to add another registry for shoes in the system. (MAX 5)
         private void button1_Click(object sender, EventArgs e)
         {            
             string ShoeMerk = tbMerk.Text;
@@ -46,13 +47,11 @@ namespace GimpiesWinForms
                     MessageBox.Show("You can't configure non-existent shoes.");
                     this.Close();
                 }
-
             }
             if (ShoeNummer == "2")
             {
                 if (Voorraad.shoeList2[1] != "")
                 {
-
                     Voorraad.shoeList2[1] = ShoeMerk;
                     Voorraad.shoeList2[2] = ShoeType;
                     Voorraad.shoeList2[3] = ShoeMaat;
@@ -67,13 +66,11 @@ namespace GimpiesWinForms
                     MessageBox.Show("You can't configure non-existent shoes.");
                     this.Close();
                 }
-
             }
             if (ShoeNummer == "3")
             {
                 if (Voorraad.shoeList3[1] != "")
                 {
-
                     Voorraad.shoeList3[1] = ShoeMerk;
                     Voorraad.shoeList3[2] = ShoeType;
                     Voorraad.shoeList3[3] = ShoeMaat;
@@ -93,7 +90,6 @@ namespace GimpiesWinForms
             {
                 if (Voorraad.shoeList4[1] != "")
                 {
-
                     Voorraad.shoeList4[1] = ShoeMerk;
                     Voorraad.shoeList4[2] = ShoeType;
                     Voorraad.shoeList4[3] = ShoeMaat;
@@ -130,7 +126,7 @@ namespace GimpiesWinForms
                 }
             }
         }
-
+        //Generates a shoe number's respective data inside text fields, for easier editing. After a registry has been found, textboxes become free to edit.
         private void btDAAGenerate_Click(object sender, EventArgs e)
         {
             TextReadOnlyOFF();
@@ -183,18 +179,19 @@ namespace GimpiesWinForms
                 tbPrijs.Text = Voorraad.shoeList5[6];
             }
         }
-
+        //Exits the form back to it's respective dashboard.
         private void btBack_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
+        //Resets the fields back into its original state.
         private void button2_Click(object sender, EventArgs e)
         {
             tbNummer.Text = "";
             tbNummer.ReadOnly = false;
             TextReadOnlyON();
         }
+        //Makes the readonly value of the form's textboxes on or off.
         public void TextReadOnlyON()
         {
             tbMerk.ReadOnly = true;

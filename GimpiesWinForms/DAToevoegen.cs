@@ -15,14 +15,9 @@ namespace GimpiesWinForms
         public DAToevoegen()
         {
             InitializeComponent();
-            tbMerk.ReadOnly = true;
-            tbType.ReadOnly = true;
-            tbMaat.ReadOnly = true;
-            tbKleur.ReadOnly = true;
-            tbAantal.ReadOnly = true;
-            tbPrijs.ReadOnly = true;
+            TextReadOnlyON();
         }
-
+        //Makes the inputted values in the textboxes inserted to it's respective Lists.
         private void button1_Click(object sender, EventArgs e)
         {
 
@@ -125,6 +120,8 @@ namespace GimpiesWinForms
         {
             this.Close();
         }
+        //Checks if a shoe is present in the registry. If it has its own data, a popup will show to state that it already contains data.
+        //Otherwise if there is no data, flicks readonly value of the form's textboxes.
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -169,11 +166,12 @@ namespace GimpiesWinForms
                 else TextReadOnlyOFF();
             }
         }
+        //Throws a popup to state error in registry.
         public void ErrorShoe()
         {
             MessageBox.Show("There is already a registry for that stock.");
         }
-            
+            //Makes the readonly value of the form's textboxes on or off.
         public void TextReadOnlyON()
         {
             tbMerk.ReadOnly = true;

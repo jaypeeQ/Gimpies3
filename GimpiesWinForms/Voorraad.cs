@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace GimpiesWinForms
 {
+    //Makeshift "Data table" for Sprint 2.
     class Voorraad
     {        
         public static string[] shoeList1 = { "1", "Nike", "Air Max", "42", "Rood", "17", "49,99" };
