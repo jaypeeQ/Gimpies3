@@ -17,7 +17,7 @@ namespace GimpiesWinForms
             
             InitializeComponent();
             int loginAttempts = 0;
-            if (loginAttempts == 3)
+            if (loginAttempts == 4)
             {
                 MessageBox.Show("You have attempted to log in too many times. This application will now close.", "ERROR.",
                 MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -32,7 +32,7 @@ namespace GimpiesWinForms
             Login.loginAttempt++;
             do
             {
-                if (Login.loginAttempt >= 3)
+                if (Login.loginAttempt >= 4)
                 {
                     MessageBox.Show("You've logged in 3 times unsuccessfully. Application will now close.", "ERROR",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
