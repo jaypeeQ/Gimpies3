@@ -63,5 +63,60 @@ namespace GimpiesWinForms
 
         }
 
+        private void btVerkoopGenerate_Click(object sender, EventArgs e)
+        {
+            string ShoeNumber = tbVerkoperShoeNum.Text;
+            if (ShoeNumber == "1")
+            {
+                tbVerkoopDisplay.Text =
+                    Voorraad.shoeList1[1] + "\t\t" +
+                    Voorraad.shoeList1[2] + "\t\t" +
+                    Voorraad.shoeList1[3] + "\t\t" +
+                    Voorraad.shoeList1[4] + "\t\t" +
+                    Voorraad.shoeList1[5] + "\t\t" +
+                    Voorraad.shoeList1[6];
+            }
+            if (ShoeNumber == "2")
+            {
+                tbVerkoopDisplay.Text =
+                    Voorraad.shoeList2[1] + "\t\t" +
+                    Voorraad.shoeList2[2] + "\t\t" +
+                    Voorraad.shoeList2[3] + "\t\t" +
+                    Voorraad.shoeList2[4] + "\t\t" +
+                    Voorraad.shoeList2[5] + "\t\t" +
+                    Voorraad.shoeList2[6];
+            }
+            if (ShoeNumber == "3")
+            {
+                tbVerkoopDisplay.Text =
+                    Voorraad.shoeList3[1] + "\t\t" +
+                    Voorraad.shoeList3[2] + "\t\t" +
+                    Voorraad.shoeList3[3] + "\t\t" +
+                    Voorraad.shoeList3[4] + "\t\t" +
+                    Voorraad.shoeList3[5] + "\t\t" +
+                    Voorraad.shoeList3[6];
+            }
+            if (ShoeNumber == "4")
+            {
+                tbVerkoopDisplay.Text =
+                    Voorraad.shoeList4[1] + "\t\t" +
+                    Voorraad.shoeList4[2] + "\t\t" +
+                    Voorraad.shoeList4[3] + "\t\t" +
+                    Voorraad.shoeList4[4] + "\t\t" +
+                    Voorraad.shoeList4[5] + "\t\t" +
+                    Voorraad.shoeList4[6];
+            }
+            if (ShoeNumber == "5")
+            {
+                tbVerkoopDisplay.Text =
+                Voorraad.shoeList5[1] + "\t\t" +
+                Voorraad.shoeList5[2] + "\t\t" +
+                Voorraad.shoeList5[3] + "\t\t" +
+                Voorraad.shoeList5[4] + "\t\t" +
+                Voorraad.shoeList5[5] + "\t\t" +
+                Voorraad.shoeList5[6];
+            }
+            
+        }
     }
 }
