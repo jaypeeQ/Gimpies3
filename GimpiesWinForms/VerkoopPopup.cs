@@ -14,6 +14,7 @@ namespace GimpiesWinForms
     {
         int inputShoeNum;
         int inputAantalChange;
+        int newStock;
         public VerkoopPopup()
         {
             InitializeComponent();
@@ -21,43 +22,78 @@ namespace GimpiesWinForms
         //Allows the verkoper to be able to specify a shoe number to it's stock, and in turn substracts the value given to original stock.
         public void button1_Click(object sender, EventArgs e)
         {
-            int newStock;
-            inputShoeNum = Convert.ToInt32(tbVerkoperShoeNum.Text);
-            inputAantalChange = Convert.ToInt32(tbVerkoperAantalChange.Text);
-            if (inputShoeNum == 1)
+            try
             {
-                int oldStock = Convert.ToInt32(Voorraad.shoeList1[5]);
-                newStock = oldStock - inputAantalChange;
-                Voorraad.shoeList1[5] = Convert.ToString(newStock);
-                MessageBox.Show("You have sold " + inputAantalChange + " shoes. You have " + newStock + " left.");
-            }
-            if (inputShoeNum == 2)
+                inputShoeNum = Convert.ToInt32(tbVerkoperShoeNum.Text);
+                inputAantalChange = Convert.ToInt32(tbVerkoperAantalChange.Text);
+                if (inputAantalChange <= 0)
+                {
+                    MessageBox.Show("You can't input a negative number.");
+                    return;
+                }
+                if (inputShoeNum == 1)
+                {
+                    int oldStock = Convert.ToInt32(Voorraad.shoeList1[5]);
+                    newStock = oldStock - inputAantalChange;
+                    if (newStock <= 0)
+                    {
+                        MessageBox.Show("You can't sell more than you have.");
+                        return;
+                    }
+                    Voorraad.shoeList1[5] = Convert.ToString(newStock);
+                    MessageBox.Show("You have sold " + inputAantalChange + " shoes. You have " + newStock + " left.");
+                }
+                if (inputShoeNum == 2)
+                {
+                    int oldStock = Convert.ToInt32(Voorraad.shoeList2[5]);
+                    newStock = oldStock - inputAantalChange;
+                    if (newStock <= 0)
+                    {
+                        MessageBox.Show("You can't sell more than you have.");
+                        return;
+                    }
+                    Voorraad.shoeList2[5] = Convert.ToString(newStock);
+                    MessageBox.Show("You have sold " + inputAantalChange + " shoes. You have " + newStock + " left.");
+                }
+                if (inputShoeNum == 3)
+                {
+                    int oldStock = Convert.ToInt32(Voorraad.shoeList3[5]);
+                    newStock = oldStock - inputAantalChange;
+                    if (newStock <= 0)
+                    {
+                        MessageBox.Show("You can't sell more than you have.");
+                        return;
+                    }
+                    Voorraad.shoeList3[5] = Convert.ToString(newStock);
+                    MessageBox.Show("You have sold " + inputAantalChange + " shoes. You have " + newStock + " left.");
+                }
+                if (inputShoeNum == 4)
+                {
+                    int oldStock = Convert.ToInt32(Voorraad.shoeList4[5]);
+                    newStock = oldStock - inputAantalChange;
+                    if (newStock <= 0)
+                    {
+                        MessageBox.Show("You can't sell more than you have.");
+                        return;
+                    }
+                    Voorraad.shoeList4[5] = Convert.ToString(newStock);
+                    MessageBox.Show("You have sold " + inputAantalChange + " shoes. You have " + newStock + " left.");
+                }
+                if (inputShoeNum == 5)
+                {
+                    int oldStock = Convert.ToInt32(Voorraad.shoeList5[5]);
+                    newStock = oldStock - inputAantalChange;
+                    if (newStock <= 0)
+                    {
+                        MessageBox.Show("You can't sell more than you have.");
+                        return;
+                    }
+                    Voorraad.shoeList5[5] = Convert.ToString(newStock);
+                    MessageBox.Show("You have sold " + inputAantalChange + " shoes. You have " + newStock + " left.");
+                }
+            }catch(OverflowException)
             {
-                int oldStock = Convert.ToInt32(Voorraad.shoeList2[5]);
-                newStock = oldStock - inputAantalChange;
-                Voorraad.shoeList2[5] = Convert.ToString(newStock);
-                MessageBox.Show("You have sold " + inputAantalChange + " shoes. You have " + newStock + " left.");
-            }
-            if (inputShoeNum == 3)
-            {
-                int oldStock = Convert.ToInt32(Voorraad.shoeList3[5]);
-                newStock = oldStock - inputAantalChange;
-                Voorraad.shoeList3[5] = Convert.ToString(newStock);
-                MessageBox.Show("You have sold " + inputAantalChange + " shoes. You have " + newStock + " left.");
-            }
-            if (inputShoeNum == 4)
-            {
-                int oldStock = Convert.ToInt32(Voorraad.shoeList4[5]);
-                newStock = oldStock - inputAantalChange;
-                Voorraad.shoeList4[5] = Convert.ToString(newStock);
-                MessageBox.Show("You have sold " + inputAantalChange + " shoes. You have " + newStock + " left.");
-            }
-            if (inputShoeNum == 5)
-            {
-                int oldStock = Convert.ToInt32(Voorraad.shoeList5[5]);
-                newStock = oldStock - inputAantalChange;
-                Voorraad.shoeList5[5] = Convert.ToString(newStock);
-                MessageBox.Show("You have sold " + inputAantalChange + " shoes. You have " + newStock + " left.");
+                MessageBox.Show("You can't input -2,147,483,648 to +2,147,483,647", "EASTER EGG");
             }
             this.Close();
 
@@ -116,7 +152,11 @@ namespace GimpiesWinForms
                 Voorraad.shoeList5[5] + "\t\t" +
                 Voorraad.shoeList5[6];
             }
-            
+
         }
+       
+
     }
+    
+
 }
