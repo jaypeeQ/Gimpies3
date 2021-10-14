@@ -14,15 +14,10 @@ namespace GimpiesWinForms
     {
         public Login()
         {
-            
+
             InitializeComponent();
             int loginAttempts = 0;
-            if (loginAttempts == 4)
-            {
-                MessageBox.Show("You have attempted to log in too many times. This application will now close.", "ERROR.",
-                MessageBoxButtons.OK, MessageBoxIcon.Error);
-                this.Close();
-            }
+            
 
         }
 
@@ -37,7 +32,7 @@ namespace GimpiesWinForms
                     MessageBox.Show("You've logged in 3 times unsuccessfully. Application will now close.", "ERROR",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                     Login.loginAttempt = 0;
-                    
+
                     this.Close();
                 }
                 else if (tbUsername.Text == "Verkoop" && tbPassword.Text == "Gimpies_Verkoop")
@@ -80,13 +75,27 @@ namespace GimpiesWinForms
                 }
             } while (!IN);
         }
+        
+        
 
         public static int loginAttempt;
-        
+
 
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void tbPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                btLogin.PerformClick();
+        }
+
+        private void tbUsername_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                btLogin.PerformClick();
         }
     }
 }

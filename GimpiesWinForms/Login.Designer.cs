@@ -58,6 +58,7 @@ namespace GimpiesWinForms
             this.tbUsername.Name = "tbUsername";
             this.tbUsername.Size = new System.Drawing.Size(146, 23);
             this.tbUsername.TabIndex = 0;
+            this.tbUsername.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbUsername_KeyDown);
             // 
             // tbPassword
             // 
@@ -66,6 +67,7 @@ namespace GimpiesWinForms
             this.tbPassword.PasswordChar = '*';
             this.tbPassword.Size = new System.Drawing.Size(146, 23);
             this.tbPassword.TabIndex = 1;
+            this.tbPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbPassword_KeyDown);
             // 
             // Username
             // 
