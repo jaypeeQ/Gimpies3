@@ -9,6 +9,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
+
 
 
 namespace GimpiesWinForms
@@ -20,6 +22,7 @@ namespace GimpiesWinForms
         {
             InitializeComponent();
         }
+       
 
         private void button3_Click(object sender, EventArgs e)
         {

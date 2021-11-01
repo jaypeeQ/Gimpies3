@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace GimpiesWinForms
 {
@@ -15,36 +10,45 @@ namespace GimpiesWinForms
         public DashboardAdmin()
         {
             InitializeComponent();
-        }
-        public void showVoorraad()
-        {
-            lvAdminScreen.Items.Clear();
-            List<string> shoes = new(Voorraad.shoeList1);
-            List<string> shoes2 = new(Voorraad.shoeList2);
-            List<string> shoes3 = new(Voorraad.shoeList3);
-            List<string> shoes4 = new(Voorraad.shoeList4);
-            List<string> shoes5 = new(Voorraad.shoeList5);
-            lvAdminScreen.View = View.Details;
-            lvAdminScreen.Items.Add(new ListViewItem(Voorraad.shoeList1));
-            lvAdminScreen.Items.Add(new ListViewItem(Voorraad.shoeList2));
-            lvAdminScreen.Items.Add(new ListViewItem(Voorraad.shoeList3));
-            lvAdminScreen.Items.Add(new ListViewItem(Voorraad.shoeList4));
-            lvAdminScreen.Items.Add(new ListViewItem(Voorraad.shoeList5));
+            
         }
 
+        public void FillDatagrid()
+        {
+            string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=GimpiesDatabase;Integrated Security=True;Connect Timeout=60;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+            SqlConnection conn = new SqlConnection(connectionString);
+            conn.Open();
+            SqlCommand cmdLogin = new SqlCommand("SELECT ShoeMerk, ShoeType, ShoeMaat, ShoeKleur, ShoeAantal, ShoePrijs FROM ShoeInventory", conn);
+            SqlDataReader reader = cmdLogin.ExecuteReader();
+
+            DataTable dt = new DataTable();
+            dt.Columns.Add("ShoeMerk");
+            dt.Columns.Add("ShoeType");
+            dt.Columns.Add("ShoeMaat");
+            dt.Columns.Add("ShoeKleur");
+            dt.Columns.Add("ShoeAantal");
+            dt.Columns.Add("ShoePrijs");
+
+            while (reader.Read())
+            {
+                dt.Rows.Add(reader["ShoeMerk"], reader["ShoeType"], reader["ShoeMaat"], reader["ShoeKleur"], reader["ShoeAantal"], reader["ShoePrijs"]);
+            }
+
+            dgvUsers.DataSource = dt;
+        }
+        
         private void btSchoenenToevoegen_Click(object sender, EventArgs e)
         {
             DAToevoegen dAToevoegen = new DAToevoegen();
             this.Hide();
             dAToevoegen.ShowDialog();
 
-            showVoorraad();
             this.Show();
         }
 
         private void btVoorraadBekijken_Click(object sender, EventArgs e)
         {
-            showVoorraad();
+            FillDatagrid();
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -59,7 +63,6 @@ namespace GimpiesWinForms
             DAAanpassen Aanpassen = new DAAanpassen();
             this.Hide();
             Aanpassen.ShowDialog();
-            showVoorraad();
             this.Show();
         }
 
@@ -68,7 +71,7 @@ namespace GimpiesWinForms
             DAVerwijderen verwijderen = new DAVerwijderen();
             this.Hide();
             verwijderen.ShowDialog();
-            showVoorraad();
+            
             this.Show();
         }
     }

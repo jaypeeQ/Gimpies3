@@ -4,11 +4,17 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.SqlClient;
 
 namespace GimpiesProject1
 {
     class Program
     {
+        public static SqlConnection conn;
+        public static string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=GimpiesDatabase;Integrated Security=True;Connect Timeout=60;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        public static string passwordValue;
+        public static string roleValue;
+        public static int loginAttempts;
         static void MainMenu()
         {
             try
@@ -58,47 +64,18 @@ namespace GimpiesProject1
         {
             Console.Clear();
             int i, j;
-            string[,] shoeList = new string[4, 7];
-            shoeList[0, 0] = "NUMMER";
-            shoeList[0, 1] = "\tMERK";
-            shoeList[0, 2] = "\tTYPE";
-            shoeList[0, 3] = "\tMAAT";
-            shoeList[0, 4] = "\tKLEUR";
-            shoeList[0, 5] = "\tAANTAL";
-            shoeList[0, 6] = "\tPRIJS";
+            conn.Open();
+            SqlCommand cmdShoes = new SqlCommand("SELECT ShoeMerk, ShoeType, ShoeMaat, ShoeKleur, ShoeAantal, ShoePrijs FROM ShoeInventory", conn);
+            SqlDataReader reader = cmdShoes.ExecuteReader();
 
-            shoeList[1, 0] = "1";
-            shoeList[1, 1] = "\tNike";
-            shoeList[1, 2] = "\tJordan";
-            shoeList[1, 3] = "\t43";
-            shoeList[1, 4] = "\tRood";
-            shoeList[1, 5] = "\t112";
-            shoeList[1, 6] = "\t49.99";
+            Console.WriteLine("{0, -20}{1, -20}{2, -30}{3, -20}{4, -20}{5, -20}", "Merk", "Type", "Maat", "Kleur", "Aantal", "Prijs");
 
-            shoeList[2, 0] = "2";
-            shoeList[2, 1] = "\tAdidas";
-            shoeList[2, 2] = "\tSprint";
-            shoeList[2, 3] = "\t39";
-            shoeList[2, 4] = "\tZwart";
-            shoeList[2, 5] = "\t49";
-            shoeList[2, 6] = "\t29.99";
-
-            shoeList[3, 0] = "3";
-            shoeList[3, 1] = "\tCompaq";
-            shoeList[3, 2] = "\t'89 Q";
-            shoeList[3, 3] = "\t41";
-            shoeList[3, 4] = "\tGrijs";
-            shoeList[3, 5] = "\t86";
-            shoeList[3, 6] = "\t39.99";
-
-            for (i = 0; i < 4; i++)
+            while (reader.Read())
             {
-                for (j = 0; j < 7; j++)
-                {
-                    Console.Write(shoeList[i, j]);
-                }
-                Console.WriteLine();
+                Console.WriteLine("{0, -20}{1, -20}{2, -30}{3, -20}{4, -20}{5, -20}", reader["ShoeMerk"], reader["ShoeType"], reader["ShoeMaat"], reader["ShoeKleur"], reader["ShoeAantal"], reader["ShoePrijs"]);
             }
+
+            conn.Close();
             Console.ReadKey();
             MainMenu();
         }
@@ -106,81 +83,80 @@ namespace GimpiesProject1
         //Shoe Inventory, 2-dimensional string array, into console inputting (str to int, calculate, back to string, declare with coords).
         static void MenuInkopen()
         {
+            conn.Close();
             int i, j;
             string shoeNum;
             int InkoopNum;
-            string[,] shoeList = new string[4, 7];
-            shoeList[0, 0] = "NUMMER";
-            shoeList[0, 1] = "\tMERK";
-            shoeList[0, 2] = "\tTYPE";
-            shoeList[0, 3] = "\tMAAT";
-            shoeList[0, 4] = "\tKLEUR";
-            shoeList[0, 5] = "\tAANTAL";
-            shoeList[0, 6] = "\tPRIJS";
+            string shoeAantal;
+            conn.Open();
+            SqlCommand cmdShoes = new SqlCommand("SELECT ShoeId, ShoeMerk, ShoeType, ShoeMaat, ShoeKleur, ShoeAantal, ShoePrijs FROM ShoeInventory" , conn);
+            SqlDataReader reader = cmdShoes.ExecuteReader();
 
-            shoeList[1, 0] = "1";
-            shoeList[1, 1] = "\tNike";
-            shoeList[1, 2] = "\tJordan";
-            shoeList[1, 3] = "\t43";
-            shoeList[1, 4] = "\tRood";
-            shoeList[1, 5] = "\t112";
-            shoeList[1, 6] = "\t49.99";
+            Console.WriteLine("{0, -15}{1, -15}{2, -15}{3, -15}{4, -15}{5, -15}{6, -15}", "Shoe Number", "Merk", "Type", "Maat", "Kleur", "Aantal", "Prijs");
 
-            shoeList[2, 0] = "2";
-            shoeList[2, 1] = "\tAdidas";
-            shoeList[2, 2] = "\tSprint";
-            shoeList[2, 3] = "\t39";
-            shoeList[2, 4] = "\tZwart";
-            shoeList[2, 5] = "\t49";
-            shoeList[2, 6] = "\t29.99";
-
-            shoeList[3, 0] = "3";
-            shoeList[3, 1] = "\tCompaq";
-            shoeList[3, 2] = "\t'89 Q";
-            shoeList[3, 3] = "\t41";
-            shoeList[3, 4] = "\tGrijs";
-            shoeList[3, 5] = "\t86";
-            shoeList[3, 6] = "\t39.99";
-
-
-            for (i = 0; i < 4; i++)
+            while (reader.Read())
             {
-                for (j = 0; j < 7; j++)
-                {
-                    Console.Write(shoeList[i, j] + " ");
-                }
-                Console.WriteLine();
+                Console.WriteLine("{0, -15}{1, -15}{2, -15}{3, -15}{4, -15}{5, -15}{6, -15}", reader["ShoeId"], reader["ShoeMerk"], reader["ShoeType"], reader["ShoeMaat"], reader["ShoeKleur"], reader["ShoeAantal"], reader["ShoePrijs"]);
             }
-            Console.ReadKey();
+            conn.Close();
+            
+            
+            Console.WriteLine();
             Console.Write("Enter Shoe Number: ");
             shoeNum = Console.ReadLine();
-            Console.Write("Enter amount to add: ");
-            InkoopNum = Convert.ToInt32(Console.ReadLine());
-            if (InkoopNum <= 0)
-            {
-                Console.Clear();
-                Console.WriteLine("You can't input a negative number!. Try again.");
-                Console.ReadLine();
-                MenuInkopen();
-            }
+            Console.Clear();
+            conn.Open();
+            SqlCommand cmdShoes2 = new SqlCommand("SELECT ShoeId, ShoeMerk, ShoeType, ShoeMaat, ShoeKleur, ShoeAantal, ShoePrijs FROM ShoeInventory WHERE ShoeId='" + shoeNum + "'", conn);
+            SqlDataReader reader2 = cmdShoes2.ExecuteReader();
+
+            Console.WriteLine("{0, -15}{1, -15}{2, -15}{3, -15}{4, -15}{5, -15}{6, -15}", "Shoe Number", "Merk", "Type", "Maat", "Kleur", "Aantal", "Prijs");
+
+            reader2.Read();
             
-            for (i = 0; i < 4; i++)
+                Console.WriteLine("{0, -15}{1, -15}{2, -15}{3, -15}{4, -15}{5, -15}{6, -15}", reader2["ShoeId"], reader2["ShoeMerk"], reader2["ShoeType"], reader2["ShoeMaat"], reader2["ShoeKleur"], reader2["ShoeAantal"], reader2["ShoePrijs"]);
+
+                if (shoeNum == Convert.ToString(reader2["ShoeId"]))
+                {
+                    Console.Write("Enter amount to add: ");
+                    InkoopNum = Convert.ToInt32(Console.ReadLine());
+                    shoeAantal = Convert.ToString(reader2["ShoeAantal"]);
+                    int shoeAantal2 = Convert.ToInt32(shoeAantal) + InkoopNum;
+                    Console.WriteLine("You have added " + InkoopNum + " Shoes to " + Convert.ToString(reader2["ShoeMerk"]) + " " + Convert.ToString(reader2["ShoeType"]) + ".");
+                    if (InkoopNum <= 0)
+                    {
+                        Console.Clear();
+                        Console.WriteLine("You can't input a negative number!. Try again.");
+                        Console.ReadLine();
+                        
+                        MenuInkopen();
+                    }
+                reader2.Close();
+                conn.Close();
+                conn.Open();
+                SqlCommand cmdShoesInkoop = new SqlCommand("UPDATE ShoeInventory SET ShoeAantal='" + shoeAantal2 + "' WHERE ShoeID='" + shoeNum + "'", conn);
+                SqlDataReader ShoeInkoop = cmdShoesInkoop.ExecuteReader();
+                ShoeInkoop.Read();
+                }
+                conn.Close();
+
+
+            /*for (i = 0; i < 4; i++)
             {
                 if (shoeNum == shoeList[i, 0])
                 {
                     shoeList[i, 5] = Convert.ToString("\t" + (Convert.ToInt32(shoeList[i, 5]) + InkoopNum));
                 }
-            }
-            Console.ReadKey();
-            for (i = 0; i < 4; i++)
+            }*/
+
+            /*for (i = 0; i < 4; i++)
             {
                 for (j = 0; j < 7; j++)
                 {
                     Console.Write(shoeList[i, j]);
                 }
                 Console.WriteLine();
-            }
-            Console.ReadKey();
+            }*/
+            Console.ReadLine();
             MainMenu();
         }
         static void MenuUitloggen()
@@ -194,62 +170,133 @@ namespace GimpiesProject1
             Console.WriteLine();
             Console.ReadLine();
         }
-
+        //Login Screen.
         static void Login()
         {
             
-            var arrUsers = new User[] {
-            new User("user1","valid1"),
-            new User("Inkoop","Gimpies_Inkoop"),
-            new User("user3","valid3")
-                };
-                int loginAttempts = 0;
+            Console.Clear();
+            
+                loginAttempts = 0;
                 bool succesfull = false;
+
                 while (!succesfull)
                 {
-                    if (loginAttempts == 3)
+                conn.Open();
+                if (loginAttempts == 3)
                     {
                         Console.Clear();
                         Console.Write("You've attempted to log in too many times, This application will now close.");
                         Console.ReadLine();
-                        Environment.Exit(-1);
+                        EXIT();
                     }
-                    Console.WriteLine("Login Screen");
-                    Console.Write("Username: ");
-                    var username = Console.ReadLine();
-                    Console.Write("Password: ");
-                    var password = ReadPassword();
-                    Console.WriteLine();
+                Console.WriteLine("Login Screen");
+                Console.Write("Username: ");
+                string username = Console.ReadLine();
+                Console.Write("Password: ");
+                string password = ReadPassword();
+                Console.WriteLine();
 
-                    foreach (User user in arrUsers)
+                SqlCommand cmdLogin = new SqlCommand("SELECT Username, Password, AssignedRole FROM Credentials WHERE Username='" + username + "' AND Password='" + password + "'", conn);
+                SqlDataReader readLogin = cmdLogin.ExecuteReader();
+                if (readLogin.Read()) 
+                {
+                    
+                    roleValue = readLogin.GetValue(2).ToString();
+                };
+
+                try
+                {
+                    if (username == Convert.ToString(readLogin["Username"]) && password == Convert.ToString(readLogin["Password"]))
                     {
-
-                        if (username == user.username && password == user.password)
+                        if (roleValue == "Inkoop")
                         {
-                            Console.WriteLine("You logged in succesfully!!!");
+                            Console.WriteLine("You logged in succesfully");
                             Console.ReadLine();
                             succesfull = true;
+                            conn.Close();
                             break;
                         }
+                        else if (roleValue == "Admin")
+                        {
+                            loginAttempts++;
+
+                            Console.WriteLine("You are not allowed to log in to this system with your clearance level.");
+                            Console.WriteLine("login attempts: " + loginAttempts + " of 3");
+
+                            Console.ReadLine();
+                            Console.Clear();
+
+                        }
+                        else if (roleValue == "Verkoop")
+                        {
+                            loginAttempts++;
+
+                            Console.WriteLine("You are not allowed to log in to this system with your clearance level.");
+                            Console.WriteLine("login attempts: " + loginAttempts + " of 3");
+
+                            Console.ReadLine();
+                            Console.Clear();
+
+                        }
+                        else
+                        {
+                            loginAttempts++;
+                            
+                            Console.WriteLine("login attempts: " + loginAttempts + " of 3");
+                            Console.ReadLine();
+                            Console.Clear();
+                            
+                        }
+
                     }
-                    if (!succesfull)
+
+                    else
                     {
+
                         Console.WriteLine("Your username or password is incorect, try again !!!");
 
                         loginAttempts++;
                         Console.WriteLine("login attempts: " + loginAttempts + " of 3");
                         Console.ReadLine();
                         Console.Clear();
+                        return;
                     }
+                }catch (InvalidOperationException) {
+                    Console.Clear();
+                    loginAttempts++;
+
+                    Console.WriteLine("Your username or password is incorect, try again !!!");
+                    Console.WriteLine("login attempts: " + loginAttempts + " of 3");
+                    Console.ReadLine();
+                    Console.Clear();
+                    
                 }
-                MainMenu();
-            
-            
+                conn.Close();                 
+                }
+                MainMenu();           
         }
-        //Login Screen.
         static void Main(string[] args)
         {
-            Login();
+             conn = new SqlConnection(Program.connectionString);
+                try
+                {
+                    conn.Open();
+                    Console.WriteLine("Connectie is gelukt");
+                    Console.ReadLine();
+                }
+                catch (SqlException)
+                {
+                    Console.WriteLine("Connectie is niet gelukt.");
+                    Console.ReadLine();
+                    return;
+                }
+                conn.Close();
+                Login();
+        }
+
+        static void EXIT()
+        {
+            Environment.Exit(0);
         }
         //Password Masking
         public static string ReadPassword()
@@ -285,7 +332,8 @@ namespace GimpiesProject1
             Console.WriteLine();
             return password;
         }
-        //This will create a table.
+
+                //This will create a table.
         static int tableWidth = 85;
          static void PrintLine()
          {

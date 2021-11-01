@@ -6,25 +6,35 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.SqlClient;
+using System.Globalization;
 using System.Windows.Forms;
+
 
 namespace GimpiesWinForms
 {
     public partial class Login : Form
     {
+        private DataGridView dataGridView1 = new DataGridView();
+        private BindingSource bindingSource1 = new BindingSource();
+        private Button reloadButton = new Button();
+        private Button submitButton = new Button();
+       
         public Login()
         {
 
             InitializeComponent();
-            int loginAttempts = 0;
-            
-
         }
+
+       
 
         private void btLogin_Click(object sender, EventArgs e)
         {
             bool IN = false;
             Login.loginAttempt++;
+            SqlCommand cmdLogin = new SqlCommand("SELECT Username, Password, AssignedRole FROM Credentials WHERE Username='" + tbUsername.Text + "' AND Password='" + tbPassword.Text + "'", SQLSELECT.conn);
+            SqlDataReader readLogin = cmdLogin.ExecuteReader();
+
             do
             {
                 if (Login.loginAttempt >= 4)
