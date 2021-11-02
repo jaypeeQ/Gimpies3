@@ -50,7 +50,9 @@ namespace GimpiesWinForms
             this.btDAAGenerate = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.btBack = new System.Windows.Forms.Button();
+            this.dgvPopup = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPopup)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -59,7 +61,7 @@ namespace GimpiesWinForms
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button1.Image = global::GimpiesWinForms.Properties.Resources._123123;
-            this.button1.Location = new System.Drawing.Point(244, 270);
+            this.button1.Location = new System.Drawing.Point(400, 270);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(38, 35);
             this.button1.TabIndex = 9;
@@ -68,49 +70,49 @@ namespace GimpiesWinForms
             // 
             // tbPrijs
             // 
-            this.tbPrijs.Location = new System.Drawing.Point(137, 282);
+            this.tbPrijs.Location = new System.Drawing.Point(293, 282);
             this.tbPrijs.Name = "tbPrijs";
             this.tbPrijs.Size = new System.Drawing.Size(100, 23);
             this.tbPrijs.TabIndex = 8;
             // 
             // tbMaat
             // 
-            this.tbMaat.Location = new System.Drawing.Point(137, 195);
+            this.tbMaat.Location = new System.Drawing.Point(293, 195);
             this.tbMaat.Name = "tbMaat";
             this.tbMaat.Size = new System.Drawing.Size(100, 23);
             this.tbMaat.TabIndex = 5;
             // 
             // tbAantal
             // 
-            this.tbAantal.Location = new System.Drawing.Point(137, 253);
+            this.tbAantal.Location = new System.Drawing.Point(293, 253);
             this.tbAantal.Name = "tbAantal";
             this.tbAantal.Size = new System.Drawing.Size(100, 23);
             this.tbAantal.TabIndex = 7;
             // 
             // tbType
             // 
-            this.tbType.Location = new System.Drawing.Point(137, 166);
+            this.tbType.Location = new System.Drawing.Point(293, 166);
             this.tbType.Name = "tbType";
             this.tbType.Size = new System.Drawing.Size(100, 23);
             this.tbType.TabIndex = 4;
             // 
             // tbKleur
             // 
-            this.tbKleur.Location = new System.Drawing.Point(137, 224);
+            this.tbKleur.Location = new System.Drawing.Point(293, 224);
             this.tbKleur.Name = "tbKleur";
             this.tbKleur.Size = new System.Drawing.Size(100, 23);
             this.tbKleur.TabIndex = 6;
             // 
             // tbNummer
             // 
-            this.tbNummer.Location = new System.Drawing.Point(137, 84);
+            this.tbNummer.Location = new System.Drawing.Point(293, 84);
             this.tbNummer.Name = "tbNummer";
             this.tbNummer.Size = new System.Drawing.Size(100, 23);
             this.tbNummer.TabIndex = 0;
             // 
             // tbMerk
             // 
-            this.tbMerk.Location = new System.Drawing.Point(137, 137);
+            this.tbMerk.Location = new System.Drawing.Point(293, 137);
             this.tbMerk.Name = "tbMerk";
             this.tbMerk.Size = new System.Drawing.Size(100, 23);
             this.tbMerk.TabIndex = 3;
@@ -118,7 +120,7 @@ namespace GimpiesWinForms
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(57, 285);
+            this.label6.Location = new System.Drawing.Point(213, 285);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(29, 15);
             this.label6.TabIndex = 11;
@@ -127,7 +129,7 @@ namespace GimpiesWinForms
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(57, 198);
+            this.label3.Location = new System.Drawing.Point(213, 198);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(34, 15);
             this.label3.TabIndex = 16;
@@ -136,7 +138,7 @@ namespace GimpiesWinForms
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(57, 256);
+            this.label5.Location = new System.Drawing.Point(213, 256);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(41, 15);
             this.label5.TabIndex = 15;
@@ -146,7 +148,7 @@ namespace GimpiesWinForms
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Segoe UI", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
-            this.label9.Location = new System.Drawing.Point(118, 47);
+            this.label9.Location = new System.Drawing.Point(273, 16);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(165, 21);
             this.label9.TabIndex = 19;
@@ -156,7 +158,7 @@ namespace GimpiesWinForms
             // 
             this.GimpiesLabel.AutoSize = true;
             this.GimpiesLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.GimpiesLabel.Location = new System.Drawing.Point(84, 12);
+            this.GimpiesLabel.Location = new System.Drawing.Point(90, 12);
             this.GimpiesLabel.Name = "GimpiesLabel";
             this.GimpiesLabel.Size = new System.Drawing.Size(164, 25);
             this.GimpiesLabel.TabIndex = 20;
@@ -165,7 +167,7 @@ namespace GimpiesWinForms
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(57, 169);
+            this.label2.Location = new System.Drawing.Point(213, 169);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(31, 15);
             this.label2.TabIndex = 14;
@@ -174,7 +176,7 @@ namespace GimpiesWinForms
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(57, 227);
+            this.label4.Location = new System.Drawing.Point(213, 227);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(34, 15);
             this.label4.TabIndex = 13;
@@ -183,7 +185,7 @@ namespace GimpiesWinForms
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(57, 88);
+            this.label7.Location = new System.Drawing.Point(213, 88);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(55, 15);
             this.label7.TabIndex = 12;
@@ -201,7 +203,7 @@ namespace GimpiesWinForms
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(57, 140);
+            this.label1.Location = new System.Drawing.Point(213, 140);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(34, 15);
             this.label1.TabIndex = 17;
@@ -209,7 +211,7 @@ namespace GimpiesWinForms
             // 
             // btDAAGenerate
             // 
-            this.btDAAGenerate.Location = new System.Drawing.Point(117, 108);
+            this.btDAAGenerate.Location = new System.Drawing.Point(273, 108);
             this.btDAAGenerate.Name = "btDAAGenerate";
             this.btDAAGenerate.Size = new System.Drawing.Size(68, 23);
             this.btDAAGenerate.TabIndex = 1;
@@ -219,7 +221,7 @@ namespace GimpiesWinForms
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(191, 108);
+            this.button2.Location = new System.Drawing.Point(347, 108);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(46, 23);
             this.button2.TabIndex = 2;
@@ -231,18 +233,32 @@ namespace GimpiesWinForms
             // 
             this.btBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btBack.Image = global::GimpiesWinForms.Properties.Resources.undo;
-            this.btBack.Location = new System.Drawing.Point(12, 267);
+            this.btBack.Location = new System.Drawing.Point(572, 5);
             this.btBack.Name = "btBack";
             this.btBack.Size = new System.Drawing.Size(32, 32);
             this.btBack.TabIndex = 31;
             this.btBack.UseVisualStyleBackColor = true;
             this.btBack.Click += new System.EventHandler(this.btBack_Click);
             // 
+            // dgvPopup
+            // 
+            this.dgvPopup.AllowUserToAddRows = false;
+            this.dgvPopup.AllowUserToDeleteRows = false;
+            this.dgvPopup.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvPopup.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPopup.Location = new System.Drawing.Point(12, 311);
+            this.dgvPopup.Name = "dgvPopup";
+            this.dgvPopup.ReadOnly = true;
+            this.dgvPopup.RowTemplate.Height = 25;
+            this.dgvPopup.Size = new System.Drawing.Size(589, 85);
+            this.dgvPopup.TabIndex = 32;
+            // 
             // DAAanpassen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(291, 311);
+            this.ClientSize = new System.Drawing.Size(616, 408);
+            this.Controls.Add(this.dgvPopup);
             this.Controls.Add(this.btBack);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.btDAAGenerate);
@@ -267,6 +283,7 @@ namespace GimpiesWinForms
             this.Name = "DAAanpassen";
             this.Text = "DAAanpassen";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPopup)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -295,5 +312,6 @@ namespace GimpiesWinForms
         private System.Windows.Forms.Button btDAAGenerate;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button btBack;
+        private System.Windows.Forms.DataGridView dgvPopup;
     }
 }

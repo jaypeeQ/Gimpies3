@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace GimpiesWinForms
 {
@@ -16,95 +17,52 @@ namespace GimpiesWinForms
         public DAVerwijderen()
         {
             InitializeComponent();
+            FillDatagrid();
         }
-        //Generates the list's strings in Voorraad Class.
-        private void DAVGenerate_Click(object sender, EventArgs e)
-        {
-
-            string ShoeNumber = tbDAVShoeNumber.Text;
-            if (ShoeNumber == "1")
-            {
-                tbDAVShoeCheck.Text = 
-                    Voorraad.shoeList1[1] + "\t\t" + 
-                    Voorraad.shoeList1[2] + "\t\t" + 
-                    Voorraad.shoeList1[3] + "\t\t" + 
-                    Voorraad.shoeList1[4] + "\t\t" + 
-                    Voorraad.shoeList1[5] + "\t\t" + 
-                    Voorraad.shoeList1[6];
-            }
-            if (ShoeNumber == "2")
-            {
-                tbDAVShoeCheck.Text =
-                    Voorraad.shoeList2[1] + "\t\t" +
-                    Voorraad.shoeList2[2] + "\t\t" +
-                    Voorraad.shoeList2[3] + "\t\t" +
-                    Voorraad.shoeList2[4] + "\t\t" +
-                    Voorraad.shoeList2[5] + "\t\t" +
-                    Voorraad.shoeList2[6];
-            }
-            if (ShoeNumber == "3")
-            {
-                tbDAVShoeCheck.Text =
-                    Voorraad.shoeList3[1] + "\t\t" +
-                    Voorraad.shoeList3[2] + "\t\t" +
-                    Voorraad.shoeList3[3] + "\t\t" +
-                    Voorraad.shoeList3[4] + "\t\t" +
-                    Voorraad.shoeList3[5] + "\t\t" +
-                    Voorraad.shoeList3[6];
-            }
-            if (ShoeNumber == "4")
-            {
-                tbDAVShoeCheck.Text =
-                    Voorraad.shoeList4[1] + "\t\t" +
-                    Voorraad.shoeList4[2] + "\t\t" +
-                    Voorraad.shoeList4[3] + "\t\t" +
-                    Voorraad.shoeList4[4] + "\t\t" +
-                    Voorraad.shoeList4[5] + "\t\t" +
-                    Voorraad.shoeList4[6];
-                if (ShoeNumber == "5")
-                {
-                    tbDAVShoeCheck.Text =
-                    Voorraad.shoeList5[1] + "\t\t" +
-                    Voorraad.shoeList5[2] + "\t\t" +
-                    Voorraad.shoeList5[3] + "\t\t" +
-                    Voorraad.shoeList5[4] + "\t\t" +
-                    Voorraad.shoeList5[5] + "\t\t" +
-                    Voorraad.shoeList5[6];
-                }
-            }
-        }
+        
         //Replaces the strings in its' respective List into a blank string. (from "string" -> "").
         private void button1_Click(object sender, EventArgs e)
         {
-            string ShoeNumber = tbDAVShoeNumber.Text;
-            string[] empty = { "", "", "", "", "", "", "" };
-            if (ShoeNumber == "1")
-            {
-                Voorraad.shoeList1 = empty;
-            }
-            if (ShoeNumber == "2")
-            {
-                Voorraad.shoeList2 = empty;
-            }
-            if (ShoeNumber == "3")
-            {
-                Voorraad.shoeList3 = empty;
-            }
-            if (ShoeNumber == "4")
-            {
-                Voorraad.shoeList4 = empty;
-            }
-            if (ShoeNumber == "5")
-            {
-                Voorraad.shoeList5 = empty;
-            }
-            MessageBox.Show("You have removed #: " + ShoeNumber + "from the inventory.");
+            string Shoenum = tbDAVShoeNumber.Text;
+            string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=GimpiesDatabase;Integrated Security=True;Connect Timeout=60;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+            SqlConnection conn = new SqlConnection(connectionString);
+            conn.Open();
+            SqlCommand cmdShoes = new SqlCommand("DELETE FROM ShoeInventory WHERE ShoeId='" + Shoenum + "'", conn);
+            SqlDataReader reader = cmdShoes.ExecuteReader();
+            reader.Read();
+            conn.Close();
             this.Close();
         }
         //Returns to it's respective dashboard.
         private void btBack_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+        public void FillDatagrid()
+        {
+            string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=GimpiesDatabase;Integrated Security=True;Connect Timeout=60;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+            SqlConnection conn = new SqlConnection(connectionString);
+            conn.Open();
+            SqlCommand cmdShoes = new SqlCommand("SELECT ShoeId, ShoeMerk, ShoeType, ShoeMaat, ShoeKleur, ShoeAantal, ShoePrijs FROM ShoeInventory", conn);
+            SqlDataReader reader = cmdShoes.ExecuteReader();
+
+            DataTable dt = new DataTable();
+            dt.Columns.Add("Shoe Number");
+            dt.Columns.Add("ShoeMerk");
+            dt.Columns.Add("ShoeType");
+            dt.Columns.Add("ShoeMaat");
+            dt.Columns.Add("ShoeKleur");
+            dt.Columns.Add("ShoeAantal");
+            dt.Columns.Add("ShoePrijs");
+
+            while (reader.Read())
+            {
+                dt.Rows.Add(reader["ShoeId"], reader["ShoeMerk"], reader["ShoeType"], reader["ShoeMaat"], reader["ShoeKleur"], reader["ShoeAantal"], reader["ShoePrijs"]);
+            }
+
+            dgvPopup.DataSource = dt;
+            reader.Close();
+            conn.Close();
         }
     }
 }

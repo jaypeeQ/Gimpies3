@@ -35,10 +35,10 @@ namespace GimpiesWinForms
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tbDAVShoeNumber = new System.Windows.Forms.TextBox();
-            this.DAVGenerate = new System.Windows.Forms.Button();
-            this.tbDAVShoeCheck = new System.Windows.Forms.TextBox();
             this.btBack = new System.Windows.Forms.Button();
+            this.dgvPopup = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPopup)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -47,7 +47,7 @@ namespace GimpiesWinForms
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button1.Image = global::GimpiesWinForms.Properties.Resources._123123;
-            this.button1.Location = new System.Drawing.Point(244, 270);
+            this.button1.Location = new System.Drawing.Point(223, 126);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(38, 35);
             this.button1.TabIndex = 14;
@@ -86,7 +86,7 @@ namespace GimpiesWinForms
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 94);
+            this.label1.Location = new System.Drawing.Point(15, 98);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(83, 15);
             this.label1.TabIndex = 15;
@@ -94,50 +94,42 @@ namespace GimpiesWinForms
             // 
             // tbDAVShoeNumber
             // 
-            this.tbDAVShoeNumber.Location = new System.Drawing.Point(102, 91);
+            this.tbDAVShoeNumber.Location = new System.Drawing.Point(104, 95);
             this.tbDAVShoeNumber.Name = "tbDAVShoeNumber";
-            this.tbDAVShoeNumber.Size = new System.Drawing.Size(100, 23);
+            this.tbDAVShoeNumber.Size = new System.Drawing.Size(63, 23);
             this.tbDAVShoeNumber.TabIndex = 16;
-            // 
-            // DAVGenerate
-            // 
-            this.DAVGenerate.Location = new System.Drawing.Point(220, 90);
-            this.DAVGenerate.Name = "DAVGenerate";
-            this.DAVGenerate.Size = new System.Drawing.Size(62, 23);
-            this.DAVGenerate.TabIndex = 17;
-            this.DAVGenerate.Text = "Generate";
-            this.DAVGenerate.UseVisualStyleBackColor = true;
-            this.DAVGenerate.Click += new System.EventHandler(this.DAVGenerate_Click);
-            // 
-            // tbDAVShoeCheck
-            // 
-            this.tbDAVShoeCheck.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.tbDAVShoeCheck.Location = new System.Drawing.Point(102, 121);
-            this.tbDAVShoeCheck.Multiline = true;
-            this.tbDAVShoeCheck.Name = "tbDAVShoeCheck";
-            this.tbDAVShoeCheck.ReadOnly = true;
-            this.tbDAVShoeCheck.Size = new System.Drawing.Size(100, 128);
-            this.tbDAVShoeCheck.TabIndex = 18;
             // 
             // btBack
             // 
             this.btBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btBack.Image = global::GimpiesWinForms.Properties.Resources.undo;
-            this.btBack.Location = new System.Drawing.Point(12, 269);
+            this.btBack.Location = new System.Drawing.Point(15, 129);
             this.btBack.Name = "btBack";
             this.btBack.Size = new System.Drawing.Size(32, 32);
             this.btBack.TabIndex = 32;
             this.btBack.UseVisualStyleBackColor = true;
             this.btBack.Click += new System.EventHandler(this.btBack_Click);
             // 
+            // dgvPopup
+            // 
+            this.dgvPopup.AllowUserToAddRows = false;
+            this.dgvPopup.AllowUserToDeleteRows = false;
+            this.dgvPopup.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvPopup.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPopup.Location = new System.Drawing.Point(283, 12);
+            this.dgvPopup.Name = "dgvPopup";
+            this.dgvPopup.ReadOnly = true;
+            this.dgvPopup.RowTemplate.Height = 25;
+            this.dgvPopup.Size = new System.Drawing.Size(524, 149);
+            this.dgvPopup.TabIndex = 33;
+            // 
             // DAVerwijderen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(289, 313);
+            this.ClientSize = new System.Drawing.Size(819, 185);
+            this.Controls.Add(this.dgvPopup);
             this.Controls.Add(this.btBack);
-            this.Controls.Add(this.tbDAVShoeCheck);
-            this.Controls.Add(this.DAVGenerate);
             this.Controls.Add(this.tbDAVShoeNumber);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
@@ -147,6 +139,7 @@ namespace GimpiesWinForms
             this.Name = "DAVerwijderen";
             this.Text = "DAVerwijderen";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPopup)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -160,8 +153,7 @@ namespace GimpiesWinForms
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tbDAVShoeNumber;
-        private System.Windows.Forms.Button DAVGenerate;
-        private System.Windows.Forms.TextBox tbDAVShoeCheck;
         private System.Windows.Forms.Button btBack;
+        private System.Windows.Forms.DataGridView dgvPopup;
     }
 }

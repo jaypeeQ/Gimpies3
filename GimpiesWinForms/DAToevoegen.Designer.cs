@@ -43,12 +43,9 @@ namespace GimpiesWinForms
             this.tbKleur = new System.Windows.Forms.TextBox();
             this.tbAantal = new System.Windows.Forms.TextBox();
             this.tbPrijs = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.tbNummer = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.btBack = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -167,22 +164,6 @@ namespace GimpiesWinForms
             this.tbPrijs.Size = new System.Drawing.Size(100, 23);
             this.tbPrijs.TabIndex = 6;
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(57, 99);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(55, 15);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "Nummer";
-            // 
-            // tbNummer
-            // 
-            this.tbNummer.Location = new System.Drawing.Point(137, 96);
-            this.tbNummer.Name = "tbNummer";
-            this.tbNummer.Size = new System.Drawing.Size(100, 23);
-            this.tbNummer.TabIndex = 0;
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -199,7 +180,7 @@ namespace GimpiesWinForms
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button1.Image = global::GimpiesWinForms.Properties.Resources._123123;
-            this.button1.Location = new System.Drawing.Point(244, 270);
+            this.button1.Location = new System.Drawing.Point(269, 266);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(38, 35);
             this.button1.TabIndex = 10;
@@ -217,22 +198,11 @@ namespace GimpiesWinForms
             this.btBack.UseVisualStyleBackColor = true;
             this.btBack.Click += new System.EventHandler(this.btBack_Click);
             // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(239, 96);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(51, 23);
-            this.button2.TabIndex = 11;
-            this.button2.Text = "Check";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
             // DAToevoegen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(294, 313);
-            this.Controls.Add(this.button2);
+            this.ClientSize = new System.Drawing.Size(319, 313);
             this.Controls.Add(this.btBack);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.tbPrijs);
@@ -240,7 +210,6 @@ namespace GimpiesWinForms
             this.Controls.Add(this.tbAantal);
             this.Controls.Add(this.tbType);
             this.Controls.Add(this.tbKleur);
-            this.Controls.Add(this.tbNummer);
             this.Controls.Add(this.tbMerk);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label3);
@@ -249,7 +218,6 @@ namespace GimpiesWinForms
             this.Controls.Add(this.GimpiesLabel);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.label7);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label1);
             this.Name = "DAToevoegen";
@@ -276,11 +244,8 @@ namespace GimpiesWinForms
         private System.Windows.Forms.TextBox tbKleur;
         private System.Windows.Forms.TextBox tbAantal;
         private System.Windows.Forms.TextBox tbPrijs;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox tbNummer;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btBack;
-        private System.Windows.Forms.Button button2;
     }
 }
