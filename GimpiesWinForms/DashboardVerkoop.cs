@@ -36,31 +36,39 @@ namespace GimpiesWinForms
             VerkoopPopup verkoopPopup = new VerkoopPopup();
             this.Hide();
             verkoopPopup.ShowDialog();
-            
-            showVoorraad();
+
+            FillDatagrid();
             this.Show();
         }
 
-        public void showVoorraad()
+        public void FillDatagrid()
         {
-            
-            lvVerkoperScreen.Items.Clear();
-            List<string> shoes = new(Voorraad.shoeList1);
-            List<string> shoes2 = new(Voorraad.shoeList2);
-            List<string> shoes3 = new(Voorraad.shoeList3);
-            List<string> shoes4 = new(Voorraad.shoeList4);
-            List<string> shoes5 = new(Voorraad.shoeList5);
-            lvVerkoperScreen.View = View.Details;
-            lvVerkoperScreen.Items.Add(new ListViewItem(Voorraad.shoeList1));
-            lvVerkoperScreen.Items.Add(new ListViewItem(Voorraad.shoeList2));
-            lvVerkoperScreen.Items.Add(new ListViewItem(Voorraad.shoeList3));
-            lvVerkoperScreen.Items.Add(new ListViewItem(Voorraad.shoeList4));
-            lvVerkoperScreen.Items.Add(new ListViewItem(Voorraad.shoeList5));
+            string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=GimpiesDatabase;Integrated Security=True;Connect Timeout=60;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+            SqlConnection conn = new SqlConnection(connectionString);
+            conn.Open();
+            SqlCommand cmdLogin = new SqlCommand("SELECT ShoeMerk, ShoeType, ShoeMaat, ShoeKleur, ShoeAantal, ShoePrijs FROM ShoeInventory", conn);
+            SqlDataReader reader = cmdLogin.ExecuteReader();
+
+            DataTable dt = new DataTable();
+            dt.Columns.Add("ShoeMerk");
+            dt.Columns.Add("ShoeType");
+            dt.Columns.Add("ShoeMaat");
+            dt.Columns.Add("ShoeKleur");
+            dt.Columns.Add("ShoeAantal");
+            dt.Columns.Add("ShoePrijs");
+
+            while (reader.Read())
+            {
+                dt.Rows.Add(reader["ShoeMerk"], reader["ShoeType"], reader["ShoeMaat"], reader["ShoeKleur"], reader["ShoeAantal"], reader["ShoePrijs"]);
+            }
+
+            dgvAdmin.DataSource = dt;
+            conn.Close();
         }
 
         private void btVoorraadBekijken_Click(object sender, EventArgs e)
         {
-            showVoorraad();
+            FillDatagrid();
         }
     }
 }

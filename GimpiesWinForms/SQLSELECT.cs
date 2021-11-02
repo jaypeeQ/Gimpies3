@@ -10,9 +10,10 @@ namespace GimpiesWinForms
 
     class SQLSELECT
     {
+
         public static SqlConnection conn;
         public static string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=GimpiesDatabase;Integrated Security=True;Connect Timeout=60;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
-        
+        public static string a;
         
     }
     

@@ -37,15 +37,9 @@ namespace GimpiesWinForms
             this.btVoorraadBekijken = new System.Windows.Forms.ToolStripButton();
             this.btSchoenenVerkopen = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.lvVerkoperScreen = new System.Windows.Forms.ListView();
-            this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader3 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader4 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader5 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader6 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader7 = new System.Windows.Forms.ColumnHeader();
+            this.dgvAdmin = new System.Windows.Forms.DataGridView();
             this.toolStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAdmin)).BeginInit();
             this.SuspendLayout();
             // 
             // button3
@@ -113,71 +107,30 @@ namespace GimpiesWinForms
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(158, 6);
             // 
-            // lvVerkoperScreen
+            // dgvAdmin
             // 
-            this.lvVerkoperScreen.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader2,
-            this.columnHeader3,
-            this.columnHeader4,
-            this.columnHeader5,
-            this.columnHeader6,
-            this.columnHeader7});
-            this.lvVerkoperScreen.HideSelection = false;
-            this.lvVerkoperScreen.Location = new System.Drawing.Point(165, 61);
-            this.lvVerkoperScreen.Name = "lvVerkoperScreen";
-            this.lvVerkoperScreen.Size = new System.Drawing.Size(546, 392);
-            this.lvVerkoperScreen.TabIndex = 5;
-            this.lvVerkoperScreen.UseCompatibleStateImageBehavior = false;
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "NUMMER";
-            this.columnHeader1.Width = 80;
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "MERK";
-            this.columnHeader2.Width = 80;
-            // 
-            // columnHeader3
-            // 
-            this.columnHeader3.Text = "TYPE";
-            this.columnHeader3.Width = 80;
-            // 
-            // columnHeader4
-            // 
-            this.columnHeader4.Text = "MAAT";
-            this.columnHeader4.Width = 80;
-            // 
-            // columnHeader5
-            // 
-            this.columnHeader5.Text = "KLEUR";
-            this.columnHeader5.Width = 80;
-            // 
-            // columnHeader6
-            // 
-            this.columnHeader6.Text = "AANTAL";
-            this.columnHeader6.Width = 80;
-            // 
-            // columnHeader7
-            // 
-            this.columnHeader7.Text = "PRIJS";
-            this.columnHeader7.Width = 80;
+            this.dgvAdmin.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvAdmin.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvAdmin.Location = new System.Drawing.Point(165, 60);
+            this.dgvAdmin.Name = "dgvAdmin";
+            this.dgvAdmin.RowTemplate.Height = 25;
+            this.dgvAdmin.Size = new System.Drawing.Size(546, 393);
+            this.dgvAdmin.TabIndex = 10;
             // 
             // DashboardVerkoop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(723, 465);
+            this.Controls.Add(this.dgvAdmin);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.lvVerkoperScreen);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "DashboardVerkoop";
             this.Text = "DashboardVerkoop";
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAdmin)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -191,13 +144,6 @@ namespace GimpiesWinForms
         private System.Windows.Forms.ToolStripButton btVoorraadBekijken;
         private System.Windows.Forms.ToolStripButton btSchoenenVerkopen;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-        private System.Windows.Forms.ListView lvVerkoperScreen;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
-        private System.Windows.Forms.ColumnHeader columnHeader2;
-        private System.Windows.Forms.ColumnHeader columnHeader3;
-        private System.Windows.Forms.ColumnHeader columnHeader4;
-        private System.Windows.Forms.ColumnHeader columnHeader5;
-        private System.Windows.Forms.ColumnHeader columnHeader6;
-        private System.Windows.Forms.ColumnHeader columnHeader7;
+        private System.Windows.Forms.DataGridView dgvAdmin;
     }
 }

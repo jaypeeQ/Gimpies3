@@ -199,8 +199,7 @@ namespace GimpiesProject1
                 SqlCommand cmdLogin = new SqlCommand("SELECT Username, Password, AssignedRole FROM Credentials WHERE Username='" + username + "' AND Password='" + password + "'", conn);
                 SqlDataReader readLogin = cmdLogin.ExecuteReader();
                 if (readLogin.Read()) 
-                {
-                    
+                {    
                     roleValue = readLogin.GetValue(2).ToString();
                 };
 

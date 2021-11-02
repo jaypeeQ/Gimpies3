@@ -34,7 +34,9 @@ namespace GimpiesWinForms
                 dt.Rows.Add(reader["ShoeMerk"], reader["ShoeType"], reader["ShoeMaat"], reader["ShoeKleur"], reader["ShoeAantal"], reader["ShoePrijs"]);
             }
 
-            dgvUsers.DataSource = dt;
+            dgvAdmin.DataSource = dt;
+            conn.Close();
+
         }
         
         private void btSchoenenToevoegen_Click(object sender, EventArgs e)
