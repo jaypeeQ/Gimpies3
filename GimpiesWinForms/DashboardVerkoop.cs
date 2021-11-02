@@ -23,7 +23,6 @@ namespace GimpiesWinForms
             InitializeComponent();
         }
        
-
         private void button3_Click(object sender, EventArgs e)
         {
             Login form1 = new Login();
@@ -63,6 +62,7 @@ namespace GimpiesWinForms
             }
 
             dgvAdmin.DataSource = dt;
+            reader.Close();
             conn.Close();
         }
 

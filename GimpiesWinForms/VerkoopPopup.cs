@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace GimpiesWinForms
 {
@@ -15,14 +16,34 @@ namespace GimpiesWinForms
         int inputShoeNum;
         int inputAantalChange;
         int newStock;
+        int oldStock;
         public VerkoopPopup()
         {
             InitializeComponent();
+            FillDatagrid();
         }
         //Allows the verkoper to be able to specify a shoe number to it's stock, and in turn substracts the value given to original stock.
         public void button1_Click(object sender, EventArgs e)
         {
-            try
+            inputShoeNum = Convert.ToInt32(tbVerkoperShoeNum.Text);
+            inputAantalChange = Convert.ToInt32(tbVerkoperAantalChange.Text);
+            string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=GimpiesDatabase;Integrated Security=True;Connect Timeout=60;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+            SqlConnection conn = new SqlConnection(connectionString);
+            conn.Open();
+            SqlCommand cmdShoes = new SqlCommand("SELECT ShoeAantal FROM ShoeInventory WHERE ShoeId='" + inputShoeNum + "'", conn);
+            SqlDataReader reader = cmdShoes.ExecuteReader();
+            reader.Read();
+            
+            oldStock = Convert.ToInt32(reader["ShoeAantal"]);
+            newStock = oldStock - inputAantalChange;
+            conn.Close();
+            conn.Open();
+            SqlCommand cmdSell = new SqlCommand("UPDATE ShoeInventory SET ShoeAantal = '" + newStock + "' WHERE ShoeID = '" + inputShoeNum + "'", conn);
+            SqlDataReader readSell = cmdSell.ExecuteReader();
+            readSell.Read();
+            conn.Close();
+
+            /*try
             {
                 inputShoeNum = Convert.ToInt32(tbVerkoperShoeNum.Text);
                 inputAantalChange = Convert.ToInt32(tbVerkoperAantalChange.Text);
@@ -94,67 +115,37 @@ namespace GimpiesWinForms
             }catch(OverflowException)
             {
                 MessageBox.Show("You can't input -2,147,483,648 to +2,147,483,647", "EASTER EGG");
-            }
+            }*/
             this.Close();
 
         }
 
-        private void btVerkoopGenerate_Click(object sender, EventArgs e)
+        public void FillDatagrid()
         {
-            string ShoeNumber = tbVerkoperShoeNum.Text;
-            if (ShoeNumber == "1")
+            string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=GimpiesDatabase;Integrated Security=True;Connect Timeout=60;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+            SqlConnection conn = new SqlConnection(connectionString);
+            conn.Open();
+            SqlCommand cmdShoes = new SqlCommand("SELECT ShoeId, ShoeMerk, ShoeType, ShoeMaat, ShoeKleur, ShoeAantal, ShoePrijs FROM ShoeInventory", conn);
+            SqlDataReader reader = cmdShoes.ExecuteReader();
+
+            DataTable dt = new DataTable();
+            dt.Columns.Add("Shoe Number");
+            dt.Columns.Add("ShoeMerk");
+            dt.Columns.Add("ShoeType");
+            dt.Columns.Add("ShoeMaat");
+            dt.Columns.Add("ShoeKleur");
+            dt.Columns.Add("ShoeAantal");
+            dt.Columns.Add("ShoePrijs");
+
+            while (reader.Read())
             {
-                tbVerkoopDisplay.Text =
-                    Voorraad.shoeList1[1] + "\t\t" +
-                    Voorraad.shoeList1[2] + "\t\t" +
-                    Voorraad.shoeList1[3] + "\t\t" +
-                    Voorraad.shoeList1[4] + "\t\t" +
-                    Voorraad.shoeList1[5] + "\t\t" +
-                    Voorraad.shoeList1[6];
-            }
-            if (ShoeNumber == "2")
-            {
-                tbVerkoopDisplay.Text =
-                    Voorraad.shoeList2[1] + "\t\t" +
-                    Voorraad.shoeList2[2] + "\t\t" +
-                    Voorraad.shoeList2[3] + "\t\t" +
-                    Voorraad.shoeList2[4] + "\t\t" +
-                    Voorraad.shoeList2[5] + "\t\t" +
-                    Voorraad.shoeList2[6];
-            }
-            if (ShoeNumber == "3")
-            {
-                tbVerkoopDisplay.Text =
-                    Voorraad.shoeList3[1] + "\t\t" +
-                    Voorraad.shoeList3[2] + "\t\t" +
-                    Voorraad.shoeList3[3] + "\t\t" +
-                    Voorraad.shoeList3[4] + "\t\t" +
-                    Voorraad.shoeList3[5] + "\t\t" +
-                    Voorraad.shoeList3[6];
-            }
-            if (ShoeNumber == "4")
-            {
-                tbVerkoopDisplay.Text =
-                    Voorraad.shoeList4[1] + "\t\t" +
-                    Voorraad.shoeList4[2] + "\t\t" +
-                    Voorraad.shoeList4[3] + "\t\t" +
-                    Voorraad.shoeList4[4] + "\t\t" +
-                    Voorraad.shoeList4[5] + "\t\t" +
-                    Voorraad.shoeList4[6];
-            }
-            if (ShoeNumber == "5")
-            {
-                tbVerkoopDisplay.Text =
-                Voorraad.shoeList5[1] + "\t\t" +
-                Voorraad.shoeList5[2] + "\t\t" +
-                Voorraad.shoeList5[3] + "\t\t" +
-                Voorraad.shoeList5[4] + "\t\t" +
-                Voorraad.shoeList5[5] + "\t\t" +
-                Voorraad.shoeList5[6];
+                dt.Rows.Add(reader["ShoeId"], reader["ShoeMerk"], reader["ShoeType"], reader["ShoeMaat"], reader["ShoeKleur"], reader["ShoeAantal"], reader["ShoePrijs"]);
             }
 
+            dgvPopup.DataSource = dt;
+            reader.Close();
+            conn.Close();
         }
-       
 
     }
     
