@@ -1,7 +1,7 @@
 ﻿
 namespace GimpiesWinForms
 {
-    partial class DAAanpassen
+    partial class DMAanpassen
     {
         /// <summary>
         /// Required designer variable.
@@ -246,11 +246,11 @@ namespace GimpiesWinForms
             this.dgvPopup.AllowUserToDeleteRows = false;
             this.dgvPopup.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvPopup.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPopup.Location = new System.Drawing.Point(12, 311);
+            this.dgvPopup.Location = new System.Drawing.Point(15, 332);
             this.dgvPopup.Name = "dgvPopup";
             this.dgvPopup.ReadOnly = true;
             this.dgvPopup.RowTemplate.Height = 25;
-            this.dgvPopup.Size = new System.Drawing.Size(589, 85);
+            this.dgvPopup.Size = new System.Drawing.Size(589, 64);
             this.dgvPopup.TabIndex = 32;
             // 
             // DAAanpassen

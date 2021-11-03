@@ -1,7 +1,7 @@
 ﻿
 namespace GimpiesWinForms
 {
-    partial class DashboardAdmin
+    partial class DashboardManager
     {
         /// <summary>
         /// Required designer variable.
@@ -29,16 +29,17 @@ namespace GimpiesWinForms
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DashboardAdmin));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DashboardManager));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.btVoorraadBekijken = new System.Windows.Forms.ToolStripButton();
-            this.btSchoenenVerkopen = new System.Windows.Forms.ToolStripDropDownButton();
-            this.btSchoenenToevoegen = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.button3 = new System.Windows.Forms.Button();
             this.dgvAdmin = new System.Windows.Forms.DataGridView();
             this.toolStrip1.SuspendLayout();
@@ -52,8 +53,9 @@ namespace GimpiesWinForms
             this.toolStripLabel1,
             this.toolStripSeparator1,
             this.btVoorraadBekijken,
-            this.btSchoenenVerkopen,
-            this.toolStripSeparator2});
+            this.toolStripDropDownButton1,
+            this.toolStripSeparator2,
+            this.toolStripButton1});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
@@ -85,45 +87,55 @@ namespace GimpiesWinForms
             this.btVoorraadBekijken.Text = "Voorraad Schoenen Bekijken";
             this.btVoorraadBekijken.Click += new System.EventHandler(this.btVoorraadBekijken_Click);
             // 
-            // btSchoenenVerkopen
+            // toolStripDropDownButton1
             // 
-            this.btSchoenenVerkopen.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.btSchoenenVerkopen.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btSchoenenToevoegen,
-            this.toolStripMenuItem2,
-            this.toolStripMenuItem3});
-            this.btSchoenenVerkopen.Image = ((System.Drawing.Image)(resources.GetObject("btSchoenenVerkopen.Image")));
-            this.btSchoenenVerkopen.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btSchoenenVerkopen.Name = "btSchoenenVerkopen";
-            this.btSchoenenVerkopen.Size = new System.Drawing.Size(158, 19);
-            this.btSchoenenVerkopen.Text = "Schoenen Beheer";
+            this.toolStripDropDownButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripDropDownButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem1,
+            this.toolStripMenuItem4,
+            this.toolStripMenuItem5});
+            this.toolStripDropDownButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton1.Image")));
+            this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
+            this.toolStripDropDownButton1.Size = new System.Drawing.Size(158, 19);
+            this.toolStripDropDownButton1.Text = "Schoenen Beheer";
             // 
-            // btSchoenenToevoegen
+            // toolStripMenuItem1
             // 
-            this.btSchoenenToevoegen.AutoSize = false;
-            this.btSchoenenToevoegen.Name = "btSchoenenToevoegen";
-            this.btSchoenenToevoegen.Size = new System.Drawing.Size(186, 22);
-            this.btSchoenenToevoegen.Text = "Schoenen Toevoegen";
-            this.btSchoenenToevoegen.Click += new System.EventHandler(this.btSchoenenToevoegen_Click);
+            this.toolStripMenuItem1.AutoSize = false;
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(186, 22);
+            this.toolStripMenuItem1.Text = "Schoenen Toevoegen";
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
-            // toolStripMenuItem2
+            // toolStripMenuItem4
             // 
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(190, 22);
-            this.toolStripMenuItem2.Text = "Schoenen Aanpassen";
-            this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
+            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(190, 22);
+            this.toolStripMenuItem4.Text = "Schoenen Aanpassen";
+            this.toolStripMenuItem4.Click += new System.EventHandler(this.toolStripMenuItem4_Click);
             // 
-            // toolStripMenuItem3
+            // toolStripMenuItem5
             // 
-            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(190, 22);
-            this.toolStripMenuItem3.Text = "Schoenen Verwijderen";
-            this.toolStripMenuItem3.Click += new System.EventHandler(this.toolStripMenuItem3_Click);
+            this.toolStripMenuItem5.Name = "toolStripMenuItem5";
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(190, 22);
+            this.toolStripMenuItem5.Text = "Schoenen Verwijderen";
+            this.toolStripMenuItem5.Click += new System.EventHandler(this.toolStripMenuItem5_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(158, 6);
+            // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(158, 19);
+            this.toolStripButton1.Text = "Medewerkers Beheer";
+            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
             // button3
             // 
@@ -145,7 +157,7 @@ namespace GimpiesWinForms
             this.dgvAdmin.Size = new System.Drawing.Size(546, 393);
             this.dgvAdmin.TabIndex = 9;
             // 
-            // DashboardAdmin
+            // DashboardManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -154,7 +166,7 @@ namespace GimpiesWinForms
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.button3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
-            this.Name = "DashboardAdmin";
+            this.Name = "DashboardManager";
             this.Text = "DashboardAdmin";
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
@@ -171,10 +183,11 @@ namespace GimpiesWinForms
         private System.Windows.Forms.ToolStripButton btVoorraadBekijken;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.ToolStripDropDownButton btSchoenenVerkopen;
-        private System.Windows.Forms.ToolStripMenuItem btSchoenenToevoegen;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
         private System.Windows.Forms.DataGridView dgvAdmin;
+        private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton1;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem4;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem5;
+        private System.Windows.Forms.ToolStripButton toolStripButton1;
     }
 }

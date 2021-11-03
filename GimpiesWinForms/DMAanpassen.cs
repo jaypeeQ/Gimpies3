@@ -11,10 +11,10 @@ using System.Data.SqlClient;
 
 namespace GimpiesWinForms
 {
-    public partial class DAAanpassen : Form
+    public partial class DMAanpassen : Form
     {
         static string ShoeNummer;
-        public DAAanpassen()
+        public DMAanpassen()
         {
             InitializeComponent();
             TextReadOnlyON();
@@ -32,7 +32,7 @@ namespace GimpiesWinForms
             string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=GimpiesDatabase;Integrated Security=True;Connect Timeout=60;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
             SqlConnection conn = new SqlConnection(connectionString);
             conn.Open();
-            SqlCommand cmdSell = new SqlCommand("UPDATE ShoeInventory SET ShoeMerk= '" + ShoeMerk + "', SET ShoeType= '" + ShoeType + "',SET ShoeMaat='" + ShoeMaat + "', SET ShoeKleur= '" + ShoeKleur + "', SET ShoeAantal= '" + ShoeAantal + "', SET ShoePrijs='" + ShoePrijs + "' WHERE ShoeID = '" + tbNummer.Text + "'", conn);
+            SqlCommand cmdSell = new SqlCommand("UPDATE ShoeInventory SET ShoeMerk= '" + ShoeMerk + "', ShoeType= '" + ShoeType + "',ShoeMaat='" + ShoeMaat + "', ShoeKleur= '" + ShoeKleur + "', ShoeAantal= '" + ShoeAantal + "', ShoePrijs='" + ShoePrijs + "' WHERE ShoeID = '" + tbNummer.Text + "'", conn);
             SqlDataReader readSell = cmdSell.ExecuteReader();
             readSell.Read();
             conn.Close();
@@ -66,7 +66,7 @@ namespace GimpiesWinForms
         {
             tbNummer.Text = "";
             tbNummer.ReadOnly = false;
-            dgvPopup.Rows.Clear();
+            
             TextReadOnlyON();
         }
         //Makes the readonly value of the form's textboxes on or off.

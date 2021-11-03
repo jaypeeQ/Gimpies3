@@ -88,7 +88,7 @@ namespace GimpiesWinForms
                     }
                     if (roleValue == "Admin")
                     {
-                        DashboardAdmin dashboardAdmin = new DashboardAdmin();
+                        DashboardManager dashboardAdmin = new DashboardManager();
                         dashboardAdmin.Show();
                         Login.loginAttempt = 0;
                         IN = true;

@@ -1,7 +1,7 @@
 ﻿
 namespace GimpiesWinForms
 {
-    partial class DAVerwijderen
+    partial class DMVerwijderen
     {
         /// <summary>
         /// Required designer variable.

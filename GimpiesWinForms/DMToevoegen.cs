@@ -11,9 +11,9 @@ using System.Data.SqlClient;
 
 namespace GimpiesWinForms
 {
-    public partial class DAToevoegen : Form
+    public partial class DMToevoegen : Form
     {
-        public DAToevoegen()
+        public DMToevoegen()
         {
             InitializeComponent();            
         }

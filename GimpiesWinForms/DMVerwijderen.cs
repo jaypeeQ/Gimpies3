@@ -11,10 +11,10 @@ using System.Data.SqlClient;
 
 namespace GimpiesWinForms
 {
-    public partial class DAVerwijderen : Form
+    public partial class DMVerwijderen : Form
     {
 
-        public DAVerwijderen()
+        public DMVerwijderen()
         {
             InitializeComponent();
             FillDatagrid();

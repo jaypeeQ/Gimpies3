@@ -5,9 +5,9 @@ using System.Data.SqlClient;
 
 namespace GimpiesWinForms
 {
-    public partial class DashboardAdmin : Form
+    public partial class DashboardManager : Form
     {
-        public DashboardAdmin()
+        public DashboardManager()
         {
             InitializeComponent();
             
@@ -38,15 +38,6 @@ namespace GimpiesWinForms
             conn.Close();
 
         }
-        
-        private void btSchoenenToevoegen_Click(object sender, EventArgs e)
-        {
-            DAToevoegen dAToevoegen = new DAToevoegen();
-            this.Hide();
-            dAToevoegen.ShowDialog();
-
-            this.Show();
-        }
 
         private void btVoorraadBekijken_Click(object sender, EventArgs e)
         {
@@ -60,20 +51,38 @@ namespace GimpiesWinForms
             this.Close();
         }
 
-        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        private void toolStripButton1_Click(object sender, EventArgs e)
         {
-            DAAanpassen Aanpassen = new DAAanpassen();
+            DMStaff staff = new DMStaff();
+            this.Hide();
+            staff.ShowDialog();
+
+            this.Show();
+        }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            DMToevoegen dAToevoegen = new DMToevoegen();
+            this.Hide();
+            dAToevoegen.ShowDialog();
+
+            this.Show();
+        }
+
+        private void toolStripMenuItem4_Click(object sender, EventArgs e)
+        {
+            DMAanpassen Aanpassen = new DMAanpassen();
             this.Hide();
             Aanpassen.ShowDialog();
             this.Show();
         }
 
-        private void toolStripMenuItem3_Click(object sender, EventArgs e)
+        private void toolStripMenuItem5_Click(object sender, EventArgs e)
         {
-            DAVerwijderen verwijderen = new DAVerwijderen();
+            DMVerwijderen verwijderen = new DMVerwijderen();
             this.Hide();
             verwijderen.ShowDialog();
-            
+
             this.Show();
         }
     }

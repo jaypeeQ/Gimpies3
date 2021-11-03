@@ -1,7 +1,7 @@
 ﻿
 namespace GimpiesWinForms
 {
-    partial class DAToevoegen
+    partial class DMToevoegen
     {
         /// <summary>
         /// Required designer variable.
