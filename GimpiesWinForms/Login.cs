@@ -81,18 +81,20 @@ namespace GimpiesWinForms
                     if (roleValue == "Verkoop")
                     {
                         DashboardVerkoop dashboardverkoop = new DashboardVerkoop();
-                        dashboardverkoop.Show();
+                        this.Hide();
+                        dashboardverkoop.ShowDialog();
                         Login.loginAttempt = 0;
                         IN = true;
-                        this.Hide();
+                        this.Show();
                     }
                     if (roleValue == "Admin")
                     {
                         DashboardManager dashboardAdmin = new DashboardManager();
-                        dashboardAdmin.Show();
+                        this.Hide();
+                        dashboardAdmin.ShowDialog();
                         Login.loginAttempt = 0;
                         IN = true;
-                        this.Hide();
+                        this.Show();
                     }
                 }
                     /*else if (tbUsername.Text == "Verkoop" && tbPassword.Text == "Gimpies_Verkoop")

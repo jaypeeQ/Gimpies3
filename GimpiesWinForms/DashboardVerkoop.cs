@@ -25,8 +25,7 @@ namespace GimpiesWinForms
        
         private void button3_Click(object sender, EventArgs e)
         {
-            Login form1 = new Login();
-            form1.Show();
+            
             this.Close();
         }
 
