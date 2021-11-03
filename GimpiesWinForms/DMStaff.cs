@@ -57,70 +57,24 @@ namespace GimpiesWinForms
 
         private void btToevoegen_Click(object sender, EventArgs e)
         {
-            string StaffID = tbAStaffID.Text;
-            string Username = tbTUsername.Text;
-            string Password = tbTPassword.Text;
-            string Role = tbTAssignedRole.Text;
-            if (cbToevoegen.Checked == false)
-            {
-                MessageBox.Show("Please check the box for confirmation.");
-                return;
-            }
-            else if (cbToevoegen.Checked == true)
-            {
-                SqlConnection conn = new SqlConnection(connectionString);
-                conn.Open();
-                SqlCommand cmdStaff = new SqlCommand("INSERT INTO Credentials (Username, Password, AssignedRole) " +
-                                                      "VALUES ('" + Username + "', '" + Password + "', '" + Role + "')", conn);
-                SqlDataReader reader = cmdStaff.ExecuteReader();
-                reader.Read();
-                conn.Close();
-                FillDatagridStaff();
-            }
-
+            DMSToevoegen toevoegen = new DMSToevoegen();
+            toevoegen.ShowDialog();
+            FillDatagridStaff();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string StaffID = tbAStaffID.Text;
-            string Username = tbAStaffID.Text;
-            string Password = tbAPassword.Text;
-            string Role = tbAAssignedRole.Text;
-            if (cbAanpassen.Checked == false)
-            {
-                MessageBox.Show("Please check the box for confirmation.");
-                return;
-            }
-            else if (cbAanpassen.Checked == true)
-            {
-                SqlConnection conn = new SqlConnection(connectionString);
-                conn.Open();
-                SqlCommand cmdStaff = new SqlCommand("UPDATE Credentials SET Username='" + Username + "', Password= '" + Password + "', AssignedRole= '" + Role + "' WHERE Id='" + StaffID + "'" , conn);
-                SqlDataReader reader = cmdStaff.ExecuteReader();
-                reader.Read();
-                conn.Close();
-                FillDatagridStaff();
-            }
+            DMSAanpassen aanpassen = new DMSAanpassen();
+            aanpassen.ShowDialog();
+            FillDatagridStaff();
         }
 
-        private void btVerwijderen_Click(object sender, EventArgs e)
+        private void button4_Click(object sender, EventArgs e)
         {
-            string StaffID = tbVStaffID.Text;
-            if (cbVerwijderen.Checked == false)
-            {
-                MessageBox.Show("Please check the box for confirmation.");
-                return;
-            }
-            else if (cbVerwijderen.Checked == true)
-            {
-                SqlConnection conn = new SqlConnection(connectionString);
-                conn.Open();
-                SqlCommand cmdStaff = new SqlCommand("DELETE FROM Credentials where Id= '" + StaffID + "'", conn);
-                SqlDataReader reader = cmdStaff.ExecuteReader();
-                reader.Read();
-                conn.Close();
-                FillDatagridStaff();
-            }
+            DMSVerwijderen verwijderen = new DMSVerwijderen();
+            verwijderen.ShowDialog();
+            FillDatagridStaff();
         }
     }
 }
+

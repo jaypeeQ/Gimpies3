@@ -1,7 +1,7 @@
 ﻿
 namespace GimpiesWinForms
 {
-    partial class DMStaff
+    partial class DMSVerwijderen
     {
         /// <summary>
         /// Required designer variable.
@@ -33,23 +33,23 @@ namespace GimpiesWinForms
             this.label9 = new System.Windows.Forms.Label();
             this.GimpiesLabel = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.dgvMedewerker = new System.Windows.Forms.DataGridView();
-            this.btUpdateGrid = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.cbVerwijderen = new System.Windows.Forms.CheckBox();
+            this.btVerwijderen = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.tbVStaffID = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvMedewerker)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // btBack
             // 
             this.btBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btBack.Image = global::GimpiesWinForms.Properties.Resources.undo;
-            this.btBack.Location = new System.Drawing.Point(467, 12);
+            this.btBack.Location = new System.Drawing.Point(280, 12);
             this.btBack.Name = "btBack";
             this.btBack.Size = new System.Drawing.Size(32, 32);
-            this.btBack.TabIndex = 35;
+            this.btBack.TabIndex = 43;
             this.btBack.UseVisualStyleBackColor = true;
             this.btBack.Click += new System.EventHandler(this.btBack_Click);
             // 
@@ -60,7 +60,7 @@ namespace GimpiesWinForms
             this.label9.Location = new System.Drawing.Point(116, 37);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(106, 21);
-            this.label9.TabIndex = 33;
+            this.label9.TabIndex = 41;
             this.label9.Text = "Medewerkers";
             // 
             // GimpiesLabel
@@ -70,7 +70,7 @@ namespace GimpiesWinForms
             this.GimpiesLabel.Location = new System.Drawing.Point(94, 12);
             this.GimpiesLabel.Name = "GimpiesLabel";
             this.GimpiesLabel.Size = new System.Drawing.Size(164, 25);
-            this.GimpiesLabel.TabIndex = 34;
+            this.GimpiesLabel.TabIndex = 42;
             this.GimpiesLabel.Text = "GIMPIES ONLINE";
             // 
             // pictureBox1
@@ -79,77 +79,70 @@ namespace GimpiesWinForms
             this.pictureBox1.Location = new System.Drawing.Point(12, 12);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(66, 66);
-            this.pictureBox1.TabIndex = 32;
+            this.pictureBox1.TabIndex = 40;
             this.pictureBox1.TabStop = false;
             // 
-            // dgvMedewerker
+            // panel2
             // 
-            this.dgvMedewerker.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvMedewerker.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMedewerker.Location = new System.Drawing.Point(118, 89);
-            this.dgvMedewerker.Name = "dgvMedewerker";
-            this.dgvMedewerker.RowTemplate.Height = 25;
-            this.dgvMedewerker.Size = new System.Drawing.Size(381, 378);
-            this.dgvMedewerker.TabIndex = 36;
+            this.panel2.Controls.Add(this.cbVerwijderen);
+            this.panel2.Controls.Add(this.btVerwijderen);
+            this.panel2.Controls.Add(this.label8);
+            this.panel2.Controls.Add(this.tbVStaffID);
+            this.panel2.Location = new System.Drawing.Point(12, 84);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(300, 70);
+            this.panel2.TabIndex = 44;
             // 
-            // btUpdateGrid
+            // cbVerwijderen
             // 
-            this.btUpdateGrid.Location = new System.Drawing.Point(12, 269);
-            this.btUpdateGrid.Name = "btUpdateGrid";
-            this.btUpdateGrid.Size = new System.Drawing.Size(100, 23);
-            this.btUpdateGrid.TabIndex = 40;
-            this.btUpdateGrid.Text = "Refresh";
-            this.btUpdateGrid.UseVisualStyleBackColor = true;
-            this.btUpdateGrid.Click += new System.EventHandler(this.btUpdateGrid_Click);
+            this.cbVerwijderen.AutoSize = true;
+            this.cbVerwijderen.Location = new System.Drawing.Point(157, 48);
+            this.cbVerwijderen.Name = "cbVerwijderen";
+            this.cbVerwijderen.Size = new System.Drawing.Size(15, 14);
+            this.cbVerwijderen.TabIndex = 39;
+            this.cbVerwijderen.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btVerwijderen
             // 
-            this.button2.Location = new System.Drawing.Point(12, 172);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(100, 23);
-            this.button2.TabIndex = 37;
-            this.button2.Text = "Aanpassen";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button1_Click);
+            this.btVerwijderen.Location = new System.Drawing.Point(178, 43);
+            this.btVerwijderen.Name = "btVerwijderen";
+            this.btVerwijderen.Size = new System.Drawing.Size(100, 23);
+            this.btVerwijderen.TabIndex = 37;
+            this.btVerwijderen.Text = "Verwijderen";
+            this.btVerwijderen.UseVisualStyleBackColor = true;
+            this.btVerwijderen.Click += new System.EventHandler(this.btVerwijderen_Click);
             // 
-            // button3
+            // label8
             // 
-            this.button3.Location = new System.Drawing.Point(12, 124);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(100, 23);
-            this.button3.TabIndex = 37;
-            this.button3.Text = "Toevoegen";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.btToevoegen_Click);
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(104, 17);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(48, 15);
+            this.label8.TabIndex = 39;
+            this.label8.Text = "Staff ID:";
             // 
-            // button4
+            // tbVStaffID
             // 
-            this.button4.Location = new System.Drawing.Point(12, 223);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(100, 23);
-            this.button4.TabIndex = 37;
-            this.button4.Text = "Verwijderen";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.tbVStaffID.Location = new System.Drawing.Point(178, 14);
+            this.tbVStaffID.Name = "tbVStaffID";
+            this.tbVStaffID.Size = new System.Drawing.Size(100, 23);
+            this.tbVStaffID.TabIndex = 38;
             // 
-            // DMStaff
+            // DMSVerwijderen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(507, 473);
-            this.Controls.Add(this.btUpdateGrid);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.dgvMedewerker);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.ClientSize = new System.Drawing.Size(321, 164);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.btBack);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.GimpiesLabel);
             this.Controls.Add(this.pictureBox1);
-            this.Name = "DMStaff";
-            this.Text = "DMStaff";
+            this.Name = "DMSVerwijderen";
+            this.Text = "DMSVerwijderen";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvMedewerker)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -161,10 +154,10 @@ namespace GimpiesWinForms
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label GimpiesLabel;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.DataGridView dgvMedewerker;
-        private System.Windows.Forms.Button btUpdateGrid;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.CheckBox cbVerwijderen;
+        private System.Windows.Forms.Button btVerwijderen;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox tbVStaffID;
     }
 }

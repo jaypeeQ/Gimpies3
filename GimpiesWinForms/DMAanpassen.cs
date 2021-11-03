@@ -18,17 +18,20 @@ namespace GimpiesWinForms
         {
             InitializeComponent();
             TextReadOnlyON();
+            FillDatagridDefault();
         }
         //Checks to see if data is already present relating to a registry's shoenumber.
         //Allows the Admin to add another registry for shoes in the system. (MAX 5)
         private void button1_Click(object sender, EventArgs e)
         {            
-            string ShoeMerk = tbMerk.Text;
+            string ShoeMerk = dgvPopup.Text;
             string ShoeType = tbType.Text;
             string ShoeMaat = tbMaat.Text;
             string ShoeKleur = tbKleur.Text;
             string ShoeAantal = tbAantal.Text;
             string ShoePrijs = tbPrijs.Text;
+
+            string selection = Convert.ToString(dgvPopup.SelectedRows);
             string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=GimpiesDatabase;Integrated Security=True;Connect Timeout=60;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
             SqlConnection conn = new SqlConnection(connectionString);
             conn.Open();
@@ -36,6 +39,8 @@ namespace GimpiesWinForms
             SqlDataReader readSell = cmdSell.ExecuteReader();
             readSell.Read();
             conn.Close();
+            conn.Open();
+
 
         }
         //Generates a shoe number's respective data inside text fields, for easier editing. After a registry has been found, textboxes become free to edit.
@@ -66,7 +71,7 @@ namespace GimpiesWinForms
         {
             tbNummer.Text = "";
             tbNummer.ReadOnly = false;
-            
+            FillDatagridDefault();
             TextReadOnlyON();
         }
         //Makes the readonly value of the form's textboxes on or off.
@@ -114,5 +119,33 @@ namespace GimpiesWinForms
             reader.Close();
             conn.Close();
         }
+
+        public void FillDatagridDefault()
+        {
+            string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=GimpiesDatabase;Integrated Security=True;Connect Timeout=60;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+            SqlConnection conn = new SqlConnection(connectionString);
+            conn.Open();
+            SqlCommand cmdShoes = new SqlCommand("SELECT ShoeId, ShoeMerk, ShoeType, ShoeMaat, ShoeKleur, ShoeAantal, ShoePrijs FROM ShoeInventory", conn);
+            SqlDataReader reader = cmdShoes.ExecuteReader();
+
+            DataTable dt = new DataTable();
+            dt.Columns.Add("Shoe Number");
+            dt.Columns.Add("ShoeMerk");
+            dt.Columns.Add("ShoeType");
+            dt.Columns.Add("ShoeMaat");
+            dt.Columns.Add("ShoeKleur");
+            dt.Columns.Add("ShoeAantal");
+            dt.Columns.Add("ShoePrijs");
+
+            while (reader.Read())
+            {
+                dt.Rows.Add(reader["ShoeId"], reader["ShoeMerk"], reader["ShoeType"], reader["ShoeMaat"], reader["ShoeKleur"], reader["ShoeAantal"], reader["ShoePrijs"]);
+            }
+
+            dgvPopup.DataSource = dt;
+            reader.Close();
+            conn.Close();
+        }
+
     }
 }

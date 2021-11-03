@@ -64,7 +64,7 @@ namespace GimpiesWinForms
             DMToevoegen dAToevoegen = new DMToevoegen();
             this.Hide();
             dAToevoegen.ShowDialog();
-
+            FillDatagrid();
             this.Show();
         }
 
@@ -73,6 +73,7 @@ namespace GimpiesWinForms
             DMAanpassen Aanpassen = new DMAanpassen();
             this.Hide();
             Aanpassen.ShowDialog();
+            FillDatagrid();
             this.Show();
         }
 
@@ -81,7 +82,7 @@ namespace GimpiesWinForms
             DMVerwijderen verwijderen = new DMVerwijderen();
             this.Hide();
             verwijderen.ShowDialog();
-
+            FillDatagrid();
             this.Show();
         }
     }
