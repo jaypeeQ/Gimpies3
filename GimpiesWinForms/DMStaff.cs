@@ -50,10 +50,6 @@ namespace GimpiesWinForms
 
         }
 
-        private void btUpdateGrid_Click(object sender, EventArgs e)
-        {
-            FillDatagridStaff();
-        }
 
         private void btToevoegen_Click(object sender, EventArgs e)
         {

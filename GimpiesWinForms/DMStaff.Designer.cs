@@ -34,7 +34,6 @@ namespace GimpiesWinForms
             this.GimpiesLabel = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.dgvMedewerker = new System.Windows.Forms.DataGridView();
-            this.btUpdateGrid = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
@@ -92,16 +91,6 @@ namespace GimpiesWinForms
             this.dgvMedewerker.Size = new System.Drawing.Size(381, 378);
             this.dgvMedewerker.TabIndex = 36;
             // 
-            // btUpdateGrid
-            // 
-            this.btUpdateGrid.Location = new System.Drawing.Point(12, 269);
-            this.btUpdateGrid.Name = "btUpdateGrid";
-            this.btUpdateGrid.Size = new System.Drawing.Size(100, 23);
-            this.btUpdateGrid.TabIndex = 40;
-            this.btUpdateGrid.Text = "Refresh";
-            this.btUpdateGrid.UseVisualStyleBackColor = true;
-            this.btUpdateGrid.Click += new System.EventHandler(this.btUpdateGrid_Click);
-            // 
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(12, 172);
@@ -137,7 +126,6 @@ namespace GimpiesWinForms
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(507, 473);
-            this.Controls.Add(this.btUpdateGrid);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.dgvMedewerker);
             this.Controls.Add(this.button3);
@@ -162,7 +150,6 @@ namespace GimpiesWinForms
         private System.Windows.Forms.Label GimpiesLabel;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.DataGridView dgvMedewerker;
-        private System.Windows.Forms.Button btUpdateGrid;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;

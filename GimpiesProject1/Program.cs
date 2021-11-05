@@ -15,6 +15,7 @@ namespace GimpiesProject1
         public static string passwordValue;
         public static string roleValue;
         public static int loginAttempts;
+        public static int aantal;
         static void MainMenu()
         {
             try
@@ -64,17 +65,29 @@ namespace GimpiesProject1
         {
             Console.Clear();
             int i, j;
+            
             conn.Open();
             SqlCommand cmdShoes = new SqlCommand("SELECT ShoeMerk, ShoeType, ShoeMaat, ShoeKleur, ShoeAantal, ShoePrijs FROM ShoeInventory", conn);
             SqlDataReader reader = cmdShoes.ExecuteReader();
-
-            Console.WriteLine("{0, -20}{1, -20}{2, -30}{3, -20}{4, -20}{5, -20}", "Merk", "Type", "Maat", "Kleur", "Aantal", "Prijs");
-
+            
+            Console.WriteLine("{0, -15}{1, -15}{2, -15}{3, -15}{4, -15}{5, -15}", "Merk", "Type", "Maat", "Kleur", "Aantal", "Prijs");
+            Console.WriteLine();
             while (reader.Read())
             {
-                Console.WriteLine("{0, -20}{1, -20}{2, -30}{3, -20}{4, -20}{5, -20}", reader["ShoeMerk"], reader["ShoeType"], reader["ShoeMaat"], reader["ShoeKleur"], reader["ShoeAantal"], reader["ShoePrijs"]);
+                aantal = Convert.ToInt32(Convert.ToString(reader["ShoeAantal"]));
+                if (aantal >= 5)
+                {
+                    
+                    Console.WriteLine("{0, -15}{1, -15}{2, -15}{3, -15}{4, -15}{5, -15}", reader["ShoeMerk"], reader["ShoeType"], reader["ShoeMaat"], reader["ShoeKleur"], reader["ShoeAantal"], reader["ShoePrijs"]);
+                }
+                if (aantal <= 5)
+                {
+                    Console.BackgroundColor = ConsoleColor.Red;
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.WriteLine("{0, -15}{1, -15}{2, -15}{3, -15}{4, -15}{5, -15}", reader["ShoeMerk"], reader["ShoeType"], reader["ShoeMaat"], reader["ShoeKleur"], reader["ShoeAantal"], reader["ShoePrijs"]);
+                    Console.ResetColor();
+                }
             }
-
             conn.Close();
             Console.ReadKey();
             MainMenu();
@@ -96,7 +109,19 @@ namespace GimpiesProject1
 
             while (reader.Read())
             {
-                Console.WriteLine("{0, -15}{1, -15}{2, -15}{3, -15}{4, -15}{5, -15}{6, -15}", reader["ShoeId"], reader["ShoeMerk"], reader["ShoeType"], reader["ShoeMaat"], reader["ShoeKleur"], reader["ShoeAantal"], reader["ShoePrijs"]);
+                aantal = Convert.ToInt32(Convert.ToString(reader["ShoeAantal"]));
+                if (aantal >= 5)
+                {
+
+                    Console.WriteLine("{0, -15}{1, -15}{2, -15}{3, -15}{4, -15}{5, -15}{6, -15}", reader["ShoeId"], reader["ShoeMerk"], reader["ShoeType"], reader["ShoeMaat"], reader["ShoeKleur"], reader["ShoeAantal"], reader["ShoePrijs"]);
+                }
+                if (aantal <= 5)
+                {
+                    Console.BackgroundColor = ConsoleColor.Red;
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.WriteLine("{0, -15}{1, -15}{2, -15}{3, -15}{4, -15}{5, -15}{6, -15}", reader["ShoeId"], reader["ShoeMerk"], reader["ShoeType"], reader["ShoeMaat"], reader["ShoeKleur"], reader["ShoeAantal"], reader["ShoePrijs"]);
+                    Console.ResetColor();
+                }
             }
             conn.Close();
             
@@ -108,13 +133,14 @@ namespace GimpiesProject1
             conn.Open();
             SqlCommand cmdShoes2 = new SqlCommand("SELECT ShoeId, ShoeMerk, ShoeType, ShoeMaat, ShoeKleur, ShoeAantal, ShoePrijs FROM ShoeInventory WHERE ShoeId='" + shoeNum + "'", conn);
             SqlDataReader reader2 = cmdShoes2.ExecuteReader();
-
+            Console.Clear();
             Console.WriteLine("{0, -15}{1, -15}{2, -15}{3, -15}{4, -15}{5, -15}{6, -15}", "Shoe Number", "Merk", "Type", "Maat", "Kleur", "Aantal", "Prijs");
 
             reader2.Read();
-            
+            try
+            {
                 Console.WriteLine("{0, -15}{1, -15}{2, -15}{3, -15}{4, -15}{5, -15}{6, -15}", reader2["ShoeId"], reader2["ShoeMerk"], reader2["ShoeType"], reader2["ShoeMaat"], reader2["ShoeKleur"], reader2["ShoeAantal"], reader2["ShoePrijs"]);
-
+            
                 if (shoeNum == Convert.ToString(reader2["ShoeId"]))
                 {
                     Console.Write("Enter amount to add: ");
@@ -127,35 +153,24 @@ namespace GimpiesProject1
                         Console.Clear();
                         Console.WriteLine("You can't input a negative number!. Try again.");
                         Console.ReadLine();
-                        
+
                         MenuInkopen();
                     }
-                reader2.Close();
-                conn.Close();
-                conn.Open();
-                SqlCommand cmdShoesInkoop = new SqlCommand("UPDATE ShoeInventory SET ShoeAantal='" + shoeAantal2 + "' WHERE ShoeID='" + shoeNum + "'", conn);
-                SqlDataReader ShoeInkoop = cmdShoesInkoop.ExecuteReader();
-                ShoeInkoop.Read();
+                    reader2.Close();
+                    conn.Close();
+                    conn.Open();
+                    SqlCommand cmdShoesInkoop = new SqlCommand("UPDATE ShoeInventory SET ShoeAantal='" + shoeAantal2 + "' WHERE ShoeID='" + shoeNum + "'", conn);
+                    SqlDataReader ShoeInkoop = cmdShoesInkoop.ExecuteReader();
+                    ShoeInkoop.Read();
                 }
                 conn.Close();
-
-
-            /*for (i = 0; i < 4; i++)
+            }catch (Exception)
             {
-                if (shoeNum == shoeList[i, 0])
-                {
-                    shoeList[i, 5] = Convert.ToString("\t" + (Convert.ToInt32(shoeList[i, 5]) + InkoopNum));
-                }
-            }*/
-
-            /*for (i = 0; i < 4; i++)
-            {
-                for (j = 0; j < 7; j++)
-                {
-                    Console.Write(shoeList[i, j]);
-                }
-                Console.WriteLine();
-            }*/
+                Console.Clear();
+                Console.WriteLine("Please choose the right number.");
+                Console.ReadLine();
+                MenuInkopen();
+            }
             Console.ReadLine();
             MainMenu();
         }
@@ -164,18 +179,10 @@ namespace GimpiesProject1
             Console.Clear();
             Login();
         }
-        //For Admin privelege at a later date.
-        static void MenuAdmin()
-        {
-            Console.WriteLine();
-            Console.ReadLine();
-        }
         //Login Screen.
         static void Login()
-        {
-            
-            Console.Clear();
-            
+        {            
+            Console.Clear();            
                 loginAttempts = 0;
                 bool succesfull = false;
 
@@ -215,45 +222,25 @@ namespace GimpiesProject1
                             conn.Close();
                             break;
                         }
-                        else if (roleValue == "Admin")
+                        else if (roleValue == "Admin" || roleValue == "Verkoop")
                         {
                             loginAttempts++;
-
                             Console.WriteLine("You are not allowed to log in to this system with your clearance level.");
                             Console.WriteLine("login attempts: " + loginAttempts + " of 3");
-
                             Console.ReadLine();
                             Console.Clear();
-
-                        }
-                        else if (roleValue == "Verkoop")
-                        {
-                            loginAttempts++;
-
-                            Console.WriteLine("You are not allowed to log in to this system with your clearance level.");
-                            Console.WriteLine("login attempts: " + loginAttempts + " of 3");
-
-                            Console.ReadLine();
-                            Console.Clear();
-
-                        }
+                        }                        
                         else
                         {
-                            loginAttempts++;
-                            
+                            loginAttempts++;                           
                             Console.WriteLine("login attempts: " + loginAttempts + " of 3");
                             Console.ReadLine();
-                            Console.Clear();
-                            
+                            Console.Clear();                            
                         }
-
                     }
-
                     else
                     {
-
                         Console.WriteLine("Your username or password is incorect, try again !!!");
-
                         loginAttempts++;
                         Console.WriteLine("login attempts: " + loginAttempts + " of 3");
                         Console.ReadLine();
@@ -334,12 +321,9 @@ namespace GimpiesProject1
 
                 //This will create a table.
         static int tableWidth = 85;
-         static void PrintLine()
-         {
-             Console.WriteLine(new string('-', tableWidth));
-         }
+        
 
-         static void PrintRow(params string[] columns)
+        static void PrintRow(params string[] columns)
          {
              int width = (tableWidth - columns.Length) / columns.Length;
              string row = "|";

@@ -27,7 +27,7 @@ namespace GimpiesWinForms
         {
 
             string StaffID = tbAStaffID.Text;
-            string Username = tbAStaffID.Text;
+            string Username = tbAUsername.Text;
             string Password = tbAPassword.Text;
             string Role = Convert.ToString(comboBox1.Text);
             if (cbAanpassen.Checked == false)

@@ -24,7 +24,7 @@ namespace GimpiesWinForms
         //Allows the Admin to add another registry for shoes in the system. (MAX 5)
         private void button1_Click(object sender, EventArgs e)
         {            
-            string ShoeMerk = dgvPopup.Text;
+            string ShoeMerk = tbMerk.Text;
             string ShoeType = tbType.Text;
             string ShoeMaat = tbMaat.Text;
             string ShoeKleur = tbKleur.Text;
