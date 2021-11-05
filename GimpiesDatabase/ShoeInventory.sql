@@ -6,5 +6,7 @@
     [ShoeMaat] INT NOT NULL, 
     [ShoeKleur] NCHAR(10) NOT NULL, 
     [ShoeAantal] INT NOT NULL, 
-    [ShoePrijs] DECIMAL(4, 2) NOT NULL
+    [ShoePrijs] DECIMAL(4, 2) NOT NULL, 
+    [ShoeSold] INT NULL, 
+    [ShoeTurnover] DECIMAL(16, 2) NULL
 )

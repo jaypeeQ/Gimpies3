@@ -42,8 +42,12 @@ namespace GimpiesWinForms
             SqlDataReader readSell = cmdSell.ExecuteReader();
             readSell.Read();
             conn.Close();
+            conn.Open();
+            SqlCommand cmdSold = new SqlCommand("UPDATE ShoeInventory SET ShoeSold = " + oldStock + ", ShoeTurnover = ShoePrijs*"+ oldStock + " WHERE ShoeID = '" + inputShoeNum + "'", conn);
+            SqlDataReader readSold = cmdSold.ExecuteReader();
+            readSold.Read();
+            conn.Close();
 
-           
             this.Close();
 
         }

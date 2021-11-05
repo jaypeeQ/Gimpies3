@@ -23,24 +23,32 @@ namespace GimpiesWinForms
         //Checks to see if data is already present relating to a registry's shoenumber.
         //Allows the Admin to add another registry for shoes in the system. (MAX 5)
         private void button1_Click(object sender, EventArgs e)
-        {            
-            string ShoeMerk = tbMerk.Text;
-            string ShoeType = tbType.Text;
-            string ShoeMaat = tbMaat.Text;
-            string ShoeKleur = tbKleur.Text;
-            string ShoeAantal = tbAantal.Text;
-            string ShoePrijs = tbPrijs.Text;
+        {
+            try
+            {
+                string ShoeMerk = tbMerk.Text;
+                string ShoeType = tbType.Text;
+                string ShoeMaat = tbMaat.Text;
+                string ShoeKleur = tbKleur.Text;
+                string ShoeAantal = tbAantal.Text;
+                string ShoePrijs = tbPrijs.Text;
 
-            string selection = Convert.ToString(dgvPopup.SelectedRows);
-            string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=GimpiesDatabase;Integrated Security=True;Connect Timeout=60;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
-            SqlConnection conn = new SqlConnection(connectionString);
-            conn.Open();
-            SqlCommand cmdSell = new SqlCommand("UPDATE ShoeInventory SET ShoeMerk= '" + ShoeMerk + "', ShoeType= '" + ShoeType + "',ShoeMaat='" + ShoeMaat + "', ShoeKleur= '" + ShoeKleur + "', ShoeAantal= '" + ShoeAantal + "', ShoePrijs='" + ShoePrijs + "' WHERE ShoeID = '" + tbNummer.Text + "'", conn);
-            SqlDataReader readSell = cmdSell.ExecuteReader();
-            readSell.Read();
-            conn.Close();
-            conn.Open();
-
+                string selection = Convert.ToString(dgvPopup.SelectedRows);
+                string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=GimpiesDatabase;Integrated Security=True;Connect Timeout=60;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+                SqlConnection conn = new SqlConnection(connectionString);
+                conn.Open();
+                SqlCommand cmdSell = new SqlCommand("UPDATE ShoeInventory SET ShoeMerk= '" + ShoeMerk + "', ShoeType= '" + ShoeType + "',ShoeMaat='" + ShoeMaat + "', ShoeKleur= '" + ShoeKleur + "', ShoeAantal= '" + ShoeAantal + "', ShoePrijs='" + ShoePrijs + "' WHERE ShoeID = '" + tbNummer.Text + "'", conn);
+                SqlDataReader readSell = cmdSell.ExecuteReader();
+                readSell.Read();
+                conn.Close();
+                conn.Open();
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Input was not correct. Please enter the proper data." +
+                    "\n In Maat, Aantal, and Prijs: Must be given a number.", "Wrong input given.");
+                return;
+            }
 
         }
         //Generates a shoe number's respective data inside text fields, for easier editing. After a registry has been found, textboxes become free to edit.

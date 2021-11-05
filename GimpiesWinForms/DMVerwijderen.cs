@@ -23,15 +23,21 @@ namespace GimpiesWinForms
         //Replaces the strings in its' respective List into a blank string. (from "string" -> "").
         private void button1_Click(object sender, EventArgs e)
         {
-            string Shoenum = tbDAVShoeNumber.Text;
-            string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=GimpiesDatabase;Integrated Security=True;Connect Timeout=60;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
-            SqlConnection conn = new SqlConnection(connectionString);
-            conn.Open();
-            SqlCommand cmdShoes = new SqlCommand("DELETE FROM ShoeInventory WHERE ShoeId='" + Shoenum + "'", conn);
-            SqlDataReader reader = cmdShoes.ExecuteReader();
-            reader.Read();
-            conn.Close();
-            this.Close();
+            try
+            {
+                string Shoenum = tbDAVShoeNumber.Text;
+                string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=GimpiesDatabase;Integrated Security=True;Connect Timeout=60;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+                SqlConnection conn = new SqlConnection(connectionString);
+                conn.Open();
+                SqlCommand cmdShoes = new SqlCommand("DELETE FROM ShoeInventory WHERE ShoeId='" + Shoenum + "'", conn);
+                SqlDataReader reader = cmdShoes.ExecuteReader();
+                reader.Read();
+                conn.Close();
+                this.Close();
+            }catch (SqlException)
+            {
+                MessageBox.Show("Please select the proper Shoe Mumber.", "Wrong input given.");
+            }
         }
         //Returns to it's respective dashboard.
         private void btBack_Click(object sender, EventArgs e)

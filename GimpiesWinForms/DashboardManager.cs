@@ -10,10 +10,14 @@ namespace GimpiesWinForms
         public DashboardManager()
         {
             InitializeComponent();
-            FillMaxPrijs();
+            FillAvgPrijs();
             FillSumAantal();
             FillMaxPrijsShoeGrid();
             FillMaxAantalGrid();
+            FillTotalTurnover();
+            FillTotalSold();
+            FillMaxSoldGrid();
+            FillMinSoldGrid();
         }
 
         public void FillDatagrid()
@@ -25,12 +29,12 @@ namespace GimpiesWinForms
             SqlDataReader reader = cmdLogin.ExecuteReader();
 
             DataTable dt = new DataTable();
-            dt.Columns.Add("ShoeMerk");
-            dt.Columns.Add("ShoeType");
-            dt.Columns.Add("ShoeMaat");
-            dt.Columns.Add("ShoeKleur");
-            dt.Columns.Add("ShoeAantal");
-            dt.Columns.Add("ShoePrijs");
+            dt.Columns.Add("Merk");
+            dt.Columns.Add("Type");
+            dt.Columns.Add("Maat");
+            dt.Columns.Add("Kleur");
+            dt.Columns.Add("Aantal");
+            dt.Columns.Add("Prijs");
 
             while (reader.Read())
             {
@@ -50,12 +54,12 @@ namespace GimpiesWinForms
             SqlDataReader reader = cmdLogin.ExecuteReader();
 
             DataTable dt = new DataTable();
-            dt.Columns.Add("ShoeMerk");
-            dt.Columns.Add("ShoeType");
-            dt.Columns.Add("ShoeMaat");
-            dt.Columns.Add("ShoeKleur");
-            dt.Columns.Add("ShoeAantal");
-            dt.Columns.Add("ShoePrijs");
+            dt.Columns.Add("Merk");
+            dt.Columns.Add("Type");
+            dt.Columns.Add("Maat");
+            dt.Columns.Add("Kleur");
+            dt.Columns.Add("Aantal");
+            dt.Columns.Add("Prijs");
 
             while (reader.Read())
             {
@@ -74,12 +78,12 @@ namespace GimpiesWinForms
             SqlDataReader reader = cmdMaxAantal.ExecuteReader();
 
             DataTable dt = new DataTable();
-            dt.Columns.Add("ShoeMerk");
-            dt.Columns.Add("ShoeType");
-            dt.Columns.Add("ShoeMaat");
-            dt.Columns.Add("ShoeKleur");
-            dt.Columns.Add("ShoeAantal");
-            dt.Columns.Add("ShoePrijs");
+            dt.Columns.Add("Merk");
+            dt.Columns.Add("Type");
+            dt.Columns.Add("Maat");
+            dt.Columns.Add("Kleur");
+            dt.Columns.Add("Aantal");
+            dt.Columns.Add("Prijs");
 
             while (reader.Read())
             {
@@ -87,6 +91,58 @@ namespace GimpiesWinForms
             }
 
             dgMaxAantal.DataSource = dt;
+            conn.Close();
+            conn.Close();
+
+        }
+        public void FillMaxSoldGrid()
+        {
+            string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=GimpiesDatabase;Integrated Security=True;Connect Timeout=60;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+            SqlConnection conn = new SqlConnection(connectionString);
+            conn.Open();
+            SqlCommand cmdMaxAantal = new SqlCommand("SELECT ShoeMerk, ShoeType, ShoeAantal, ShoePrijs, ShoeSold, ShoeTurnover FROM ShoeInventory WHERE ShoeSold=(SELECT MAX(ShoeSold) FROM ShoeInventory)", conn);
+            SqlDataReader reader = cmdMaxAantal.ExecuteReader();
+
+            DataTable dt = new DataTable();
+            dt.Columns.Add("Merk");
+            dt.Columns.Add("Type");
+            dt.Columns.Add("Aantal");
+            dt.Columns.Add("Prijs");
+            dt.Columns.Add("Sold");
+            dt.Columns.Add("Turnover");
+
+            while (reader.Read())
+            {
+                dt.Rows.Add(reader["ShoeMerk"], reader["ShoeType"], reader["ShoeAantal"], reader["ShoePrijs"], reader["ShoeSold"], reader["ShoeTurnover"]);
+            }
+
+            dgvAMostSold.DataSource = dt;
+            conn.Close();
+            conn.Close();
+
+        }
+        public void FillMinSoldGrid()
+        {
+            string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=GimpiesDatabase;Integrated Security=True;Connect Timeout=60;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+            SqlConnection conn = new SqlConnection(connectionString);
+            conn.Open();
+            SqlCommand cmdMaxAantal = new SqlCommand("SELECT ShoeMerk, ShoeType, ShoeAantal, ShoePrijs, ShoeSold, ShoeTurnover FROM ShoeInventory WHERE ShoeSold=(SELECT MIN(ShoeSold) FROM ShoeInventory)", conn);
+            SqlDataReader reader = cmdMaxAantal.ExecuteReader();
+
+            DataTable dt = new DataTable();
+            dt.Columns.Add("Merk");
+            dt.Columns.Add("Type");
+            dt.Columns.Add("Aantal");
+            dt.Columns.Add("Prijs");
+            dt.Columns.Add("Sold");
+            dt.Columns.Add("Turnover");
+
+            while (reader.Read())
+            {
+                dt.Rows.Add(reader["ShoeMerk"], reader["ShoeType"], reader["ShoeAantal"], reader["ShoePrijs"], reader["ShoeSold"], reader["ShoeTurnover"]);
+            }
+
+            dgvALeastSold.DataSource = dt;
             conn.Close();
             conn.Close();
 
@@ -107,7 +163,7 @@ namespace GimpiesWinForms
 
         
 
-        public void FillMaxPrijs()
+        public void FillAvgPrijs()
         {
             string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=GimpiesDatabase;Integrated Security=True;Connect Timeout=60;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
             SqlConnection conn = new SqlConnection(connectionString);
@@ -122,6 +178,34 @@ namespace GimpiesWinForms
 
         }
 
+        public void FillTotalSold()
+        {
+            string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=GimpiesDatabase;Integrated Security=True;Connect Timeout=60;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+            SqlConnection conn = new SqlConnection(connectionString);
+            conn.Open();
+            SqlCommand cmdSumSold = new SqlCommand("SELECT SUM(ShoeSold) AS SumSold FROM ShoeInventory", conn);
+            SqlDataReader reader = cmdSumSold.ExecuteReader();
+
+
+            reader.Read();
+            tbTotalSold.Text = Convert.ToString(reader["SumSold"]);
+            conn.Close();
+
+        }
+        public void FillTotalTurnover()
+        {
+            string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=GimpiesDatabase;Integrated Security=True;Connect Timeout=60;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+            SqlConnection conn = new SqlConnection(connectionString);
+            conn.Open();
+            SqlCommand cmdSumTurnover = new SqlCommand("SELECT SUM(ShoeTurnover) AS TotalTurnover FROM ShoeInventory", conn);
+            SqlDataReader reader = cmdSumTurnover.ExecuteReader();
+
+
+            reader.Read();
+            tbTotalTurnover.Text = Convert.ToString(reader["TotalTurnover"]);
+            conn.Close();
+
+        }
         private void btVoorraadBekijken_Click(object sender, EventArgs e)
         {
             FillDatagrid();
@@ -138,10 +222,13 @@ namespace GimpiesWinForms
             DMStaff staff = new DMStaff();
             this.Hide();
             staff.ShowDialog();
-            FillMaxPrijs();
+            FillDatagrid();
+            FillAvgPrijs();
             FillSumAantal();
             FillMaxPrijsShoeGrid();
             FillMaxAantalGrid();
+            FillTotalTurnover();
+            FillTotalSold();
             this.Show();
         }
 
@@ -150,10 +237,13 @@ namespace GimpiesWinForms
             DMToevoegen dAToevoegen = new DMToevoegen();
             this.Hide();
             dAToevoegen.ShowDialog();
-            FillMaxPrijs();
+            FillDatagrid();
+            FillAvgPrijs();
             FillSumAantal();
             FillMaxPrijsShoeGrid();
             FillMaxAantalGrid();
+            FillTotalTurnover();
+            FillTotalSold();
             this.Show();
         }
 
@@ -162,10 +252,13 @@ namespace GimpiesWinForms
             DMAanpassen Aanpassen = new DMAanpassen();
             this.Hide();
             Aanpassen.ShowDialog();
-            FillMaxPrijs();
+            FillDatagrid();
+            FillAvgPrijs();
             FillSumAantal();
             FillMaxPrijsShoeGrid();
             FillMaxAantalGrid();
+            FillTotalTurnover();
+            FillTotalSold();
             this.Show();
         }
 
@@ -174,11 +267,19 @@ namespace GimpiesWinForms
             DMVerwijderen verwijderen = new DMVerwijderen();
             this.Hide();
             verwijderen.ShowDialog();
-            FillMaxPrijs();
+            FillDatagrid();
+            FillAvgPrijs();
             FillSumAantal();
             FillMaxPrijsShoeGrid();
             FillMaxAantalGrid();
+            FillTotalTurnover();
+            FillTotalSold();
             this.Show();
+        }
+
+        private void DashboardManager_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
