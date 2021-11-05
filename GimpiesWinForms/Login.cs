@@ -99,7 +99,12 @@ namespace GimpiesWinForms
                         this.Show();
                     }
                 }
-                } while (!IN);                       
+                else if (loginUsernameInput != Convert.ToString(readLogin["Username"]) && loginPassInput != Convert.ToString(readLogin["Password"]))
+                {
+                    MessageBox.Show("Incorrect username and/or password.");
+                    return;
+                }
+            } while (!IN);                       
         }
 
         private void button1_Click(object sender, EventArgs e)
