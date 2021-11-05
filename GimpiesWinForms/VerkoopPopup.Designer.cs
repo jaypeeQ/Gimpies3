@@ -119,7 +119,6 @@ namespace GimpiesWinForms
         private System.Windows.Forms.TextBox tbVerkoperShoeNum;
         private System.Windows.Forms.TextBox tbVerkoperAantalChange;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ListView lvVerkoopPopup;
         private System.Windows.Forms.DataGridView dgvPopup;
     }
 }

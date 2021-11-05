@@ -38,8 +38,8 @@ namespace GimpiesWinForms
                 string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=GimpiesDatabase;Integrated Security=True;Connect Timeout=60;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
                 SqlConnection conn = new SqlConnection(connectionString);
                 conn.Open();
-                SqlCommand cmdToevoegen = new SqlCommand("INSERT INTO ShoeInventory (ShoeMerk, ShoeType, ShoeMaat, ShoeKleur, ShoeAantal, ShoePrijs) " +
-                                                         "VALUES ('" + ShoeMerk + "', '" + ShoeType + "', '" + ShoeMaat + "', '" + ShoeKleur + "', '" + ShoeAantal + "','" + ShoePrijs + "')", conn);
+                SqlCommand cmdToevoegen = new SqlCommand("INSERT INTO ShoeInventory (ShoeMerk, ShoeType, ShoeMaat, ShoeKleur, ShoeAantal, ShoePrijs, ShoeSold, ShoeTurnover) " +
+                                                         "VALUES ('" + ShoeMerk + "', '" + ShoeType + "', '" + ShoeMaat + "', '" + ShoeKleur + "', '" + ShoeAantal + "','" + ShoePrijs + "', 0, 0)", conn);
                 SqlDataReader reader = cmdToevoegen.ExecuteReader();
                 reader.Read();
                 conn.Close();

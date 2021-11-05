@@ -18,6 +18,7 @@ namespace GimpiesWinForms
             FillTotalSold();
             FillMaxSoldGrid();
             FillMinSoldGrid();
+            FillDatagrid();
         }
 
         public void FillDatagrid()
@@ -208,7 +209,8 @@ namespace GimpiesWinForms
         }
         private void btVoorraadBekijken_Click(object sender, EventArgs e)
         {
-            FillDatagrid();
+            DACompleteShoeData showData = new DACompleteShoeData();
+            showData.ShowDialog();
         }
 
         private void button3_Click(object sender, EventArgs e)

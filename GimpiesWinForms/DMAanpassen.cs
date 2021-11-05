@@ -32,12 +32,13 @@ namespace GimpiesWinForms
                 string ShoeKleur = tbKleur.Text;
                 string ShoeAantal = tbAantal.Text;
                 string ShoePrijs = tbPrijs.Text;
+                
 
-                string selection = Convert.ToString(dgvPopup.SelectedRows);
                 string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=GimpiesDatabase;Integrated Security=True;Connect Timeout=60;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
                 SqlConnection conn = new SqlConnection(connectionString);
                 conn.Open();
                 SqlCommand cmdSell = new SqlCommand("UPDATE ShoeInventory SET ShoeMerk= '" + ShoeMerk + "', ShoeType= '" + ShoeType + "',ShoeMaat='" + ShoeMaat + "', ShoeKleur= '" + ShoeKleur + "', ShoeAantal= '" + ShoeAantal + "', ShoePrijs='" + ShoePrijs + "' WHERE ShoeID = '" + tbNummer.Text + "'", conn);
+                
                 SqlDataReader readSell = cmdSell.ExecuteReader();
                 readSell.Read();
                 conn.Close();

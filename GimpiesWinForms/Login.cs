@@ -44,14 +44,10 @@ namespace GimpiesWinForms
             DataTable loginDt = new DataTable();
             try
             {
-                if (readLogin.Read()) ;
-                {
-
-                    roleValue = readLogin.GetValue(2).ToString();
-                }
+            readLogin.Read();    
+            roleValue = readLogin.GetValue(2).ToString();     
             }catch (Exception)
-            {
-                
+            {                
                 MessageBox.Show("Incorrect username and/or password.");
                 if (Login.loginAttempt >= 4)
                 {
