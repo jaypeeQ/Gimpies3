@@ -48,7 +48,7 @@ namespace GimpiesWinForms
             this.btBack.Location = new System.Drawing.Point(467, 12);
             this.btBack.Name = "btBack";
             this.btBack.Size = new System.Drawing.Size(32, 32);
-            this.btBack.TabIndex = 35;
+            this.btBack.TabIndex = 4;
             this.btBack.UseVisualStyleBackColor = true;
             this.btBack.Click += new System.EventHandler(this.btBack_Click);
             // 
@@ -87,16 +87,18 @@ namespace GimpiesWinForms
             this.dgvMedewerker.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvMedewerker.Location = new System.Drawing.Point(118, 89);
             this.dgvMedewerker.Name = "dgvMedewerker";
+            this.dgvMedewerker.ReadOnly = true;
             this.dgvMedewerker.RowTemplate.Height = 25;
             this.dgvMedewerker.Size = new System.Drawing.Size(381, 378);
             this.dgvMedewerker.TabIndex = 36;
+            this.dgvMedewerker.TabStop = false;
             // 
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(12, 172);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(100, 23);
-            this.button2.TabIndex = 37;
+            this.button2.TabIndex = 2;
             this.button2.Text = "Aanpassen";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button1_Click);
@@ -106,7 +108,7 @@ namespace GimpiesWinForms
             this.button3.Location = new System.Drawing.Point(12, 124);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(100, 23);
-            this.button3.TabIndex = 37;
+            this.button3.TabIndex = 1;
             this.button3.Text = "Toevoegen";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.btToevoegen_Click);
@@ -116,7 +118,7 @@ namespace GimpiesWinForms
             this.button4.Location = new System.Drawing.Point(12, 223);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(100, 23);
-            this.button4.TabIndex = 37;
+            this.button4.TabIndex = 3;
             this.button4.Text = "Verwijderen";
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);

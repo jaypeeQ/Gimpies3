@@ -49,7 +49,7 @@ namespace GimpiesWinForms
             this.btBack.Location = new System.Drawing.Point(280, 12);
             this.btBack.Name = "btBack";
             this.btBack.Size = new System.Drawing.Size(32, 32);
-            this.btBack.TabIndex = 43;
+            this.btBack.TabIndex = 4;
             this.btBack.UseVisualStyleBackColor = true;
             this.btBack.Click += new System.EventHandler(this.btBack_Click);
             // 
@@ -99,7 +99,7 @@ namespace GimpiesWinForms
             this.cbVerwijderen.Location = new System.Drawing.Point(157, 48);
             this.cbVerwijderen.Name = "cbVerwijderen";
             this.cbVerwijderen.Size = new System.Drawing.Size(15, 14);
-            this.cbVerwijderen.TabIndex = 39;
+            this.cbVerwijderen.TabIndex = 2;
             this.cbVerwijderen.UseVisualStyleBackColor = true;
             // 
             // btVerwijderen
@@ -107,7 +107,7 @@ namespace GimpiesWinForms
             this.btVerwijderen.Location = new System.Drawing.Point(178, 43);
             this.btVerwijderen.Name = "btVerwijderen";
             this.btVerwijderen.Size = new System.Drawing.Size(100, 23);
-            this.btVerwijderen.TabIndex = 37;
+            this.btVerwijderen.TabIndex = 3;
             this.btVerwijderen.Text = "Verwijderen";
             this.btVerwijderen.UseVisualStyleBackColor = true;
             this.btVerwijderen.Click += new System.EventHandler(this.btVerwijderen_Click);
@@ -126,7 +126,7 @@ namespace GimpiesWinForms
             this.tbVStaffID.Location = new System.Drawing.Point(178, 14);
             this.tbVStaffID.Name = "tbVStaffID";
             this.tbVStaffID.Size = new System.Drawing.Size(100, 23);
-            this.tbVStaffID.TabIndex = 38;
+            this.tbVStaffID.TabIndex = 1;
             // 
             // DMSVerwijderen
             // 

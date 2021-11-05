@@ -113,6 +113,7 @@ namespace GimpiesWinForms
             this.dgvAdmin.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAdmin.Location = new System.Drawing.Point(165, 60);
             this.dgvAdmin.Name = "dgvAdmin";
+            this.dgvAdmin.ReadOnly = true;
             this.dgvAdmin.RowTemplate.Height = 25;
             this.dgvAdmin.Size = new System.Drawing.Size(546, 393);
             this.dgvAdmin.TabIndex = 10;

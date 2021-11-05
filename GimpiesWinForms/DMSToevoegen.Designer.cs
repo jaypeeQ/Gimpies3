@@ -52,7 +52,7 @@ namespace GimpiesWinForms
             this.btBack.Location = new System.Drawing.Point(280, 12);
             this.btBack.Name = "btBack";
             this.btBack.Size = new System.Drawing.Size(32, 32);
-            this.btBack.TabIndex = 39;
+            this.btBack.TabIndex = 5;
             this.btBack.UseVisualStyleBackColor = true;
             this.btBack.Click += new System.EventHandler(this.btBack_Click);
             // 
@@ -105,7 +105,7 @@ namespace GimpiesWinForms
             this.comboBox1.Location = new System.Drawing.Point(178, 72);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(100, 23);
-            this.comboBox1.TabIndex = 40;
+            this.comboBox1.TabIndex = 2;
             // 
             // cbToevoegen
             // 
@@ -113,7 +113,7 @@ namespace GimpiesWinForms
             this.cbToevoegen.Location = new System.Drawing.Point(157, 105);
             this.cbToevoegen.Name = "cbToevoegen";
             this.cbToevoegen.Size = new System.Drawing.Size(15, 14);
-            this.cbToevoegen.TabIndex = 39;
+            this.cbToevoegen.TabIndex = 3;
             this.cbToevoegen.UseVisualStyleBackColor = true;
             // 
             // label3
@@ -139,14 +139,14 @@ namespace GimpiesWinForms
             this.tbTPassword.Location = new System.Drawing.Point(178, 42);
             this.tbTPassword.Name = "tbTPassword";
             this.tbTPassword.Size = new System.Drawing.Size(100, 23);
-            this.tbTPassword.TabIndex = 38;
+            this.tbTPassword.TabIndex = 1;
             // 
             // btToevoegen
             // 
             this.btToevoegen.Location = new System.Drawing.Point(178, 100);
             this.btToevoegen.Name = "btToevoegen";
             this.btToevoegen.Size = new System.Drawing.Size(100, 23);
-            this.btToevoegen.TabIndex = 37;
+            this.btToevoegen.TabIndex = 4;
             this.btToevoegen.Text = "Toevoegen";
             this.btToevoegen.UseVisualStyleBackColor = true;
             this.btToevoegen.Click += new System.EventHandler(this.btToevoegen_Click);
@@ -156,7 +156,7 @@ namespace GimpiesWinForms
             this.tbTUsername.Location = new System.Drawing.Point(178, 13);
             this.tbTUsername.Name = "tbTUsername";
             this.tbTUsername.Size = new System.Drawing.Size(100, 23);
-            this.tbTUsername.TabIndex = 38;
+            this.tbTUsername.TabIndex = 0;
             // 
             // DMSToevoegen
             // 

@@ -19,6 +19,8 @@ namespace GimpiesWinForms
         private BindingSource bindingSource1 = new BindingSource();
         private Button reloadButton = new Button();
         private Button submitButton = new Button();
+        public static int loginAttempt;
+
 
 
         public Login()
@@ -97,53 +99,8 @@ namespace GimpiesWinForms
                         this.Show();
                     }
                 }
-                    /*else if (tbUsername.Text == "Verkoop" && tbPassword.Text == "Gimpies_Verkoop")
-                    {
-
-                        DashboardVerkoop dashboardverkoop = new DashboardVerkoop();
-                        dashboardverkoop.Show();
-                        Login.loginAttempt = 0;
-                        IN = true;
-                        this.Hide();
-                    }
-                    else if (tbUsername.Text == "Admin" && tbPassword.Text == "Gimpies_Admin")
-                    {
-
-                        DashboardAdmin dashboardAdmin = new DashboardAdmin();
-                        dashboardAdmin.Show();
-                        Login.loginAttempt = 0;
-                        IN = true;
-                        this.Hide();
-                    }
-                    else if (tbUsername.Text == "" && tbPassword.Text == "")
-                    {
-
-                        MessageBox.Show("You can't leave the fields blank.", "Username and password needs to be provided.",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
-                    }
-
-                    else if (tbUsername.Text != "Verkoop" && tbPassword.Text != "Gimpies_Verkoop")
-                    {
-                        MessageBox.Show("Wrong credentials given.", "ERROR.",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
-                    }
-                    else if (tbUsername.Text != "Admin" && tbPassword.Text != "Gimpies_Admin")
-                    {
-                        MessageBox.Show("Wrong credentials given.", "ERROR.",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
-                    }*/
-                } while (!IN);
-            
-            
+                } while (!IN);                       
         }
-        
-        
-
-        public static int loginAttempt;
-
 
         private void button1_Click(object sender, EventArgs e)
         {

@@ -54,7 +54,7 @@ namespace GimpiesWinForms
             this.btBack.Location = new System.Drawing.Point(280, 12);
             this.btBack.Name = "btBack";
             this.btBack.Size = new System.Drawing.Size(32, 32);
-            this.btBack.TabIndex = 43;
+            this.btBack.TabIndex = 7;
             this.btBack.UseVisualStyleBackColor = true;
             this.btBack.Click += new System.EventHandler(this.btBack_Click);
             // 
@@ -109,7 +109,7 @@ namespace GimpiesWinForms
             this.comboBox1.Location = new System.Drawing.Point(178, 72);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(100, 23);
-            this.comboBox1.TabIndex = 40;
+            this.comboBox1.TabIndex = 4;
             // 
             // cbAanpassen
             // 
@@ -117,7 +117,7 @@ namespace GimpiesWinForms
             this.cbAanpassen.Location = new System.Drawing.Point(157, 104);
             this.cbAanpassen.Name = "cbAanpassen";
             this.cbAanpassen.Size = new System.Drawing.Size(15, 14);
-            this.cbAanpassen.TabIndex = 39;
+            this.cbAanpassen.TabIndex = 5;
             this.cbAanpassen.UseVisualStyleBackColor = true;
             // 
             // label1
@@ -143,7 +143,7 @@ namespace GimpiesWinForms
             this.tbAPassword.Location = new System.Drawing.Point(178, 42);
             this.tbAPassword.Name = "tbAPassword";
             this.tbAPassword.Size = new System.Drawing.Size(100, 23);
-            this.tbAPassword.TabIndex = 38;
+            this.tbAPassword.TabIndex = 3;
             // 
             // label5
             // 
@@ -159,7 +159,7 @@ namespace GimpiesWinForms
             this.button1.Location = new System.Drawing.Point(178, 100);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(100, 23);
-            this.button1.TabIndex = 37;
+            this.button1.TabIndex = 6;
             this.button1.Text = "Aanpassen";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -169,14 +169,14 @@ namespace GimpiesWinForms
             this.tbAStaffID.Location = new System.Drawing.Point(63, 13);
             this.tbAStaffID.Name = "tbAStaffID";
             this.tbAStaffID.Size = new System.Drawing.Size(35, 23);
-            this.tbAStaffID.TabIndex = 38;
+            this.tbAStaffID.TabIndex = 1;
             // 
             // tbAUsername
             // 
             this.tbAUsername.Location = new System.Drawing.Point(178, 13);
             this.tbAUsername.Name = "tbAUsername";
             this.tbAUsername.Size = new System.Drawing.Size(100, 23);
-            this.tbAUsername.TabIndex = 38;
+            this.tbAUsername.TabIndex = 2;
             // 
             // DMSAanpassen
             // 

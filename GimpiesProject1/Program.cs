@@ -75,7 +75,7 @@ namespace GimpiesProject1
             while (reader.Read())
             {
                 aantal = Convert.ToInt32(Convert.ToString(reader["ShoeAantal"]));
-                if (aantal >= 5)
+                if (aantal >= 6)
                 {
                     
                     Console.WriteLine("{0, -15}{1, -15}{2, -15}{3, -15}{4, -15}{5, -15}", reader["ShoeMerk"], reader["ShoeType"], reader["ShoeMaat"], reader["ShoeKleur"], reader["ShoeAantal"], reader["ShoePrijs"]);
