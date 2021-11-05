@@ -22,23 +22,31 @@ namespace GimpiesWinForms
 
         private void btVerwijderen_Click(object sender, EventArgs e)
         {
-
-            string StaffID = tbVStaffID.Text;
-            if (cbVerwijderen.Checked == false)
+            try
             {
-                MessageBox.Show("Please check the box for confirmation.");
+                string StaffID = tbVStaffID.Text;
+                if (cbVerwijderen.Checked == false)
+                {
+                    MessageBox.Show("Please check the box for confirmation.");
+                    return;
+                }
+                else if (cbVerwijderen.Checked == true)
+                {
+                    SqlConnection conn = new SqlConnection(connectionString);
+                    conn.Open();
+                    SqlCommand cmdStaff = new SqlCommand("DELETE FROM Credentials where Id= '" + StaffID + "'", conn);
+                    SqlDataReader reader = cmdStaff.ExecuteReader();
+                    reader.Read();
+                    conn.Close();
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Please enter the proper Staff Number.", "Error");
                 return;
             }
-            else if (cbVerwijderen.Checked == true)
-            {
-                SqlConnection conn = new SqlConnection(connectionString);
-                conn.Open();
-                SqlCommand cmdStaff = new SqlCommand("DELETE FROM Credentials where Id= '" + StaffID + "'", conn);
-                SqlDataReader reader = cmdStaff.ExecuteReader();
-                reader.Read();
-                conn.Close();
-                this.Close();
-            }
+            this.Close();
+            
         }
 
         private void btBack_Click(object sender, EventArgs e)
