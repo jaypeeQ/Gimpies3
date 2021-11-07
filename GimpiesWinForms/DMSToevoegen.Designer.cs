@@ -186,11 +186,11 @@ namespace GimpiesWinForms
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel1;
         public System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.CheckBox cbToevoegen;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox tbTPassword;
-        private System.Windows.Forms.Button btToevoegen;
-        private System.Windows.Forms.TextBox tbTUsername;
+        public System.Windows.Forms.CheckBox cbToevoegen;
+        public System.Windows.Forms.TextBox tbTPassword;
+        public System.Windows.Forms.Button btToevoegen;
+        public System.Windows.Forms.TextBox tbTUsername;
     }
 }

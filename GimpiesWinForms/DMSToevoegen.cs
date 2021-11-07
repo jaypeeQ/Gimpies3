@@ -14,6 +14,8 @@ namespace GimpiesWinForms
     public partial class DMSToevoegen : Form
     {
         public string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=GimpiesDatabase;Integrated Security=True;Connect Timeout=60;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        
+
 
         public DMSToevoegen()
         {
@@ -26,8 +28,10 @@ namespace GimpiesWinForms
         private void btToevoegen_Click(object sender, EventArgs e)
         {
             string Username = tbTUsername.Text;
-            string Password = tbTPassword.Text;
-            string Role = Convert.ToString(comboBox1.Text);
+            bool insert = true;
+            string exists;
+            
+            SqlConnection conn = new SqlConnection(connectionString);
 
             if (cbToevoegen.Checked == false)
             {
@@ -36,12 +40,19 @@ namespace GimpiesWinForms
             }
             else if (cbToevoegen.Checked == true)
             {
-                SqlConnection conn = new SqlConnection(connectionString);
                 conn.Open();
-                SqlCommand cmdStaff = new SqlCommand("INSERT INTO Credentials (Username, Password, AssignedRole) " +
-                                                      "VALUES ('" + Username + "', '" + Password + "', '" + Role + "')", conn);
-                SqlDataReader reader = cmdStaff.ExecuteReader();
-                reader.Read();
+                SqlCommand cmdCheck = new SqlCommand("SELECT Username FROM Credentials", conn);
+                SqlDataReader reader = cmdCheck.ExecuteReader();
+                while (reader.Read())
+                {
+                    if (Username == reader["Username"].ToString())
+                    {
+                        MessageBox.Show("Account already exists.");
+                        return;
+                    }
+                } 
+                insertAccount();
+
                 conn.Close();
                 this.Close();
             }
@@ -50,6 +61,22 @@ namespace GimpiesWinForms
         private void btBack_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void insertAccount()
+        {
+            
+            string Username = tbTUsername.Text;
+            string Password = tbTPassword.Text;
+            string Role = Convert.ToString(comboBox1.Text);
+
+            SqlConnection conn = new SqlConnection(connectionString);
+            conn.Open();
+            SqlCommand cmdStaff = new SqlCommand("INSERT INTO Credentials (Username, Password, AssignedRole) " +
+                                                              "VALUES ('" + Username + "', '" + Password + "', '" + Role + "')", conn);
+            SqlDataReader reader2 = cmdStaff.ExecuteReader();
+            reader2.Read();
+            
         }
     }
 }

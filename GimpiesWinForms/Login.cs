@@ -41,7 +41,6 @@ namespace GimpiesWinForms
             string roleValue;
             SqlCommand cmdLogin = new SqlCommand("SELECT Username, Password, AssignedRole FROM Credentials WHERE Username='" + loginUsernameInput + "' AND Password='" + loginPassInput + "'", SQLSELECT.conn);
             SqlDataReader readLogin = cmdLogin.ExecuteReader();
-            DataTable loginDt = new DataTable();
             try
             {
             readLogin.Read();    
