@@ -38,6 +38,38 @@ namespace GimpiesWinForms
                 string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=GimpiesDatabase;Integrated Security=True;Connect Timeout=60;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
                 SqlConnection conn = new SqlConnection(connectionString);
                 conn.Open();
+                SqlCommand cmdCheck = new SqlCommand("SELECT ShoeMerk, ShoeType, ShoeMaat, ShoeKleur, ShoeAantal, ShoePrijs FROM ShoeInventory", conn);
+                SqlDataReader readCheck = cmdCheck.ExecuteReader();
+                while (readCheck.Read())
+                {
+                    if (ShoeMerk == readCheck["ShoeMerk"].ToString() && ShoeType == readCheck["ShoeType"].ToString())
+                    {
+                        if (ShoeMerk == readCheck["ShoeMerk"].ToString() && ShoeType == readCheck["ShoeType"].ToString() && ShoeKleur == readCheck["ShoeKleur"].ToString())
+                        {
+                            if (ShoeMerk == readCheck["ShoeMerk"].ToString() && ShoeType == readCheck["ShoeType"].ToString() && ShoeKleur == readCheck["ShoeKleur"].ToString() && ShoeMaat == readCheck["ShoeMaat"].ToString())
+                            {
+                                if (ShoeMerk == readCheck["ShoeMerk"].ToString() && ShoeType == readCheck["ShoeType"].ToString() && ShoeKleur == readCheck["ShoeKleur"].ToString() && ShoeMaat == readCheck["ShoeMaat"].ToString() && ShoeAantal == readCheck["ShoeAantal"].ToString())
+                                {
+                                    if (ShoeMerk == readCheck["ShoeMerk"].ToString() && ShoeType == readCheck["ShoeType"].ToString() && ShoeKleur == readCheck["ShoeKleur"].ToString() && ShoeMaat == readCheck["ShoeMaat"].ToString() && ShoeAantal == readCheck["ShoeAantal"].ToString() && ShoePrijs == readCheck["ShoePrijs"].ToString())
+                                    {
+                                        MessageBox.Show("This stock already exists in the inventory.");
+                                        return;
+                                    }
+                                    MessageBox.Show("Did you mean to stock up on this shoe? If so, please inform >>Inkoop_Medewerker<<.");
+                                    return;
+                                }
+                                MessageBox.Show("This shoe brand, type, color and size already exists.");
+                                return;
+                            }
+                            MessageBox.Show("This shoe brand, type, and color already exists.");
+                            return;
+                        }
+                        MessageBox.Show("This shoe brand and type already exists.");
+                        return;
+                    }                   
+                }
+                conn.Close();
+                conn.Open();
                 SqlCommand cmdToevoegen = new SqlCommand("INSERT INTO ShoeInventory (ShoeMerk, ShoeType, ShoeMaat, ShoeKleur, ShoeAantal, ShoePrijs, ShoeSold, ShoeTurnover) " +
                                                          "VALUES ('" + ShoeMerk + "', '" + ShoeType + "', '" + ShoeMaat + "', '" + ShoeKleur + "', '" + ShoeAantal + "','" + ShoePrijs + "', 0, 0)", conn);
                 SqlDataReader reader = cmdToevoegen.ExecuteReader();
