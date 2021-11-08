@@ -29,7 +29,6 @@ namespace GimpiesWinForms
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DashboardVerkoop));
             this.button3 = new System.Windows.Forms.Button();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
@@ -64,7 +63,7 @@ namespace GimpiesWinForms
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.toolStrip1.Size = new System.Drawing.Size(161, 465);
+            this.toolStrip1.Size = new System.Drawing.Size(177, 465);
             this.toolStrip1.TabIndex = 4;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -74,48 +73,46 @@ namespace GimpiesWinForms
             this.toolStripLabel1.Image = global::GimpiesWinForms.Properties.Resources.gimpies;
             this.toolStripLabel1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(158, 64);
+            this.toolStripLabel1.Size = new System.Drawing.Size(174, 64);
             this.toolStripLabel1.Text = "toolStripLabel1";
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(158, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(174, 6);
             // 
             // btVoorraadBekijken
             // 
-            this.btVoorraadBekijken.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.btVoorraadBekijken.Image = ((System.Drawing.Image)(resources.GetObject("btVoorraadBekijken.Image")));
+            this.btVoorraadBekijken.Image = global::GimpiesWinForms.Properties.Resources.Untitled;
             this.btVoorraadBekijken.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btVoorraadBekijken.Name = "btVoorraadBekijken";
-            this.btVoorraadBekijken.Size = new System.Drawing.Size(158, 19);
+            this.btVoorraadBekijken.Size = new System.Drawing.Size(174, 20);
             this.btVoorraadBekijken.Text = "Voorraad Schoenen Bekijken";
             this.btVoorraadBekijken.Click += new System.EventHandler(this.btVoorraadBekijken_Click);
             // 
             // btSchoenenVerkopen
             // 
-            this.btSchoenenVerkopen.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.btSchoenenVerkopen.Image = ((System.Drawing.Image)(resources.GetObject("btSchoenenVerkopen.Image")));
+            this.btSchoenenVerkopen.Image = global::GimpiesWinForms.Properties.Resources.money_icon_png_18;
             this.btSchoenenVerkopen.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btSchoenenVerkopen.Name = "btSchoenenVerkopen";
-            this.btSchoenenVerkopen.Size = new System.Drawing.Size(158, 19);
+            this.btSchoenenVerkopen.Size = new System.Drawing.Size(174, 20);
             this.btSchoenenVerkopen.Text = "Schoenen Verkopen";
             this.btSchoenenVerkopen.Click += new System.EventHandler(this.btSchoenenVerkopen_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(158, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(174, 6);
             // 
             // dgvAdmin
             // 
             this.dgvAdmin.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvAdmin.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAdmin.Location = new System.Drawing.Point(165, 60);
+            this.dgvAdmin.Location = new System.Drawing.Point(180, 60);
             this.dgvAdmin.Name = "dgvAdmin";
             this.dgvAdmin.ReadOnly = true;
             this.dgvAdmin.RowTemplate.Height = 25;
-            this.dgvAdmin.Size = new System.Drawing.Size(546, 393);
+            this.dgvAdmin.Size = new System.Drawing.Size(531, 393);
             this.dgvAdmin.TabIndex = 10;
             // 
             // DashboardVerkoop

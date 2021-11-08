@@ -87,7 +87,7 @@ namespace GimpiesWinForms
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.toolStrip1.Size = new System.Drawing.Size(153, 535);
+            this.toolStrip1.Size = new System.Drawing.Size(169, 535);
             this.toolStrip1.TabIndex = 7;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -97,21 +97,20 @@ namespace GimpiesWinForms
             this.toolStripLabel1.Image = global::GimpiesWinForms.Properties.Resources.gimpies;
             this.toolStripLabel1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(150, 64);
+            this.toolStripLabel1.Size = new System.Drawing.Size(166, 64);
             this.toolStripLabel1.Text = "toolStripLabel1";
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(150, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(166, 6);
             // 
             // btVoorraadBekijken
             // 
-            this.btVoorraadBekijken.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.btVoorraadBekijken.Image = ((System.Drawing.Image)(resources.GetObject("btVoorraadBekijken.Image")));
+            this.btVoorraadBekijken.Image = global::GimpiesWinForms.Properties.Resources.Untitled;
             this.btVoorraadBekijken.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btVoorraadBekijken.Name = "btVoorraadBekijken";
-            this.btVoorraadBekijken.Size = new System.Drawing.Size(150, 19);
+            this.btVoorraadBekijken.Size = new System.Drawing.Size(166, 20);
             this.btVoorraadBekijken.Text = "Vorraad schoenen bekijken";
             this.btVoorraadBekijken.Click += new System.EventHandler(this.btVoorraadBekijken_Click);
             // 
@@ -125,7 +124,7 @@ namespace GimpiesWinForms
             this.toolStripDropDownButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton1.Image")));
             this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
-            this.toolStripDropDownButton1.Size = new System.Drawing.Size(150, 19);
+            this.toolStripDropDownButton1.Size = new System.Drawing.Size(166, 19);
             this.toolStripDropDownButton1.Text = "Schoenen Beheer";
             // 
             // toolStripMenuItem1
@@ -153,15 +152,14 @@ namespace GimpiesWinForms
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(150, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(166, 6);
             // 
             // toolStripButton1
             // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+            this.toolStripButton1.Image = global::GimpiesWinForms.Properties.Resources._271_2711807_faculty_staff_icon_faculty_staff_icon;
             this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(150, 19);
+            this.toolStripButton1.Size = new System.Drawing.Size(166, 20);
             this.toolStripButton1.Text = "Medewerkers Beheer";
             this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
