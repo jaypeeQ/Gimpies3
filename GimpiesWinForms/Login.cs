@@ -25,19 +25,17 @@ namespace GimpiesWinForms
             InitializeComponent();
 
         }
-
-       
-
         private void btLogin_Click(object sender, EventArgs e)
         {
-            SQLSELECT.conn = new SqlConnection(SQLSELECT.connectionString);
-            SQLSELECT.conn.Open();
+            string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=GimpiesDatabase;Integrated Security=True;Connect Timeout=60;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+            SqlConnection conn = new SqlConnection(connectionString);
+            conn.Open();
             bool IN = false;
             Login.loginAttempt++;
             string loginUsernameInput = tbUsername.Text;
             string loginPassInput = tbPassword.Text;
             string roleValue;
-            SqlCommand cmdLogin = new SqlCommand("SELECT Username, Password, AssignedRole FROM Credentials WHERE Username='" + loginUsernameInput + "' AND Password='" + loginPassInput + "'", SQLSELECT.conn);
+            SqlCommand cmdLogin = new SqlCommand("SELECT Username, Password, AssignedRole FROM Credentials WHERE Username='" + loginUsernameInput + "' AND Password='" + loginPassInput + "'", conn);
             SqlDataReader readLogin = cmdLogin.ExecuteReader();
             //Checks the credentials in the database, and tries to get it's assigned role.
             try

@@ -14,7 +14,7 @@ namespace GimpiesWinForms
     public partial class DMSToevoegen : Form
     {
         public string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=GimpiesDatabase;Integrated Security=True;Connect Timeout=60;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
-        
+
 
 
         public DMSToevoegen()
@@ -28,9 +28,8 @@ namespace GimpiesWinForms
         private void btToevoegen_Click(object sender, EventArgs e)
         {
             string Username = tbTUsername.Text;
-            bool insert = true;
-            string exists;
             
+
             SqlConnection conn = new SqlConnection(connectionString);
 
             if (cbToevoegen.Checked == false)
@@ -50,7 +49,7 @@ namespace GimpiesWinForms
                         MessageBox.Show("Account already exists.");
                         return;
                     }
-                } 
+                }
                 insertAccount();
 
                 conn.Close();
@@ -65,7 +64,7 @@ namespace GimpiesWinForms
 
         private void insertAccount()
         {
-            
+
             string Username = tbTUsername.Text;
             string Password = tbTPassword.Text;
             string Role = Convert.ToString(comboBox1.Text);
@@ -76,7 +75,23 @@ namespace GimpiesWinForms
                                                               "VALUES ('" + Username + "', '" + Password + "', '" + Role + "')", conn);
             SqlDataReader reader2 = cmdStaff.ExecuteReader();
             reader2.Read();
-            
+
+        }
+        private void tbtTUsername_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                btToevoegen.PerformClick();
+        }
+        private void tbVPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                btToevoegen.PerformClick();
+        }
+
+        private void combobox1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                btToevoegen.PerformClick();
         }
     }
 }

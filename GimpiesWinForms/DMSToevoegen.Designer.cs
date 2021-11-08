@@ -106,6 +106,7 @@ namespace GimpiesWinForms
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(100, 23);
             this.comboBox1.TabIndex = 2;
+            this.comboBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.combobox1_KeyDown);
             // 
             // cbToevoegen
             // 
@@ -140,6 +141,7 @@ namespace GimpiesWinForms
             this.tbTPassword.Name = "tbTPassword";
             this.tbTPassword.Size = new System.Drawing.Size(100, 23);
             this.tbTPassword.TabIndex = 1;
+            this.tbTPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbVPassword_KeyDown);
             // 
             // btToevoegen
             // 
@@ -157,6 +159,7 @@ namespace GimpiesWinForms
             this.tbTUsername.Name = "tbTUsername";
             this.tbTUsername.Size = new System.Drawing.Size(100, 23);
             this.tbTUsername.TabIndex = 0;
+            this.tbTUsername.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbtTUsername_KeyDown);
             // 
             // DMSToevoegen
             // 

@@ -109,6 +109,7 @@ namespace GimpiesWinForms
             this.tbNummer.Name = "tbNummer";
             this.tbNummer.Size = new System.Drawing.Size(100, 23);
             this.tbNummer.TabIndex = 0;
+            this.tbNummer.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbNummer_KeyDown);
             // 
             // tbMerk
             // 

@@ -51,5 +51,27 @@ namespace GimpiesWinForms
         {
             this.Close();
         }
+        private void tbAUsername_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                button1.PerformClick();
+        }
+        private void tbAPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                button1.PerformClick();
+        }
+
+        private void combobox1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                button1.PerformClick();
+        }
+        private void tbAStaffID_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                button1.PerformClick();
+        }
     }
+
 }

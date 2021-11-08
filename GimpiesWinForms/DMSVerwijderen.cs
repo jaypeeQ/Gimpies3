@@ -53,5 +53,11 @@ namespace GimpiesWinForms
         {
             this.Close();
         }
+        private void tbVStaffID_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                btVerwijderen.PerformClick();
+        }
     }
+
 }

@@ -56,18 +56,29 @@ namespace GimpiesWinForms
         private void btDAAGenerate_Click(object sender, EventArgs e)
         {
             FillDatagrid();
-            TextReadOnlyOFF();
+            
             string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=GimpiesDatabase;Integrated Security=True;Connect Timeout=60;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
             SqlConnection conn = new SqlConnection(connectionString);
             conn.Open();
             SqlCommand cmdShoes = new SqlCommand("SELECT ShoeAantal FROM ShoeInventory WHERE ShoeId='" + tbNummer.Text + "'", conn);
             SqlDataReader reader = cmdShoes.ExecuteReader();
-            reader.Read();
+            try
+            {
+                reader.Read();
+                ShoeNummer = tbNummer.Text;
+                tbNummer.ReadOnly = true;
+                TextReadOnlyOFF();
+                conn.Close();
+            }
+            catch (SqlException)
+            {
+                //MessageBox.Show("Please input a proper shoe number.");
+                return;
+            }
 
 
-            ShoeNummer = tbNummer.Text;
-            tbNummer.ReadOnly = true;
-            conn.Close();
+
+            
             
         }
         //Exits the form back to it's respective dashboard.
@@ -118,12 +129,17 @@ namespace GimpiesWinForms
             dt.Columns.Add("ShoeKleur");
             dt.Columns.Add("ShoeAantal");
             dt.Columns.Add("ShoePrijs");
-
-            while (reader.Read())
+            try
             {
-                dt.Rows.Add(reader["ShoeId"], reader["ShoeMerk"], reader["ShoeType"], reader["ShoeMaat"], reader["ShoeKleur"], reader["ShoeAantal"], reader["ShoePrijs"]);
+                while (reader.Read())
+                {
+                    dt.Rows.Add(reader["ShoeId"], reader["ShoeMerk"], reader["ShoeType"], reader["ShoeMaat"], reader["ShoeKleur"], reader["ShoeAantal"], reader["ShoePrijs"]);
+                }
+            }catch (Exception )
+            {
+                MessageBox.Show("Please input a proper shoe number.");
+                return;
             }
-
             dgvPopup.DataSource = dt;
             reader.Close();
             conn.Close();
@@ -155,6 +171,10 @@ namespace GimpiesWinForms
             reader.Close();
             conn.Close();
         }
-
+        private void tbNummer_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                btDAAGenerate.PerformClick();
+        }
     }
 }

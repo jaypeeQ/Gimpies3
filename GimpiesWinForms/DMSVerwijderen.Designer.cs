@@ -127,6 +127,7 @@ namespace GimpiesWinForms
             this.tbVStaffID.Name = "tbVStaffID";
             this.tbVStaffID.Size = new System.Drawing.Size(100, 23);
             this.tbVStaffID.TabIndex = 1;
+            this.tbVStaffID.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbVStaffID_KeyDown);
             // 
             // DMSVerwijderen
             // 
