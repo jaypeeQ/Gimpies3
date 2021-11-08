@@ -15,10 +15,7 @@ namespace GimpiesWinForms
 {
     public partial class Login : Form
     {
-        private DataGridView dataGridView1 = new DataGridView();
-        private BindingSource bindingSource1 = new BindingSource();
-        private Button reloadButton = new Button();
-        private Button submitButton = new Button();
+        
         public static int loginAttempt;
 
 
@@ -26,6 +23,7 @@ namespace GimpiesWinForms
         public Login()
         {
             InitializeComponent();
+
         }
 
        
@@ -41,6 +39,7 @@ namespace GimpiesWinForms
             string roleValue;
             SqlCommand cmdLogin = new SqlCommand("SELECT Username, Password, AssignedRole FROM Credentials WHERE Username='" + loginUsernameInput + "' AND Password='" + loginPassInput + "'", SQLSELECT.conn);
             SqlDataReader readLogin = cmdLogin.ExecuteReader();
+            //Checks the credentials in the database, and tries to get it's assigned role.
             try
             {
             readLogin.Read();    
@@ -48,7 +47,7 @@ namespace GimpiesWinForms
             }catch (Exception)
             {                
                 MessageBox.Show("Incorrect username and/or password.");
-                if (Login.loginAttempt >= 4)
+                if (Login.loginAttempt >= 3)
                 {
                     MessageBox.Show("You've logged in 3 times unsuccessfully. Application will now close.", "ERROR",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -60,14 +59,7 @@ namespace GimpiesWinForms
             }
                 do
                 {
-                    if (Login.loginAttempt >= 4)
-                    {
-                        MessageBox.Show("You've logged in 3 times unsuccessfully. Application will now close.", "ERROR",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        Login.loginAttempt = 0;
-
-                        this.Close();
-                    }
+                
                 if (loginUsernameInput == Convert.ToString(readLogin["Username"]) && loginPassInput == Convert.ToString(readLogin["Password"]))
                 {
                     if (roleValue == "Inkoop")
