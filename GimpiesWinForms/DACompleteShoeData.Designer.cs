@@ -35,9 +35,11 @@ namespace GimpiesWinForms
             // 
             // dgvShoeData
             // 
+            this.dgvShoeData.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvShoeData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvShoeData.Location = new System.Drawing.Point(12, 12);
             this.dgvShoeData.Name = "dgvShoeData";
+            this.dgvShoeData.ReadOnly = true;
             this.dgvShoeData.RowTemplate.Height = 25;
             this.dgvShoeData.Size = new System.Drawing.Size(776, 426);
             this.dgvShoeData.TabIndex = 0;
