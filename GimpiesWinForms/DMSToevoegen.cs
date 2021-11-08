@@ -28,7 +28,9 @@ namespace GimpiesWinForms
         private void btToevoegen_Click(object sender, EventArgs e)
         {
             string Username = tbTUsername.Text;
-            
+            string Password = tbTPassword.Text;
+            string Role = comboBox1.Text;
+
 
             SqlConnection conn = new SqlConnection(connectionString);
 
@@ -39,6 +41,11 @@ namespace GimpiesWinForms
             }
             else if (cbToevoegen.Checked == true)
             {
+                if (Username == "" || Password == "" || Role == "")
+                {
+                    MessageBox.Show("Please fill all fields to register a new account.");
+                    return;
+                }
                 conn.Open();
                 SqlCommand cmdCheck = new SqlCommand("SELECT Username FROM Credentials", conn);
                 SqlDataReader reader = cmdCheck.ExecuteReader();

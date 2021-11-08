@@ -21,6 +21,7 @@ namespace GimpiesWinForms
         public DashboardVerkoop()
         {
             InitializeComponent();
+            FillDatagrid();
         }
        
         private void button3_Click(object sender, EventArgs e)
@@ -67,7 +68,8 @@ namespace GimpiesWinForms
 
         private void btVoorraadBekijken_Click(object sender, EventArgs e)
         {
-            FillDatagrid();
+            DACompleteShoeData showData = new DACompleteShoeData();
+            showData.ShowDialog();
         }
     }
 }

@@ -40,10 +40,20 @@ namespace GimpiesWinForms
                 SqlConnection conn = new SqlConnection(connectionString);
                 conn.Open();
                 SqlCommand cmdStaff = new SqlCommand("UPDATE Credentials SET Username='" + Username + "', Password= '" + Password + "', AssignedRole= '" + Role + "' WHERE Id='" + StaffID + "'", conn);
-                SqlDataReader reader = cmdStaff.ExecuteReader();
-                reader.Read();
-                conn.Close();
-                this.Close();
+                try
+                {
+                    SqlDataReader reader = cmdStaff.ExecuteReader();
+                    reader.Read();
+                    conn.Close();
+                    this.Close();
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Invalid input. Please fill all required fields.");
+                    return;
+                }
+                
+                
             }
         }
 
