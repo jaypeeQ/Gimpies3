@@ -237,7 +237,6 @@ namespace GimpiesWinForms
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
             DMToevoegen dAToevoegen = new DMToevoegen();
-            this.Hide();
             dAToevoegen.ShowDialog();
             FillDatagrid();
             FillAvgPrijs();
@@ -246,7 +245,7 @@ namespace GimpiesWinForms
             FillMaxAantalGrid();
             FillTotalTurnover();
             FillTotalSold();
-            this.Show();
+            
         }
 
         private void toolStripMenuItem4_Click(object sender, EventArgs e)

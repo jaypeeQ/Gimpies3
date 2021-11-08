@@ -28,12 +28,6 @@ namespace GimpiesWinForms
                 string ShoeKleur = tbKleur.Text;
                 string ShoeAantal = tbAantal.Text;
                 string ShoePrijs = tbPrijs.Text;
-                /*string ShoeMerk = tbMerk.Text;
-                string ShoeType = tbType.Text;
-                int ShoeMaat = Convert.ToInt32(tbMaat.Text);
-                string ShoeKleur = tbKleur.Text;
-                int ShoeAantal = Convert.ToInt32(tbAantal.Text);
-                decimal ShoePrijs = Convert.ToDecimal(tbPrijs.Text);*/
 
                 string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=GimpiesDatabase;Integrated Security=True;Connect Timeout=60;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
                 SqlConnection conn = new SqlConnection(connectionString);
@@ -44,7 +38,7 @@ namespace GimpiesWinForms
                 {
                     if (ShoeMerk == readCheck["ShoeMerk"].ToString() && ShoeType == readCheck["ShoeType"].ToString())
                     {
-                        if (ShoeMerk == readCheck["ShoeMerk"].ToString() && ShoeType == readCheck["ShoeType"].ToString() && ShoeKleur == readCheck["ShoeKleur"].ToString())
+                        if (ShoeMerk == readCheck["ShoeMerk"].ToString() && ShoeType == readCheck["ShoeType"].ToString() && ShoeMaat == readCheck["ShoeMaat"].ToString())
                         {
                             if (ShoeMerk == readCheck["ShoeMerk"].ToString() && ShoeType == readCheck["ShoeType"].ToString() && ShoeKleur == readCheck["ShoeKleur"].ToString() && ShoeMaat == readCheck["ShoeMaat"].ToString())
                             {
@@ -55,13 +49,13 @@ namespace GimpiesWinForms
                                         MessageBox.Show("This stock already exists in the inventory.");
                                         return;
                                     }
-                                    MessageBox.Show("Did you mean to stock up on this shoe? If so, please inform >>Inkoop_Medewerker<<.");
+                                    MessageBox.Show("Did you mean to stock up on/sell this shoe? If so, please inform >>Inkoop_Medewerker<</>>Verkoop_Medewerker<<.");
                                     return;
                                 }
-                                MessageBox.Show("This shoe brand, type, color and size already exists.");
+                                MessageBox.Show("This shoe brand, type, size and color already exists.");
                                 return;
                             }
-                            MessageBox.Show("This shoe brand, type, and color already exists.");
+                            MessageBox.Show("This shoe brand, type, and size already exists.");
                             return;
                         }
                         MessageBox.Show("This shoe brand and type already exists.");
